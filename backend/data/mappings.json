@@ -1,0 +1,1406 @@
+{
+  "/acknowledgmentType": {
+    "type": "acknowledgmentType",
+    "documentation": "to specify the type of acknowledgment that is desired by the sender"
+  },
+  "/acknowledgmentType/cd": {
+    "type": "CD:CD-ACKNOWLEDGMENT",
+    "documentation": ""
+  },
+  "/addressType": {
+    "type": "addressType",
+    "documentation": ""
+  },
+  "/addressTypeBase": {
+    "type": "addressTypeBase",
+    "documentation": ""
+  },
+  "/addressTypeBase/id": {
+    "type": "ID:ID-KMEHR",
+    "documentation": ""
+  },
+  "/addressTypeBase/cd": {
+    "type": "CD:CD-ADDRESS",
+    "documentation": "to specify the type of address (home, work,...)"
+  },
+  "/addressTypeBase/country": {
+    "type": "countryType",
+    "documentation": ""
+  },
+  "/addressTypeBase/zip": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/addressTypeBase/nis": {
+    "type": "xsd:string",
+    "documentation": "\n                Numéro d'identification statistique\n              "
+  },
+  "/addressTypeBase/city": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/addressTypeBase/district": {
+    "type": "xsd:string",
+    "documentation": "\n                District identification for the cities of Antwerpen-Anvers and Doornik-Tournai.\n              "
+  },
+  "/addressTypeBase/street": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/addressTypeBase/housenumber": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/addressTypeBase/postboxnumber": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/addressTypeBase/text": {
+    "type": "DT:textType",
+    "documentation": ""
+  },
+  "/administrationquantityType": {
+    "type": "administrationquantityType",
+    "documentation": ""
+  },
+  "/administrationquantityType/decimal": {
+    "type": "xsd:decimal",
+    "documentation": ""
+  },
+  "/administrationquantityType/unit": {
+    "type": "administrationunitType",
+    "documentation": ""
+  },
+  "/administrationunitType": {
+    "type": "administrationunitType",
+    "documentation": "to specify the administration unit"
+  },
+  "/administrationunitType/cd": {
+    "type": "CD:CD-ADMINISTRATIONUNIT",
+    "documentation": ""
+  },
+  "/authorType": {
+    "type": "authorType",
+    "documentation": "the author assumes the medical responsibility of the content of the transaction. It can be specified by a combination of hcparty elements (organisation, medical specialty, person), but it must necessarily contain one hcparty\n        identifying one person. The author is not the transcriptionist that has typed the report. The author is not necessarily the performer of the act that is reported by the transaction. In that case, the author of the transaction can be overwritten at\n        the level of the item\n      "
+  },
+  "/authorType/hcparty": {
+    "type": "hcpartyType",
+    "documentation": ""
+  },
+  "/Base64EncryptedValueType": {
+    "type": "Base64EncryptedValueType",
+    "documentation": ""
+  },
+  "/Base64EncryptedDataType": {
+    "type": "Base64EncryptedDataType",
+    "documentation": ""
+  },
+  "/Base64EncryptedDataType/cd": {
+    "type": "CD:CD-ENCRYPTION-METHOD",
+    "documentation": ""
+  },
+  "/Base64EncryptedDataType/Base64EncryptedValue": {
+    "type": "Base64EncryptedValueType",
+    "documentation": ""
+  },
+  "/certaintyType": {
+    "type": "certaintyType",
+    "documentation": ""
+  },
+  "/certaintyType/cd": {
+    "type": "CD:CD-CERTAINTY",
+    "documentation": ""
+  },
+  "/compoundType": {
+    "type": "compoundType",
+    "documentation": ""
+  },
+  "/compoundType/id": {
+    "type": "ID:ID-KMEHR",
+    "documentation": ""
+  },
+  "/compoundType/quantityprefix": {
+    "type": "unknown",
+    "documentation": "to be used as a prefix for quantitiy (eg: ad 100\n            ml)\n          "
+  },
+  "/compoundType/quantityprefix/cd": {
+    "type": "CD:CD-QUANTITYPREFIX",
+    "documentation": ""
+  },
+  "/compoundType/quantity": {
+    "type": "quantityType",
+    "documentation": ""
+  },
+  "/compoundprescriptionType": {
+    "type": "compoundprescriptionType",
+    "documentation": "\n        a magistral preparation can be prescribed as a (coded)\n        reference to a preparation in a reference book (formularyreference), or as a\n        (coded) list of individual compounds (compoundlist), or as free text\n        (magistraltext)\n      "
+  },
+  "/compoundprescriptionType/galenicform": {
+    "type": "galenicformType",
+    "documentation": "\n            Used to specify the galenic form. Can be a value\n            from the reference table GALENIC_FORMS or free\n            text\n          "
+  },
+  "/compoundprescriptionType/quantity": {
+    "type": "quantityType",
+    "documentation": ""
+  },
+  "/confidentialityType": {
+    "type": "confidentialityType",
+    "documentation": "to restrict the list of healthcare parties allowed to access to the content of the parent element"
+  },
+  "/confidentialityType/hcparty": {
+    "type": "hcpartyType",
+    "documentation": "to identify a healthcare professional, organisation or medical specialty."
+  },
+  "/contentlocalitemattributeType": {
+    "type": "contentlocalitemattributeType",
+    "documentation": ""
+  },
+  "/contentlocalitemattributeType/id": {
+    "type": "ID:ID-KMEHR",
+    "documentation": ""
+  },
+  "/contentlocalitemattributeType/cd": {
+    "type": "CD:CD-CONTENT",
+    "documentation": ""
+  },
+  "/contentlocalitemattributeType/unit": {
+    "type": "unitType",
+    "documentation": ""
+  },
+  "/contentType": {
+    "type": "contentType",
+    "documentation": "to specify the value of the item"
+  },
+  "/contentType/unit": {
+    "type": "unitType",
+    "documentation": ""
+  },
+  "/contentType/minref": {
+    "type": "minrefType",
+    "documentation": ""
+  },
+  "/contentType/maxref": {
+    "type": "maxrefType",
+    "documentation": ""
+  },
+  "/contentType/refscope": {
+    "type": "refscopeType",
+    "documentation": ""
+  },
+  "/costType": {
+    "type": "costType",
+    "documentation": ""
+  },
+  "/costType/decimal": {
+    "type": "xsd:decimal",
+    "documentation": ""
+  },
+  "/costType/unit": {
+    "type": "unitType",
+    "documentation": ""
+  },
+  "/countryType": {
+    "type": "countryType",
+    "documentation": ""
+  },
+  "/countryType/cd": {
+    "type": "CD:CD-COUNTRY",
+    "documentation": ""
+  },
+  "/dateType": {
+    "type": "dateType",
+    "documentation": ""
+  },
+  "/dayperiodType": {
+    "type": "dayperiodType",
+    "documentation": ""
+  },
+  "/dayperiodType/cd": {
+    "type": "CD:CD-DAYPERIOD",
+    "documentation": ""
+  },
+  "/durationType": {
+    "type": "durationType",
+    "documentation": ""
+  },
+  "/durationType/decimal": {
+    "type": "xsd:decimal",
+    "documentation": ""
+  },
+  "/durationType/unit": {
+    "type": "timeunitType",
+    "documentation": ""
+  },
+  "/errorType": {
+    "type": "errorType",
+    "documentation": "to specify possible errors"
+  },
+  "/errorType/id": {
+    "type": "ID:ID-KMEHR",
+    "documentation": ""
+  },
+  "/errorType/cd": {
+    "type": "CD:CD-ERROR",
+    "documentation": ""
+  },
+  "/errorType/description": {
+    "type": "DT:textType",
+    "documentation": ""
+  },
+  "/errorType/url": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/errorMyCarenetType": {
+    "type": "errorMyCarenetType",
+    "documentation": "to specify possible errors"
+  },
+  "/errorMyCarenetType/cd": {
+    "type": "CD:CD-ERROR-MYCARENET",
+    "documentation": ""
+  },
+  "/errorMyCarenetType/description": {
+    "type": "DT:textType",
+    "documentation": ""
+  },
+  "/errorMyCarenetType/url": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/formularyreferenceType": {
+    "type": "formularyreferenceType",
+    "documentation": ""
+  },
+  "/galenicformType": {
+    "type": "galenicformType",
+    "documentation": ""
+  },
+  "/galenicformType/cd": {
+    "type": "CD:CD-GALENICFORM",
+    "documentation": "\n            refers to a value of the reference table galenic\n            forms\n          "
+  },
+  "/galenicformType/galenicformtext": {
+    "type": "DT:textType",
+    "documentation": "galenic form as free text"
+  },
+  "/FCMAXType": {
+    "type": "FCMAXType",
+    "documentation": ""
+  },
+  "/FCMINType": {
+    "type": "FCMINType",
+    "documentation": ""
+  },
+  "/folderType": {
+    "type": "folderType",
+    "documentation": "contains the clinical information related to one patient"
+  },
+  "/folderType/confidentiality": {
+    "type": "confidentialityType",
+    "documentation": ""
+  },
+  "/folderType/id": {
+    "type": "ID:ID-KMEHR",
+    "documentation": "this must be a sequential number within the parent element. In addition, it can specify alternative local identifier(s)."
+  },
+  "/folderType/patient": {
+    "type": "personType",
+    "documentation": ""
+  },
+  "/folderType/transaction": {
+    "type": "transactionType",
+    "documentation": ""
+  },
+  "/folderType/text": {
+    "type": "DT:textType",
+    "documentation": ""
+  },
+  "/folderType/lnk": {
+    "type": "CD:lnkType",
+    "documentation": "to link the folder with another element of the Belgian Healthcare Telematics System"
+  },
+  "/frequencyType": {
+    "type": "frequencyType",
+    "documentation": "frequency of applying the periodic posology, only in case of a constant scheme during a period of time"
+  },
+  "/frequencyType/choice/text": {
+    "type": "DT:textType",
+    "documentation": ""
+  },
+  "/frequencyType/choice/periodicity": {
+    "type": "periodicityType",
+    "documentation": "to specify the frequency using a coded periodicity"
+  },
+  "/hcpartyType": {
+    "type": "hcpartyType",
+    "documentation": ""
+  },
+  "/hcpartyType/id": {
+    "type": "ID:ID-HCPARTY",
+    "documentation": "ideally this should refer to a INAMI/RIZIV number. It can refer to alternative local identifiers. "
+  },
+  "/hcpartyType/cd": {
+    "type": "CD:CD-HCPARTY",
+    "documentation": "must at least refer to a value of CD-HCPARTY."
+  },
+  "/hcpartyType/address": {
+    "type": "addressType",
+    "documentation": ""
+  },
+  "/hcpartyType/telecom": {
+    "type": "telecomType",
+    "documentation": ""
+  },
+  "/headerType": {
+    "type": "headerType",
+    "documentation": "to specify the routing of the message"
+  },
+  "/headerType/confidentiality": {
+    "type": "confidentialityType",
+    "documentation": ""
+  },
+  "/headerType/standard": {
+    "type": "standardType",
+    "documentation": ""
+  },
+  "/headerType/id": {
+    "type": "ID:ID-KMEHR",
+    "documentation": "this must be a unique number within the Belgian Telematics Healthcare system . It should result of the concatenation of the first sender hcparty id of the current message, a dot and a unique identifier within the sending\n            system. In addition, it can also specify alternative local numbers.\n          "
+  },
+  "/headerType/date": {
+    "type": "xsd:date",
+    "documentation": "creation date of the message"
+  },
+  "/headerType/time": {
+    "type": "xsd:time",
+    "documentation": "creation time of the message"
+  },
+  "/headerType/sender": {
+    "type": "senderType",
+    "documentation": ""
+  },
+  "/headerType/recipient": {
+    "type": "recipientType",
+    "documentation": ""
+  },
+  "/headerType/urgency": {
+    "type": "urgencyType",
+    "documentation": ""
+  },
+  "/headerType/acknowledgment": {
+    "type": "acknowledgmentType",
+    "documentation": ""
+  },
+  "/headerType/text": {
+    "type": "DT:textType",
+    "documentation": ""
+  },
+  "/headerType/lnk": {
+    "type": "CD:lnkType",
+    "documentation": "to link the header with another element of the Belgian Healthcare Telematics System"
+  },
+  "/headerType/expirationdate": {
+    "type": "xsd:date",
+    "documentation": "expiration date of the message (used a.o. in prescription messages), can be used to remove a prescription form a prescription server"
+  },
+  "/headerType/externalsource": {
+    "type": "unknown",
+    "documentation": ""
+  },
+  "/headerType/externalsource/source": {
+    "type": "unknown",
+    "documentation": ""
+  },
+  "/headerType/externalsource/source/cd": {
+    "type": "CD:CD-EXTERNALSOURCE",
+    "documentation": ""
+  },
+  "/headerType/externalsource/source/datetime": {
+    "type": "xsd:dateTime",
+    "documentation": ""
+  },
+  "/headerType/externalsource/source/version": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/headerType/externalsource/source/proof": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/headingType": {
+    "type": "headingType",
+    "documentation": "a heading is used to organise the content of a transaction among chapters or paragraphs."
+  },
+  "/headingType/confidentiality": {
+    "type": "confidentialityType",
+    "documentation": ""
+  },
+  "/headingType/id": {
+    "type": "ID:ID-KMEHR",
+    "documentation": "this must be a sequential number within the parent transaction or parent heading. In addition, it can be alternative local identifier(s)."
+  },
+  "/headingType/cd": {
+    "type": "CD:CD-HEADING",
+    "documentation": "the heading must contain at least one code from the CDHEADING scheme. Local codes can be associated."
+  },
+  "/holterType": {
+    "type": "holterType",
+    "documentation": ""
+  },
+  "/holterType/FCAVG": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/holterType/FCMAX": {
+    "type": "FCMAXType",
+    "documentation": ""
+  },
+  "/holterType/FCMIN": {
+    "type": "FCMINType",
+    "documentation": ""
+  },
+  "/holterType/FCAVGD": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/holterType/FCAVGN": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/holterType/RRMAX": {
+    "type": "RRMAXType",
+    "documentation": ""
+  },
+  "/holterType/RRMIN": {
+    "type": "RRMINType",
+    "documentation": ""
+  },
+  "/holterType/QRSTOT": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/holterType/BRADY": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/holterType/PAUSE": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/holterType/LONG": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/holterType/ESV": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/holterType/DBLV": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/holterType/SALVV": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/holterType/BGV": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/holterType/TGV": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/holterType/TACHY": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/holterType/ESSV": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/holterType/DBLSV": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/holterType/SALVSV": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/holterType/BGSV": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/holterType/TGSV": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/holterType/TACHYSV": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/holterType/RRINST": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/incapacityreasonType": {
+    "type": "incapacityreasonType",
+    "documentation": "to specify the reason of an incapacity"
+  },
+  "/incapacityreasonType/cd": {
+    "type": "CD:CD-INCAPACITYREASON",
+    "documentation": ""
+  },
+  "/incapacityType": {
+    "type": "incapacityType",
+    "documentation": ""
+  },
+  "/incapacityType/cd": {
+    "type": "CD:CD-INCAPACITY",
+    "documentation": ""
+  },
+  "/incapacityType/incapacityreason": {
+    "type": "incapacityreasonType",
+    "documentation": ""
+  },
+  "/incapacityType/percentage": {
+    "type": "xsd:decimal",
+    "documentation": ""
+  },
+  "/incapacityType/outofhomeallowed": {
+    "type": "xsd:boolean",
+    "documentation": ""
+  },
+  "/insuranceType": {
+    "type": "insuranceType",
+    "documentation": ""
+  },
+  "/insuranceType/id": {
+    "type": "ID:ID-INSURANCE",
+    "documentation": ""
+  },
+  "/insuranceType/membership": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/insuranceType/siscard": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/insuranceType/begindate": {
+    "type": "xsd:date",
+    "documentation": ""
+  },
+  "/insuranceType/enddate": {
+    "type": "xsd:date",
+    "documentation": ""
+  },
+  "/insuranceType/cg1": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/insuranceType/cg2": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/insuranceType/socialfranchiseperiod1": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/insuranceType/socialfranchiseperiod2": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/insuranceType/personalpart": {
+    "type": "unknown",
+    "documentation": ""
+  },
+  "/insuranceType/personalpart/id": {
+    "type": "ID:ID-KMEHR",
+    "documentation": ""
+  },
+  "/insuranceType/personalpart/cd": {
+    "type": "CD:CD-CARENET-PERSONAL-PART",
+    "documentation": ""
+  },
+  "/insuranceType/personalpart/date": {
+    "type": "xsd:date",
+    "documentation": ""
+  },
+  "/insuranceType/personalpart/time": {
+    "type": "xsd:time",
+    "documentation": ""
+  },
+  "/insuranceType/thirdpayercontract": {
+    "type": "unknown",
+    "documentation": ""
+  },
+  "/insuranceType/thirdpayercontract/cd": {
+    "type": "CD:CD-CARENET-THIRDPAYER-CONTRACT",
+    "documentation": ""
+  },
+  "/insuranceType/begindatepayment": {
+    "type": "xsd:date",
+    "documentation": ""
+  },
+  "/insuranceType/approvalnumber": {
+    "type": "xsd:string",
+    "documentation": "Nr goedkeuring betalingsverbintenis van de VI"
+  },
+  "/itemType": {
+    "type": "itemType",
+    "documentation": "the item is used to describe atomic medical information."
+  },
+  "/itemType/confidentiality": {
+    "type": "confidentialityType",
+    "documentation": ""
+  },
+  "/itemType/id": {
+    "type": "ID:ID-KMEHR",
+    "documentation": "this must be a sequential number within the transaction. In addition, it can specify alternative local identifier(s)."
+  },
+  "/itemType/cd": {
+    "type": "CD:CD-ITEM",
+    "documentation": "the item must contain at least one code from the CD-ITEM scheme. Local codes can be associated."
+  },
+  "/itemType/content": {
+    "type": "contentType",
+    "documentation": "this is used to specify the content of the item."
+  },
+  "/itemType/text": {
+    "type": "DT:textType",
+    "documentation": "to comment the content"
+  },
+  "/itemType/author": {
+    "type": "authorType",
+    "documentation": "this can be used to specify the medical responsible of the content of the item when it differs from the transaction 's author."
+  },
+  "/itemType/beginmoment": {
+    "type": "momentType",
+    "documentation": ""
+  },
+  "/itemType/endmoment": {
+    "type": "momentType",
+    "documentation": ""
+  },
+  "/itemType/iscomplete": {
+    "type": "xsd:boolean",
+    "documentation": ""
+  },
+  "/itemType/isvalidated": {
+    "type": "xsd:boolean",
+    "documentation": ""
+  },
+  "/itemType/lifecycle": {
+    "type": "lifecycleType",
+    "documentation": ""
+  },
+  "/itemType/isrelevant": {
+    "type": "xsd:boolean",
+    "documentation": ""
+  },
+  "/itemType/severity": {
+    "type": "severityType",
+    "documentation": ""
+  },
+  "/itemType/certainty": {
+    "type": "certaintyType",
+    "documentation": ""
+  },
+  "/itemType/temporality": {
+    "type": "temporalityType",
+    "documentation": ""
+  },
+  "/itemType/urgency": {
+    "type": "urgencyType",
+    "documentation": ""
+  },
+  "/itemType/quantity": {
+    "type": "quantityType",
+    "documentation": ""
+  },
+  "/itemType/strength": {
+    "type": "strengthType",
+    "documentation": ""
+  },
+  "/itemType/frequency": {
+    "type": "frequencyType",
+    "documentation": ""
+  },
+  "/itemType/site": {
+    "type": "siteType",
+    "documentation": ""
+  },
+  "/itemType/cost": {
+    "type": "costType",
+    "documentation": ""
+  },
+  "/itemType/dayperiod": {
+    "type": "dayperiodType",
+    "documentation": ""
+  },
+  "/itemType/duration": {
+    "type": "durationType",
+    "documentation": ""
+  },
+  "/itemType/posology": {
+    "type": "unknown",
+    "documentation": "quantity of product and frequence of administration per unit of period of time (day, week, hour, month etc...)"
+  },
+  "/itemType/posology/choice/text": {
+    "type": "DT:textType",
+    "documentation": ""
+  },
+  "/itemType/regimen": {
+    "type": "unknown",
+    "documentation": "ordered day regimen of administration applicable either on a precised day or on basis of the frequency "
+  },
+  "/itemType/regimen/daytime": {
+    "type": "unknown",
+    "documentation": "proposed time of administration"
+  },
+  "/itemType/regimen/daytime/choice/time": {
+    "type": "DT:time",
+    "documentation": "proposed hour-min of administration"
+  },
+  "/itemType/regimen/daytime/choice/dayperiod": {
+    "type": "dayperiodType",
+    "documentation": "e.g. before noon"
+  },
+  "/itemType/regimen/quantity": {
+    "type": "administrationquantityType",
+    "documentation": "number of pharmaceutical product units per intake / per administration (piece, puff, ml,...)"
+  },
+  "/itemType/deliverydate": {
+    "type": "DT:date",
+    "documentation": "proposed date of delivery of that product in case of a prescription, delivery date in case of delivery of that product. Simple date type content based on a new basic datatype \"date\", similary, another new basic datatype \"time\"\n            has been created\n          "
+  },
+  "/itemType/renewal": {
+    "type": "renewalType",
+    "documentation": ""
+  },
+  "/itemType/route": {
+    "type": "routeType",
+    "documentation": ""
+  },
+  "/itemType/batch": {
+    "type": "xsd:string",
+    "documentation": "serial number of the product package"
+  },
+  "/itemType/instructionforoverdosing": {
+    "type": "DT:textType",
+    "documentation": "to justify voluntary 'overdosing'"
+  },
+  "/itemType/instructionforpatient": {
+    "type": "DT:textType",
+    "documentation": ""
+  },
+  "/itemType/instructionforreimbursement": {
+    "type": "DT:textType",
+    "documentation": " to indicate the type of reimbursement based on medical justification for treatment "
+  },
+  "/itemType/instructionforpharmacist": {
+    "type": "DT:textType",
+    "documentation": "to specify useful information for the pharmacist"
+  },
+  "/itemType/issubstitutionallowed": {
+    "type": "xsd:boolean",
+    "documentation": ""
+  },
+  "/itemType/feedback": {
+    "type": "unknown",
+    "documentation": ""
+  },
+  "/itemType/feedback/reportrequested": {
+    "type": "xsd:boolean",
+    "documentation": ""
+  },
+  "/itemType/feedback/text": {
+    "type": "DT:textType",
+    "documentation": ""
+  },
+  "/itemType/local": {
+    "type": "localitemattributeType",
+    "documentation": ""
+  },
+  "/itemType/recorddatetime": {
+    "type": "xsd:dateTime",
+    "documentation": ""
+  },
+  "/itemType/lnk": {
+    "type": "CD:lnkType",
+    "documentation": ""
+  },
+  "/kmehrmessageType": {
+    "type": "kmehrmessageType",
+    "documentation": "to transfer medical information about one or several patients (using one folder per patient)."
+  },
+  "/kmehrmessageType/confidentiality": {
+    "type": "confidentialityType",
+    "documentation": ""
+  },
+  "/kmehrmessageType/header": {
+    "type": "headerType",
+    "documentation": ""
+  },
+  "/lifecycleType": {
+    "type": "lifecycleType",
+    "documentation": ""
+  },
+  "/lifecycleType/cd": {
+    "type": "CD:CD-LIFECYCLE",
+    "documentation": ""
+  },
+  "/localitemattributeType": {
+    "type": "localitemattributeType",
+    "documentation": ""
+  },
+  "/localitemattributeType/id": {
+    "type": "ID:ID-KMEHR",
+    "documentation": ""
+  },
+  "/localitemattributeType/cd": {
+    "type": "CD:LOCAL",
+    "documentation": ""
+  },
+  "/localitemattributeType/content": {
+    "type": "contentlocalitemattributeType",
+    "documentation": ""
+  },
+  "/locationBirthPlaceType": {
+    "type": "locationBirthPlaceType",
+    "documentation": ""
+  },
+  "/locationBirthPlaceType/cd": {
+    "type": "CD:CD-EBIRTH-PLACE",
+    "documentation": ""
+  },
+  "/locationBirthPlaceType/text": {
+    "type": "DT:textType",
+    "documentation": ""
+  },
+  "/locationBirthPlaceType/address": {
+    "type": "addressType",
+    "documentation": ""
+  },
+  "/maxrefType": {
+    "type": "maxrefType",
+    "documentation": "to specify the maximal range of the content"
+  },
+  "/maxrefType/choice/decimal": {
+    "type": "xsd:decimal",
+    "documentation": ""
+  },
+  "/maxrefType/choice/text": {
+    "type": "DT:textType",
+    "documentation": ""
+  },
+  "/medicationType": {
+    "type": "medicationType",
+    "documentation": "Deprecated at 01/01/2009, this complex type has been retained for backward compatibility only"
+  },
+  "/medicationType/tradename": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/medicationType/presentation": {
+    "type": "presentationType",
+    "documentation": ""
+  },
+  "/medicationType/strength": {
+    "type": "strengthType",
+    "documentation": ""
+  },
+  "/medicationType/route": {
+    "type": "routeType",
+    "documentation": ""
+  },
+  "/medicationType/batch": {
+    "type": "xsd:string",
+    "documentation": "serial number of the product package"
+  },
+  "/medicationType/instructionforoverdosing": {
+    "type": "DT:textType",
+    "documentation": "to justify voluntary 'overdosing'"
+  },
+  "/medicationType/instructionforpatient": {
+    "type": "DT:textType",
+    "documentation": ""
+  },
+  "/medicationType/instructionforreimbursement": {
+    "type": "DT:textType",
+    "documentation": " to indicate the type of reimbursement based on medical justification for treatment "
+  },
+  "/medicationType/issubstitutionallowed": {
+    "type": "xsd:boolean",
+    "documentation": "to specify if the substitution by the pharmacist is allowed"
+  },
+  "/memberinsuranceType": {
+    "type": "memberinsuranceType",
+    "documentation": ""
+  },
+  "/memberinsuranceType/id": {
+    "type": "ID:ID-INSURANCE",
+    "documentation": ""
+  },
+  "/memberinsuranceType/membership": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/minrefType": {
+    "type": "minrefType",
+    "documentation": "to specify the minimal range of the content"
+  },
+  "/minrefType/choice/decimal": {
+    "type": "xsd:decimal",
+    "documentation": ""
+  },
+  "/minrefType/choice/text": {
+    "type": "DT:textType",
+    "documentation": ""
+  },
+  "/momentType": {
+    "type": "momentType",
+    "documentation": ""
+  },
+  "/momentType/choice/text": {
+    "type": "DT:textType",
+    "documentation": ""
+  },
+  "/packageType": {
+    "type": "packageType",
+    "documentation": ""
+  },
+  "/packageType/cd": {
+    "type": "CD:CD-UNIT",
+    "documentation": ""
+  },
+  "/periodicityType": {
+    "type": "periodicityType",
+    "documentation": "to specify the periodicity"
+  },
+  "/periodicityType/cd": {
+    "type": "CD:CD-PERIODICITY",
+    "documentation": ""
+  },
+  "/personTypeLight": {
+    "type": "personTypeLight",
+    "documentation": ""
+  },
+  "/personTypeLight/id": {
+    "type": "ID:ID-PATIENT",
+    "documentation": ""
+  },
+  "/personTypeLight/firstname": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/personTypeLight/familyname": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/personTypeLight/address": {
+    "type": "addressType",
+    "documentation": ""
+  },
+  "/personTypeLight/telecom": {
+    "type": "telecomType",
+    "documentation": ""
+  },
+  "/personType": {
+    "type": "personType",
+    "documentation": ""
+  },
+  "/personType/id": {
+    "type": "ID:ID-PATIENT",
+    "documentation": ""
+  },
+  "/personType/firstname": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/personType/familyname": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/personType/birthdate": {
+    "type": "dateType",
+    "documentation": ""
+  },
+  "/personType/birthlocation": {
+    "type": "addressTypeBase",
+    "documentation": ""
+  },
+  "/personType/deathdate": {
+    "type": "dateType",
+    "documentation": ""
+  },
+  "/personType/deathlocation": {
+    "type": "addressTypeBase",
+    "documentation": ""
+  },
+  "/personType/sex": {
+    "type": "sexType",
+    "documentation": ""
+  },
+  "/personType/nationality": {
+    "type": "unknown",
+    "documentation": ""
+  },
+  "/personType/nationality/cd": {
+    "type": "CD:CD-COUNTRY",
+    "documentation": ""
+  },
+  "/personType/address": {
+    "type": "addressType",
+    "documentation": ""
+  },
+  "/personType/telecom": {
+    "type": "telecomType",
+    "documentation": ""
+  },
+  "/personType/usuallanguage": {
+    "type": "xsd:language",
+    "documentation": ""
+  },
+  "/personType/profession": {
+    "type": "professionType",
+    "documentation": ""
+  },
+  "/personType/insurancystatus": {
+    "type": "insuranceType",
+    "documentation": ""
+  },
+  "/personType/insurancymembership": {
+    "type": "memberinsuranceType",
+    "documentation": ""
+  },
+  "/personType/recorddatetime": {
+    "type": "xsd:dateTime",
+    "documentation": ""
+  },
+  "/personType/text": {
+    "type": "DT:textType",
+    "documentation": ""
+  },
+  "/personType/civilstate": {
+    "type": "unknown",
+    "documentation": ""
+  },
+  "/personType/civilstate/cd": {
+    "type": "CD:CD-CIVILSTATE",
+    "documentation": ""
+  },
+  "/presentationType": {
+    "type": "presentationType",
+    "documentation": "galenic form"
+  },
+  "/presentationType/cd": {
+    "type": "CD:CD-DRUG-PRESENTATION",
+    "documentation": ""
+  },
+  "/professionType": {
+    "type": "professionType",
+    "documentation": ""
+  },
+  "/professionType/id": {
+    "type": "ID:ID-PROFESSION",
+    "documentation": ""
+  },
+  "/professionType/cd": {
+    "type": "CD:CD-EMPLOYMENTSITUATION",
+    "documentation": ""
+  },
+  "/professionType/text": {
+    "type": "DT:textType",
+    "documentation": ""
+  },
+  "/quantityType": {
+    "type": "quantityType",
+    "documentation": ""
+  },
+  "/quantityType/decimal": {
+    "type": "xsd:decimal",
+    "documentation": ""
+  },
+  "/quantityType/unit": {
+    "type": "unitType",
+    "documentation": ""
+  },
+  "/recipientType": {
+    "type": "recipientType",
+    "documentation": "The recipient can be specified by a free combination of hcparty elements (organisation(s), medical specialty(ies), person(s)). If no individual person can be identified as recipient, you should specify a medical specialty or, at\n        least the identification of the organisation that receives the message for further distribution (a regional server for example).\n      "
+  },
+  "/recipientType/hcparty": {
+    "type": "hcpartyType",
+    "documentation": ""
+  },
+  "/recipientType/dummyFriend": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/refscopeType": {
+    "type": "refscopeType",
+    "documentation": "to specify if the minref and maxref references are adjusted to the patient's age, sex, ..., "
+  },
+  "/refscopeType/cd": {
+    "type": "CD:CD-REFSCOPE",
+    "documentation": ""
+  },
+  "/refscopeType/refvalue": {
+    "type": "unknown",
+    "documentation": "to specify reference values for a given context"
+  },
+  "/refscopeType/refvalue/minref": {
+    "type": "minrefType",
+    "documentation": ""
+  },
+  "/refscopeType/refvalue/maxref": {
+    "type": "maxrefType",
+    "documentation": ""
+  },
+  "/refscopeType/refvalue/context": {
+    "type": "DT:textType",
+    "documentation": ""
+  },
+  "/renewalType": {
+    "type": "renewalType",
+    "documentation": ""
+  },
+  "/renewalType/choice/text": {
+    "type": "DT:textType",
+    "documentation": ""
+  },
+  "/routeType": {
+    "type": "routeType",
+    "documentation": "administration route"
+  },
+  "/routeType/cd": {
+    "type": "CD:CD-DRUG-ROUTE",
+    "documentation": ""
+  },
+  "/RRMAXType": {
+    "type": "RRMAXType",
+    "documentation": ""
+  },
+  "/RRMINType": {
+    "type": "RRMINType",
+    "documentation": ""
+  },
+  "/senderType": {
+    "type": "senderType",
+    "documentation": "the sender can be specified by a free combination of hcparty elements (organisation(s), medical specialty(ies), person(s))."
+  },
+  "/senderType/hcparty": {
+    "type": "hcpartyType",
+    "documentation": ""
+  },
+  "/severityType": {
+    "type": "severityType",
+    "documentation": ""
+  },
+  "/severityType/cd": {
+    "type": "CD:CD-SEVERITY",
+    "documentation": ""
+  },
+  "/sexType": {
+    "type": "sexType",
+    "documentation": ""
+  },
+  "/sexType/cd": {
+    "type": "CD:CD-SEX",
+    "documentation": ""
+  },
+  "/siteType": {
+    "type": "siteType",
+    "documentation": ""
+  },
+  "/siteType/choice/cd": {
+    "type": "CD:CD-SITE",
+    "documentation": ""
+  },
+  "/siteType/choice/text": {
+    "type": "DT:textType",
+    "documentation": ""
+  },
+  "/standardType": {
+    "type": "standardType",
+    "documentation": "to specify the version of the kmehr specification to which this message complies"
+  },
+  "/standardType/cd": {
+    "type": "CD:CD-STANDARD",
+    "documentation": ""
+  },
+  "/standardType/specialisation": {
+    "type": "unknown",
+    "documentation": ""
+  },
+  "/standardType/specialisation/cd": {
+    "type": "CD:CD-MESSAGE",
+    "documentation": ""
+  },
+  "/standardType/specialisation/version": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/strengthType": {
+    "type": "strengthType",
+    "documentation": ""
+  },
+  "/strengthType/decimal": {
+    "type": "xsd:decimal",
+    "documentation": ""
+  },
+  "/strengthType/unit": {
+    "type": "unitType",
+    "documentation": ""
+  },
+  "/substanceType": {
+    "type": "substanceType",
+    "documentation": ""
+  },
+  "/telecomType": {
+    "type": "telecomType",
+    "documentation": ""
+  },
+  "/telecomType/id": {
+    "type": "ID:ID-KMEHR",
+    "documentation": ""
+  },
+  "/telecomType/cd": {
+    "type": "CD:CD-TELECOM",
+    "documentation": "the first cd specifies the type of address (home, work,...) and the second cd specifies the type of telecom device (phone, gsm, fax, ...)"
+  },
+  "/telecomType/telecomnumber": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/temporalityType": {
+    "type": "temporalityType",
+    "documentation": ""
+  },
+  "/temporalityType/cd": {
+    "type": "CD:CD-TEMPORALITY",
+    "documentation": ""
+  },
+  "/textWithLayoutType": {
+    "type": "textWithLayoutType",
+    "documentation": ""
+  },
+  "/timequantityType": {
+    "type": "timequantityType",
+    "documentation": ""
+  },
+  "/timequantityType/decimal": {
+    "type": "xsd:decimal",
+    "documentation": ""
+  },
+  "/timequantityType/unit": {
+    "type": "timeunitType",
+    "documentation": ""
+  },
+  "/timeunitType": {
+    "type": "timeunitType",
+    "documentation": "to specify the time unit"
+  },
+  "/timeunitType/cd": {
+    "type": "CD:CD-TIMEUNIT",
+    "documentation": ""
+  },
+  "/transactionType": {
+    "type": "transactionType",
+    "documentation": "a transaction is a set of medical information validated by one healthcare professional at one given moment."
+  },
+  "/transactionType/confidentiality": {
+    "type": "confidentialityType",
+    "documentation": ""
+  },
+  "/transactionType/id": {
+    "type": "ID:ID-KMEHR",
+    "documentation": "this must be a sequential number within the folder. In addition, it can specify alternative local identifier(s)."
+  },
+  "/transactionType/cd": {
+    "type": "CD:CD-TRANSACTION",
+    "documentation": "the transaction must contain at least one code from the CD-TRANSACTION scheme. Local codes can be associated."
+  },
+  "/transactionType/date": {
+    "type": "xsd:date",
+    "documentation": "usually this is the date of reporting. Please refer to detailed specification for particular cases."
+  },
+  "/transactionType/time": {
+    "type": "xsd:time",
+    "documentation": "usually this is the time of reporting. Please refer to detailed specification for particular cases."
+  },
+  "/transactionType/author": {
+    "type": "authorType",
+    "documentation": "the author endorses the medical responsibility of the content of the transaction. It must identify at least one physical person. In addition, it can also identify its medical specialty and/or organisation."
+  },
+  "/transactionType/redactor": {
+    "type": "authorType",
+    "documentation": "the redactor identifies the context of transcription or generation of the content of the transaction. It can identifiy a physicial person like a secretary, nurse, ... and possibly its department and/or organisation. It can\n            also represent a robot for automatic content generation, an application for example.\n          "
+  },
+  "/transactionType/iscomplete": {
+    "type": "xsd:boolean",
+    "documentation": "to specify if the transaction is partial or complete."
+  },
+  "/transactionType/isvalidated": {
+    "type": "xsd:boolean",
+    "documentation": "to specify if the content of the transaction has been medically validated."
+  },
+  "/transactionType/expirationdate": {
+    "type": "xsd:date",
+    "documentation": "expiration date of the prescription/transaction, can be used to remove a prescription from a prescription server"
+  },
+  "/transactionType/recorddatetime": {
+    "type": "xsd:dateTime",
+    "documentation": ""
+  },
+  "/transactionType/version": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/unitType": {
+    "type": "unitType",
+    "documentation": "to specify the unit"
+  },
+  "/unitType/cd": {
+    "type": "CD:CD-UNIT",
+    "documentation": ""
+  },
+  "/urgencyType": {
+    "type": "urgencyType",
+    "documentation": ""
+  },
+  "/urgencyType/cd": {
+    "type": "CD:CD-URGENCY",
+    "documentation": ""
+  },
+  "/weekdayType": {
+    "type": "weekdayType",
+    "documentation": ""
+  },
+  "/weekdayType/cd": {
+    "type": "CD:CD-WEEKDAY",
+    "documentation": ""
+  },
+  "/medicinalProductType": {
+    "type": "medicinalProductType",
+    "documentation": "\n        a medicinal product can be identified\n        unambiguously by a CNK code identifying\n        a package. The descriptive\n        identification is only mandatory in case\n        of absence of a package ID.\n      "
+  },
+  "/medicinalProductType/intendedcd": {
+    "type": "CD:CD-DRUG-CNK",
+    "documentation": "\n            in Belgium a selected CNK code\n            out of the drug database\n          "
+  },
+  "/medicinalProductType/deliveredcd": {
+    "type": "CD:CD-DRUG-CNK",
+    "documentation": "\n            in Belgium the effective\n            delivered CNK code out of the\n            drug database\n          "
+  },
+  "/medicinalProductType/intendedname": {
+    "type": "xsd:string",
+    "documentation": "\n            descriptive name in the package\n            database, in Belgium the name\n            use in the pharmacy database\n          "
+  },
+  "/medicinalProductType/deliveredname": {
+    "type": "xsd:string",
+    "documentation": ""
+  }
+}

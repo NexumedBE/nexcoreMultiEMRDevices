@@ -1,0 +1,108 @@
+<kmehrmessage xmlns="http://www.health.fgov.be/telematics/kmehr/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.health.fgov.be/telematics/kmehr/schema kmehr.xsd">
+  <!-- Template starts here -->
+  <header>
+    <standard>
+        <cd S="CD-STANDARD" SV="1.0">{{standard_cd_value}}</cd>
+    </standard>
+    <id S="ID-KMEHR" SV="1.0">{{header_id}}</id>
+    <date>{{date_value}}</date>
+    <time>{{time_value}}</time>
+    <sender>
+        <hcparty>
+            <id S="ID-HCPARTY" SV="1.0">{{sender_id}}</id>
+            <cd S="CD-HCPARTY" SV="1.0">{{sender_cd}}</cd>
+            <name>{{sender_name}}</name>
+        </hcparty>
+        <hcparty>
+            <cd S="CD-HCPARTY" SV="1.0">{{sender_dept_cd}}</cd>
+        </hcparty>
+        <hcparty>
+            <id S="ID-HCPARTY" SV="1.0">{{sender_physician_id}}</id>
+            <cd S="CD-HCPARTY" SV="1.0">{{sender_physician_cd}}</cd>
+            <firstname>{{sender_physician_firstname}}</firstname>
+            <familyname>{{sender_physician_familyname}}</familyname>
+        </hcparty>
+    </sender>
+    <recipient>
+        <hcparty>
+            <id S="ID-HCPARTY" SV="1.0">{{recipient_id}}</id>
+            <cd S="CD-HCPARTY" SV="1.0">{{recipient_cd}}</cd>
+            <firstname>{{recipient_firstname}}</firstname>
+            <familyname>{{recipient_familyname}}</familyname>
+        </hcparty>
+    </recipient>
+    <urgency>
+        <cd S="CD-URGENCY" SV="1.0">{{urgency_cd}}</cd>
+    </urgency>
+    <acknowledgment>
+        <cd S="CD-ACKNOWLEDGMENT" SV="1.0">{{acknowledgment_cd}}</cd>
+    </acknowledgment>
+    <text L="{{text_language}}">{{text_value}}</text>
+    <lnk TYPE="{{lnk_type}}" MEDIATYPE="{{lnk_mediatype}}" URL="{{lnk_url}}" SIZE="{{lnk_size}}">
+        {{lnk_value}}
+    </lnk>
+    <expirationdate>{{expirationdate_value}}</expirationdate>
+    <externalsource>
+        <source>
+            <cd S="CD-EXTERNALSOURCE" SV="1.0">{{externalsource_cd}}</cd>
+            <datetime>{{externalsource_datetime}}</datetime>
+            <version>{{externalsource_version}}</version>
+            <proof>{{externalsource_proof}}</proof>
+        </source>
+    </externalsource>
+</header>
+<folder>
+    <id S="ID-KMEHR" SV="1.0">{{folder_id}}</id>
+    <patient>
+        <id S="ID-PATIENT" SV="1.0">{{patient_id}}</id>
+        <id S="LOCAL" SL="ISPPC-ID-PATIENT" SV="3.4">{{local_patient_id}}</id>
+        <firstname>{{patient_firstname}}</firstname>
+        <familyname>{{patient_familyname}}</familyname>
+        <birthdate>
+            <date>{{patient_birthdate}}</date>
+        </birthdate>
+        <sex>
+            <cd S="CD-SEX" SV="1.0">{{patient_sex_cd}}</cd>
+        </sex>
+        <address>
+            <cd S="CD-ADDRESS" SV="1.0">{{patient_address_cd}}</cd>
+            <country>
+                <cd S="CD-COUNTRY" SV="1.0">{{patient_country_cd}}</cd>
+            </country>
+            <zip>{{patient_zip}}</zip>
+            <city>{{patient_city}}</city>
+            <street>{{patient_street}}</street>
+            <housenumber>{{patient_housenumber}}</housenumber>
+        </address>
+    </patient>
+    <transaction>
+        <id S="ID-KMEHR" SV="1.0">{{transaction_id}}</id>
+        <cd S="CD-TRANSACTION" SV="1.0">{{transaction_cd}}</cd>
+        <date>{{transaction_date}}</date>
+        <time>{{transaction_time}}</time>
+        <author>
+            <hcparty>
+                <cd S="CD-HCPARTY" SV="1.0">{{transaction_author_dept}}</cd>
+            </hcparty>
+            <hcparty>
+                <id S="ID-HCPARTY" SV="1.0">{{transaction_author_id}}</id>
+                <cd S="CD-HCPARTY" SV="1.0">{{transaction_author_physician_cd}}</cd>
+                <firstname>{{transaction_author_firstname}}</firstname>
+                <familyname>{{transaction_author_familyname}}</familyname>
+            </hcparty>
+        </author>
+        <iscomplete>{{transaction_iscomplete}}</iscomplete>
+        <isvalidated>{{transaction_isvalidated}}</isvalidated>
+        <text L="{{text_language}}">{{transaction_text_1}}</text>
+        <text L="{{text_language}}">{{transaction_text_2}}</text>
+        <text L="{{text_language}}">{{transaction_text_3}}</text>
+        <text L="{{text_language}}">{{transaction_text_4}}</text>
+    </transaction>
+    <lnk TYPE="{{lnk_type}}" MEDIATYPE="{{lnk_mediatype}}" URL="{{lnk_url}}" SIZE="{{lnk_size}}">
+        {{lnk_value}}
+    </lnk>
+</folder>
+  <!-- Other content of the message goes here -->
+
+  <!-- Closing tag -->
+</kmehrmessage>

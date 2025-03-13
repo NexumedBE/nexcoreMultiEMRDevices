@@ -1,0 +1,482 @@
+{
+  "/acknowledgmentType": {
+    "type": "acknowledgmentType",
+    "documentation": "to specify the type of acknowledgment that is desired by the sender"
+  },
+  "/addressType": {
+    "type": "addressType",
+    "documentation": ""
+  },
+  "/addressTypeBase": {
+    "type": "addressTypeBase",
+    "documentation": ""
+  },
+  "/administrationquantityType": {
+    "type": "administrationquantityType",
+    "documentation": ""
+  },
+  "/administrationunitType": {
+    "type": "administrationunitType",
+    "documentation": "to specify the administration unit"
+  },
+  "/authorType": {
+    "type": "authorType",
+    "documentation": "the author assumes the medical responsibility of the content of the transaction. It can be specified by a combination of hcparty elements (organisation, medical specialty, person), but it must necessarily contain one hcparty\n        identifying one person. The author is not the transcriptionist that has typed the report. The author is not necessarily the performer of the act that is reported by the transaction. In that case, the author of the transaction can be overwritten at\n        the level of the item\n      "
+  },
+  "/Base64EncryptedValueType": {
+    "type": "Base64EncryptedValueType",
+    "documentation": ""
+  },
+  "/Base64EncryptedDataType": {
+    "type": "Base64EncryptedDataType",
+    "documentation": ""
+  },
+  "/certaintyType": {
+    "type": "certaintyType",
+    "documentation": ""
+  },
+  "/compoundType": {
+    "type": "compoundType",
+    "documentation": ""
+  },
+  "/compoundType/medicinalproduct": {
+    "type": "medicinalProductType",
+    "documentation": "\n              identification of the prepacked medicinal\n              products prescribed\n            "
+  },
+  "/compoundType/substance": {
+    "type": "substanceType",
+    "documentation": ""
+  },
+  "/compoundprescriptionType": {
+    "type": "compoundprescriptionType",
+    "documentation": "\n        a magistral preparation can be prescribed as a (coded)\n        reference to a preparation in a reference book (formularyreference), or as a\n        (coded) list of individual compounds (compoundlist), or as free text\n        (magistraltext)\n      "
+  },
+  "/compoundprescriptionType/compound": {
+    "type": "compoundType",
+    "documentation": "\n              a list of compounds to be used in a\n              magistral preparation\n            "
+  },
+  "/compoundprescriptionType/formularyreference": {
+    "type": "formularyreferenceType",
+    "documentation": "\n              a reference to an official formulary for\n              magistral preparations (eg TMF, NF6)\n            "
+  },
+  "/compoundprescriptionType/magistraltext": {
+    "type": "DT:textType",
+    "documentation": "magistral preparation as free text\n            "
+  },
+  "/confidentialityType": {
+    "type": "confidentialityType",
+    "documentation": "to restrict the list of healthcare parties allowed to access to the content of the parent element"
+  },
+  "/contentlocalitemattributeType": {
+    "type": "contentlocalitemattributeType",
+    "documentation": ""
+  },
+  "/contentlocalitemattributeType/decimal": {
+    "type": "xsd:decimal",
+    "documentation": ""
+  },
+  "/contentlocalitemattributeType/boolean": {
+    "type": "xsd:boolean",
+    "documentation": ""
+  },
+  "/contentlocalitemattributeType/text": {
+    "type": "DT:textType",
+    "documentation": ""
+  },
+  "/contentlocalitemattributeType/hcparty": {
+    "type": "hcpartyType",
+    "documentation": ""
+  },
+  "/contentlocalitemattributeType/person": {
+    "type": "personType",
+    "documentation": ""
+  },
+  "/contentlocalitemattributeType/lnk": {
+    "type": "unknown",
+    "documentation": ""
+  },
+  "/contentType": {
+    "type": "contentType",
+    "documentation": "to specify the value of the item"
+  },
+  "/contentType/id": {
+    "type": "ID:ID-KMEHR",
+    "documentation": ""
+  },
+  "/contentType/cd": {
+    "type": "CD:CD-CONTENT",
+    "documentation": ""
+  },
+  "/contentType/decimal": {
+    "type": "xsd:decimal",
+    "documentation": ""
+  },
+  "/contentType/unsignedInt": {
+    "type": "xsd:unsignedInt",
+    "documentation": ""
+  },
+  "/contentType/boolean": {
+    "type": "xsd:boolean",
+    "documentation": ""
+  },
+  "/contentType/text": {
+    "type": "DT:textType",
+    "documentation": ""
+  },
+  "/contentType/hcparty": {
+    "type": "hcpartyType",
+    "documentation": ""
+  },
+  "/contentType/person": {
+    "type": "personType",
+    "documentation": ""
+  },
+  "/contentType/insurance": {
+    "type": "insuranceType",
+    "documentation": ""
+  },
+  "/contentType/incapacity": {
+    "type": "incapacityType",
+    "documentation": ""
+  },
+  "/contentType/error": {
+    "type": "errorType",
+    "documentation": ""
+  },
+  "/contentType/holter": {
+    "type": "holterType",
+    "documentation": ""
+  },
+  "/contentType/ecg": {
+    "type": "DT:textType",
+    "documentation": ""
+  },
+  "/contentType/bacteriology": {
+    "type": "DT:textType",
+    "documentation": ""
+  },
+  "/contentType/lnk": {
+    "type": "CD:lnkType",
+    "documentation": ""
+  },
+  "/contentType/location": {
+    "type": "locationBirthPlaceType",
+    "documentation": ""
+  },
+  "/costType": {
+    "type": "costType",
+    "documentation": ""
+  },
+  "/countryType": {
+    "type": "countryType",
+    "documentation": ""
+  },
+  "/dateType": {
+    "type": "dateType",
+    "documentation": ""
+  },
+  "/dayperiodType": {
+    "type": "dayperiodType",
+    "documentation": ""
+  },
+  "/durationType": {
+    "type": "durationType",
+    "documentation": ""
+  },
+  "/errorType": {
+    "type": "errorType",
+    "documentation": "to specify possible errors"
+  },
+  "/errorMyCarenetType": {
+    "type": "errorMyCarenetType",
+    "documentation": "to specify possible errors"
+  },
+  "/formularyreferenceType": {
+    "type": "formularyreferenceType",
+    "documentation": ""
+  },
+  "/formularyreferenceType/cd": {
+    "type": "CD:CD-FORMULARY",
+    "documentation": "\n              Identifies the preparation using FORMULARY and/or FORMULARYREFERENCE.\n            "
+  },
+  "/formularyreferenceType/formularyname": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/galenicformType": {
+    "type": "galenicformType",
+    "documentation": ""
+  },
+  "/FCMAXType": {
+    "type": "FCMAXType",
+    "documentation": ""
+  },
+  "/FCMINType": {
+    "type": "FCMINType",
+    "documentation": ""
+  },
+  "/folderType": {
+    "type": "folderType",
+    "documentation": "contains the clinical information related to one patient"
+  },
+  "/frequencyType": {
+    "type": "frequencyType",
+    "documentation": "frequency of applying the periodic posology, only in case of a constant scheme during a period of time"
+  },
+  "/hcpartyType": {
+    "type": "hcpartyType",
+    "documentation": ""
+  },
+  "/hcpartyType/name": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/headerType": {
+    "type": "headerType",
+    "documentation": "to specify the routing of the message"
+  },
+  "/headingType": {
+    "type": "headingType",
+    "documentation": "a heading is used to organise the content of a transaction among chapters or paragraphs."
+  },
+  "/headingType/heading": {
+    "type": "headingType",
+    "documentation": ""
+  },
+  "/headingType/item": {
+    "type": "itemType",
+    "documentation": ""
+  },
+  "/headingType/text": {
+    "type": "DT:textType",
+    "documentation": ""
+  },
+  "/headingType/lnk": {
+    "type": "CD:lnkType",
+    "documentation": "to link the heading with another element of the Belgian Healthcare Telematics System"
+  },
+  "/holterType": {
+    "type": "holterType",
+    "documentation": ""
+  },
+  "/incapacityreasonType": {
+    "type": "incapacityreasonType",
+    "documentation": "to specify the reason of an incapacity"
+  },
+  "/incapacityType": {
+    "type": "incapacityType",
+    "documentation": ""
+  },
+  "/insuranceType": {
+    "type": "insuranceType",
+    "documentation": ""
+  },
+  "/itemType": {
+    "type": "itemType",
+    "documentation": "the item is used to describe atomic medical information."
+  },
+  "/kmehrmessageType": {
+    "type": "kmehrmessageType",
+    "documentation": "to transfer medical information about one or several patients (using one folder per patient)."
+  },
+  "/kmehrmessageType/EncryptedData": {
+    "type": "enc:EncryptedType",
+    "documentation": ""
+  },
+  "/kmehrmessageType/Base64EncryptedData": {
+    "type": "Base64EncryptedDataType",
+    "documentation": ""
+  },
+  "/lifecycleType": {
+    "type": "lifecycleType",
+    "documentation": ""
+  },
+  "/localitemattributeType": {
+    "type": "localitemattributeType",
+    "documentation": ""
+  },
+  "/locationBirthPlaceType": {
+    "type": "locationBirthPlaceType",
+    "documentation": ""
+  },
+  "/maxrefType": {
+    "type": "maxrefType",
+    "documentation": "to specify the maximal range of the content"
+  },
+  "/medicationType": {
+    "type": "medicationType",
+    "documentation": "Deprecated at 01/01/2009, this complex type has been retained for backward compatibility only"
+  },
+  "/medicationType/cd": {
+    "type": "CD:CD-MEDICATION",
+    "documentation": "to specify a CNK"
+  },
+  "/medicationType/inn": {
+    "type": "DT:textType",
+    "documentation": "to specify an international non-proprietary name"
+  },
+  "/medicationType/magistral": {
+    "type": "DT:textType",
+    "documentation": "to describe a magistral prescription as free text, possibly complemented by a list of CNK"
+  },
+  "/memberinsuranceType": {
+    "type": "memberinsuranceType",
+    "documentation": ""
+  },
+  "/minrefType": {
+    "type": "minrefType",
+    "documentation": "to specify the minimal range of the content"
+  },
+  "/momentType": {
+    "type": "momentType",
+    "documentation": ""
+  },
+  "/packageType": {
+    "type": "packageType",
+    "documentation": ""
+  },
+  "/periodicityType": {
+    "type": "periodicityType",
+    "documentation": "to specify the periodicity"
+  },
+  "/personTypeLight": {
+    "type": "personTypeLight",
+    "documentation": ""
+  },
+  "/personType": {
+    "type": "personType",
+    "documentation": ""
+  },
+  "/presentationType": {
+    "type": "presentationType",
+    "documentation": "galenic form"
+  },
+  "/professionType": {
+    "type": "professionType",
+    "documentation": ""
+  },
+  "/quantityType": {
+    "type": "quantityType",
+    "documentation": ""
+  },
+  "/recipientType": {
+    "type": "recipientType",
+    "documentation": "The recipient can be specified by a free combination of hcparty elements (organisation(s), medical specialty(ies), person(s)). If no individual person can be identified as recipient, you should specify a medical specialty or, at\n        least the identification of the organisation that receives the message for further distribution (a regional server for example).\n      "
+  },
+  "/refscopeType": {
+    "type": "refscopeType",
+    "documentation": "to specify if the minref and maxref references are adjusted to the patient's age, sex, ..., "
+  },
+  "/renewalType": {
+    "type": "renewalType",
+    "documentation": ""
+  },
+  "/routeType": {
+    "type": "routeType",
+    "documentation": "administration route"
+  },
+  "/RRMAXType": {
+    "type": "RRMAXType",
+    "documentation": ""
+  },
+  "/RRMINType": {
+    "type": "RRMINType",
+    "documentation": ""
+  },
+  "/senderType": {
+    "type": "senderType",
+    "documentation": "the sender can be specified by a free combination of hcparty elements (organisation(s), medical specialty(ies), person(s))."
+  },
+  "/severityType": {
+    "type": "severityType",
+    "documentation": ""
+  },
+  "/sexType": {
+    "type": "sexType",
+    "documentation": ""
+  },
+  "/siteType": {
+    "type": "siteType",
+    "documentation": ""
+  },
+  "/standardType": {
+    "type": "standardType",
+    "documentation": "to specify the version of the kmehr specification to which this message complies"
+  },
+  "/strengthType": {
+    "type": "strengthType",
+    "documentation": ""
+  },
+  "/substanceType": {
+    "type": "substanceType",
+    "documentation": ""
+  },
+  "/substanceType/cd": {
+    "type": "CD:CD-SUBSTANCE",
+    "documentation": "Identifies the substance using a INNCLUSTER, ATC or EAN code."
+  },
+  "/substanceType/substancename": {
+    "type": "xsd:string",
+    "documentation": ""
+  },
+  "/telecomType": {
+    "type": "telecomType",
+    "documentation": ""
+  },
+  "/temporalityType": {
+    "type": "temporalityType",
+    "documentation": ""
+  },
+  "/textWithLayoutType": {
+    "type": "textWithLayoutType",
+    "documentation": ""
+  },
+  "/timequantityType": {
+    "type": "timequantityType",
+    "documentation": ""
+  },
+  "/timeunitType": {
+    "type": "timeunitType",
+    "documentation": "to specify the time unit"
+  },
+  "/transactionType": {
+    "type": "transactionType",
+    "documentation": "a transaction is a set of medical information validated by one healthcare professional at one given moment."
+  },
+  "/transactionType/heading": {
+    "type": "headingType",
+    "documentation": ""
+  },
+  "/transactionType/item": {
+    "type": "itemType",
+    "documentation": ""
+  },
+  "/transactionType/text": {
+    "type": "DT:textType",
+    "documentation": ""
+  },
+  "/transactionType/text-with-layout": {
+    "type": "textWithLayoutType",
+    "documentation": ""
+  },
+  "/transactionType/lnk": {
+    "type": "CD:lnkType",
+    "documentation": "to link the transaction with another element of the Belgian Healthcare Telematics System"
+  },
+  "/unitType": {
+    "type": "unitType",
+    "documentation": "to specify the unit"
+  },
+  "/urgencyType": {
+    "type": "urgencyType",
+    "documentation": ""
+  },
+  "/weekdayType": {
+    "type": "weekdayType",
+    "documentation": ""
+  },
+  "/medicinalProductType": {
+    "type": "medicinalProductType",
+    "documentation": "\n        a medicinal product can be identified\n        unambiguously by a CNK code identifying\n        a package. The descriptive\n        identification is only mandatory in case\n        of absence of a package ID.\n      "
+  }
+}

@@ -1,0 +1,1058 @@
+{
+  "acknowledgmentType": {
+    "cd": {
+      "type": "CD:CD-ACKNOWLEDGMENT",
+      "occurrences": "1-1"
+    }
+  },
+  "addressType": {},
+  "addressTypeBase": {
+    "id": {
+      "type": "ID:ID-KMEHR",
+      "occurrences": "0-unbounded"
+    },
+    "cd": {
+      "type": "CD:CD-ADDRESS",
+      "occurrences": "0-unbounded"
+    },
+    "country": {
+      "type": "countryType",
+      "occurrences": "0-1"
+    },
+    "zip": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    },
+    "nis": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    },
+    "city": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    },
+    "district": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    },
+    "street": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    },
+    "housenumber": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    },
+    "postboxnumber": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    },
+    "text": {
+      "type": "DT:textType",
+      "occurrences": "0-unbounded"
+    }
+  },
+  "administrationquantityType": {
+    "decimal": {
+      "type": "xsd:decimal",
+      "occurrences": "1-1"
+    },
+    "unit": {
+      "type": "administrationunitType",
+      "occurrences": "0-1"
+    }
+  },
+  "administrationunitType": {
+    "cd": {
+      "type": "CD:CD-ADMINISTRATIONUNIT",
+      "occurrences": "1-1"
+    }
+  },
+  "authorType": {
+    "hcparty": {
+      "type": "hcpartyType",
+      "occurrences": "1-unbounded"
+    }
+  },
+  "Base64EncryptedValueType": {},
+  "Base64EncryptedDataType": {
+    "cd": {
+      "type": "CD:CD-ENCRYPTION-METHOD",
+      "occurrences": "1-1"
+    },
+    "Base64EncryptedValue": {
+      "type": "Base64EncryptedValueType",
+      "occurrences": "1-1"
+    }
+  },
+  "certaintyType": {
+    "cd": {
+      "type": "CD:CD-CERTAINTY",
+      "occurrences": "1-1"
+    }
+  },
+  "compoundType": {
+    "id": {
+      "type": "ID:ID-KMEHR",
+      "occurrences": "0-unbounded"
+    },
+    "quantity": {
+      "type": "quantityType",
+      "occurrences": "0-1"
+    }
+  },
+  "compoundprescriptionType": {
+    "galenicform": {
+      "type": "galenicformType",
+      "occurrences": "0-1"
+    },
+    "quantity": {
+      "type": "quantityType",
+      "occurrences": "0-1"
+    }
+  },
+  "confidentialityType": {
+    "hcparty": {
+      "type": "hcpartyType",
+      "occurrences": "1-unbounded"
+    }
+  },
+  "contentlocalitemattributeType": {
+    "id": {
+      "type": "ID:ID-KMEHR",
+      "occurrences": "0-unbounded"
+    },
+    "cd": {
+      "type": "CD:CD-CONTENT",
+      "occurrences": "0-unbounded"
+    },
+    "unit": {
+      "type": "unitType",
+      "occurrences": "0-1"
+    }
+  },
+  "contentType": {
+    "unit": {
+      "type": "unitType",
+      "occurrences": "0-1"
+    },
+    "minref": {
+      "type": "minrefType",
+      "occurrences": "0-1"
+    },
+    "maxref": {
+      "type": "maxrefType",
+      "occurrences": "0-1"
+    },
+    "refscope": {
+      "type": "refscopeType",
+      "occurrences": "0-unbounded"
+    }
+  },
+  "costType": {
+    "decimal": {
+      "type": "xsd:decimal",
+      "occurrences": "1-1"
+    },
+    "unit": {
+      "type": "unitType",
+      "occurrences": "1-1"
+    }
+  },
+  "countryType": {
+    "cd": {
+      "type": "CD:CD-COUNTRY",
+      "occurrences": "1-1"
+    }
+  },
+  "dateType": {},
+  "dayperiodType": {
+    "cd": {
+      "type": "CD:CD-DAYPERIOD",
+      "occurrences": "1-1"
+    }
+  },
+  "durationType": {
+    "decimal": {
+      "type": "xsd:decimal",
+      "occurrences": "1-1"
+    },
+    "unit": {
+      "type": "timeunitType",
+      "occurrences": "1-1"
+    }
+  },
+  "errorType": {
+    "id": {
+      "type": "ID:ID-KMEHR",
+      "occurrences": "0-unbounded"
+    },
+    "cd": {
+      "type": "CD:CD-ERROR",
+      "occurrences": "1-unbounded"
+    },
+    "description": {
+      "type": "DT:textType",
+      "occurrences": "1-1"
+    },
+    "url": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    }
+  },
+  "errorMyCarenetType": {
+    "cd": {
+      "type": "CD:CD-ERROR-MYCARENET",
+      "occurrences": "1-unbounded"
+    },
+    "description": {
+      "type": "DT:textType",
+      "occurrences": "1-1"
+    },
+    "url": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    }
+  },
+  "formularyreferenceType": {},
+  "galenicformType": {
+    "cd": {
+      "type": "CD:CD-GALENICFORM",
+      "occurrences": "0-1"
+    },
+    "galenicformtext": {
+      "type": "DT:textType",
+      "occurrences": "0-1"
+    }
+  },
+  "FCMAXType": {},
+  "FCMINType": {},
+  "folderType": {
+    "confidentiality": {
+      "type": "confidentialityType",
+      "occurrences": "0-1"
+    },
+    "id": {
+      "type": "ID:ID-KMEHR",
+      "occurrences": "1-unbounded"
+    },
+    "patient": {
+      "type": "personType",
+      "occurrences": "1-1"
+    },
+    "transaction": {
+      "type": "transactionType",
+      "occurrences": "1-unbounded"
+    },
+    "text": {
+      "type": "DT:textType",
+      "occurrences": "0-unbounded"
+    },
+    "lnk": {
+      "type": "CD:lnkType",
+      "occurrences": "0-unbounded"
+    }
+  },
+  "frequencyType": {},
+  "hcpartyType": {
+    "id": {
+      "type": "ID:ID-HCPARTY",
+      "occurrences": "0-unbounded"
+    },
+    "cd": {
+      "type": "CD:CD-HCPARTY",
+      "occurrences": "1-unbounded"
+    },
+    "address": {
+      "type": "addressType",
+      "occurrences": "0-unbounded"
+    },
+    "telecom": {
+      "type": "telecomType",
+      "occurrences": "0-unbounded"
+    }
+  },
+  "headerType": {
+    "confidentiality": {
+      "type": "confidentialityType",
+      "occurrences": "0-1"
+    },
+    "standard": {
+      "type": "standardType",
+      "occurrences": "1-1"
+    },
+    "id": {
+      "type": "ID:ID-KMEHR",
+      "occurrences": "1-unbounded"
+    },
+    "date": {
+      "type": "xsd:date",
+      "occurrences": "1-1"
+    },
+    "time": {
+      "type": "xsd:time",
+      "occurrences": "1-1"
+    },
+    "sender": {
+      "type": "senderType",
+      "occurrences": "1-1"
+    },
+    "recipient": {
+      "type": "recipientType",
+      "occurrences": "1-unbounded"
+    },
+    "urgency": {
+      "type": "urgencyType",
+      "occurrences": "0-1"
+    },
+    "acknowledgment": {
+      "type": "acknowledgmentType",
+      "occurrences": "0-1"
+    },
+    "text": {
+      "type": "DT:textType",
+      "occurrences": "0-unbounded"
+    },
+    "lnk": {
+      "type": "CD:lnkType",
+      "occurrences": "0-unbounded"
+    },
+    "expirationdate": {
+      "type": "xsd:date",
+      "occurrences": "0-1"
+    }
+  },
+  "headingType": {
+    "confidentiality": {
+      "type": "confidentialityType",
+      "occurrences": "0-1"
+    },
+    "id": {
+      "type": "ID:ID-KMEHR",
+      "occurrences": "1-unbounded"
+    },
+    "cd": {
+      "type": "CD:CD-HEADING",
+      "occurrences": "1-unbounded"
+    }
+  },
+  "holterType": {
+    "FCAVG": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    },
+    "FCMAX": {
+      "type": "FCMAXType",
+      "occurrences": "0-1"
+    },
+    "FCMIN": {
+      "type": "FCMINType",
+      "occurrences": "0-1"
+    },
+    "FCAVGD": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    },
+    "FCAVGN": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    },
+    "RRMAX": {
+      "type": "RRMAXType",
+      "occurrences": "0-1"
+    },
+    "RRMIN": {
+      "type": "RRMINType",
+      "occurrences": "0-1"
+    },
+    "QRSTOT": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    },
+    "BRADY": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    },
+    "PAUSE": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    },
+    "LONG": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    },
+    "ESV": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    },
+    "DBLV": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    },
+    "SALVV": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    },
+    "BGV": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    },
+    "TGV": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    },
+    "TACHY": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    },
+    "ESSV": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    },
+    "DBLSV": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    },
+    "SALVSV": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    },
+    "BGSV": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    },
+    "TGSV": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    },
+    "TACHYSV": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    },
+    "RRINST": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    }
+  },
+  "incapacityreasonType": {
+    "cd": {
+      "type": "CD:CD-INCAPACITYREASON",
+      "occurrences": "1-1"
+    }
+  },
+  "incapacityType": {
+    "cd": {
+      "type": "CD:CD-INCAPACITY",
+      "occurrences": "1-unbounded"
+    },
+    "incapacityreason": {
+      "type": "incapacityreasonType",
+      "occurrences": "0-1"
+    },
+    "percentage": {
+      "type": "xsd:decimal",
+      "occurrences": "0-1"
+    },
+    "outofhomeallowed": {
+      "type": "xsd:boolean",
+      "occurrences": "0-1"
+    }
+  },
+  "insuranceType": {
+    "id": {
+      "type": "ID:ID-INSURANCE",
+      "occurrences": "1-1"
+    },
+    "membership": {
+      "type": "xsd:string",
+      "occurrences": "1-1"
+    },
+    "siscard": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    },
+    "begindate": {
+      "type": "xsd:date",
+      "occurrences": "0-1"
+    },
+    "enddate": {
+      "type": "xsd:date",
+      "occurrences": "0-1"
+    },
+    "cg1": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    },
+    "cg2": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    },
+    "socialfranchiseperiod1": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    },
+    "socialfranchiseperiod2": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    },
+    "begindatepayment": {
+      "type": "xsd:date",
+      "occurrences": "0-1"
+    },
+    "approvalnumber": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    }
+  },
+  "itemType": {
+    "confidentiality": {
+      "type": "confidentialityType",
+      "occurrences": "0-1"
+    },
+    "id": {
+      "type": "ID:ID-KMEHR",
+      "occurrences": "1-unbounded"
+    },
+    "cd": {
+      "type": "CD:CD-ITEM",
+      "occurrences": "1-unbounded"
+    },
+    "content": {
+      "type": "contentType",
+      "occurrences": "0-unbounded"
+    },
+    "text": {
+      "type": "DT:textType",
+      "occurrences": "0-unbounded"
+    },
+    "author": {
+      "type": "authorType",
+      "occurrences": "0-1"
+    },
+    "beginmoment": {
+      "type": "momentType",
+      "occurrences": "0-1"
+    },
+    "endmoment": {
+      "type": "momentType",
+      "occurrences": "0-1"
+    },
+    "iscomplete": {
+      "type": "xsd:boolean",
+      "occurrences": "0-1"
+    },
+    "isvalidated": {
+      "type": "xsd:boolean",
+      "occurrences": "0-1"
+    },
+    "lifecycle": {
+      "type": "lifecycleType",
+      "occurrences": "0-1"
+    },
+    "isrelevant": {
+      "type": "xsd:boolean",
+      "occurrences": "0-1"
+    },
+    "severity": {
+      "type": "severityType",
+      "occurrences": "0-1"
+    },
+    "certainty": {
+      "type": "certaintyType",
+      "occurrences": "0-1"
+    },
+    "temporality": {
+      "type": "temporalityType",
+      "occurrences": "0-1"
+    },
+    "urgency": {
+      "type": "urgencyType",
+      "occurrences": "0-1"
+    },
+    "quantity": {
+      "type": "quantityType",
+      "occurrences": "0-1"
+    },
+    "strength": {
+      "type": "strengthType",
+      "occurrences": "0-1"
+    },
+    "frequency": {
+      "type": "frequencyType",
+      "occurrences": "0-1"
+    },
+    "site": {
+      "type": "siteType",
+      "occurrences": "0-unbounded"
+    },
+    "cost": {
+      "type": "costType",
+      "occurrences": "0-1"
+    },
+    "dayperiod": {
+      "type": "dayperiodType",
+      "occurrences": "0-unbounded"
+    },
+    "duration": {
+      "type": "durationType",
+      "occurrences": "0-1"
+    },
+    "deliverydate": {
+      "type": "DT:date",
+      "occurrences": "0-1"
+    },
+    "renewal": {
+      "type": "renewalType",
+      "occurrences": "0-1"
+    },
+    "route": {
+      "type": "routeType",
+      "occurrences": "0-1"
+    },
+    "batch": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    },
+    "instructionforoverdosing": {
+      "type": "DT:textType",
+      "occurrences": "0-1"
+    },
+    "instructionforpatient": {
+      "type": "DT:textType",
+      "occurrences": "0-1"
+    },
+    "instructionforreimbursement": {
+      "type": "DT:textType",
+      "occurrences": "0-1"
+    },
+    "instructionforpharmacist": {
+      "type": "DT:textType",
+      "occurrences": "0-1"
+    },
+    "issubstitutionallowed": {
+      "type": "xsd:boolean",
+      "occurrences": "0-1"
+    },
+    "local": {
+      "type": "localitemattributeType",
+      "occurrences": "0-unbounded"
+    },
+    "recorddatetime": {
+      "type": "xsd:dateTime",
+      "occurrences": "0-1"
+    },
+    "lnk": {
+      "type": "CD:lnkType",
+      "occurrences": "0-unbounded"
+    }
+  },
+  "kmehrmessageType": {
+    "confidentiality": {
+      "type": "confidentialityType",
+      "occurrences": "0-1"
+    },
+    "header": {
+      "type": "headerType",
+      "occurrences": "1-1"
+    }
+  },
+  "lifecycleType": {
+    "cd": {
+      "type": "CD:CD-LIFECYCLE",
+      "occurrences": "1-1"
+    }
+  },
+  "localitemattributeType": {
+    "id": {
+      "type": "ID:ID-KMEHR",
+      "occurrences": "0-unbounded"
+    },
+    "cd": {
+      "type": "CD:LOCAL",
+      "occurrences": "1-1"
+    },
+    "content": {
+      "type": "contentlocalitemattributeType",
+      "occurrences": "1-1"
+    }
+  },
+  "locationBirthPlaceType": {
+    "cd": {
+      "type": "CD:CD-EBIRTH-PLACE",
+      "occurrences": "0-1"
+    },
+    "text": {
+      "type": "DT:textType",
+      "occurrences": "0-1"
+    },
+    "address": {
+      "type": "addressType",
+      "occurrences": "1-1"
+    }
+  },
+  "maxrefType": {},
+  "medicationType": {
+    "tradename": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    },
+    "presentation": {
+      "type": "presentationType",
+      "occurrences": "0-1"
+    },
+    "strength": {
+      "type": "strengthType",
+      "occurrences": "0-1"
+    },
+    "route": {
+      "type": "routeType",
+      "occurrences": "0-1"
+    },
+    "batch": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    },
+    "instructionforoverdosing": {
+      "type": "DT:textType",
+      "occurrences": "0-1"
+    },
+    "instructionforpatient": {
+      "type": "DT:textType",
+      "occurrences": "0-1"
+    },
+    "instructionforreimbursement": {
+      "type": "DT:textType",
+      "occurrences": "0-1"
+    },
+    "issubstitutionallowed": {
+      "type": "xsd:boolean",
+      "occurrences": "0-1"
+    }
+  },
+  "memberinsuranceType": {
+    "id": {
+      "type": "ID:ID-INSURANCE",
+      "occurrences": "1-1"
+    },
+    "membership": {
+      "type": "xsd:string",
+      "occurrences": "1-1"
+    }
+  },
+  "minrefType": {},
+  "momentType": {},
+  "packageType": {
+    "cd": {
+      "type": "CD:CD-UNIT",
+      "occurrences": "1-1"
+    }
+  },
+  "periodicityType": {
+    "cd": {
+      "type": "CD:CD-PERIODICITY",
+      "occurrences": "1-1"
+    }
+  },
+  "personTypeLight": {
+    "id": {
+      "type": "ID:ID-PATIENT",
+      "occurrences": "1-unbounded"
+    },
+    "firstname": {
+      "type": "xsd:string",
+      "occurrences": "0-unbounded"
+    },
+    "familyname": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    },
+    "address": {
+      "type": "addressType",
+      "occurrences": "0-unbounded"
+    },
+    "telecom": {
+      "type": "telecomType",
+      "occurrences": "0-unbounded"
+    }
+  },
+  "personType": {
+    "id": {
+      "type": "ID:ID-PATIENT",
+      "occurrences": "1-unbounded"
+    },
+    "firstname": {
+      "type": "xsd:string",
+      "occurrences": "1-unbounded"
+    },
+    "familyname": {
+      "type": "xsd:string",
+      "occurrences": "1-1"
+    },
+    "birthdate": {
+      "type": "dateType",
+      "occurrences": "0-1"
+    },
+    "birthlocation": {
+      "type": "addressTypeBase",
+      "occurrences": "0-1"
+    },
+    "deathdate": {
+      "type": "dateType",
+      "occurrences": "0-1"
+    },
+    "deathlocation": {
+      "type": "addressTypeBase",
+      "occurrences": "0-1"
+    },
+    "sex": {
+      "type": "sexType",
+      "occurrences": "1-1"
+    },
+    "address": {
+      "type": "addressType",
+      "occurrences": "0-unbounded"
+    },
+    "telecom": {
+      "type": "telecomType",
+      "occurrences": "0-unbounded"
+    },
+    "usuallanguage": {
+      "type": "xsd:language",
+      "occurrences": "0-1"
+    },
+    "profession": {
+      "type": "professionType",
+      "occurrences": "0-1"
+    },
+    "insurancystatus": {
+      "type": "insuranceType",
+      "occurrences": "0-1"
+    },
+    "insurancymembership": {
+      "type": "memberinsuranceType",
+      "occurrences": "0-1"
+    },
+    "recorddatetime": {
+      "type": "xsd:dateTime",
+      "occurrences": "0-1"
+    },
+    "text": {
+      "type": "DT:textType",
+      "occurrences": "0-unbounded"
+    }
+  },
+  "presentationType": {
+    "cd": {
+      "type": "CD:CD-DRUG-PRESENTATION",
+      "occurrences": "1-1"
+    }
+  },
+  "professionType": {
+    "id": {
+      "type": "ID:ID-PROFESSION",
+      "occurrences": "0-unbounded"
+    },
+    "cd": {
+      "type": "CD:CD-EMPLOYMENTSITUATION",
+      "occurrences": "0-unbounded"
+    },
+    "text": {
+      "type": "DT:textType",
+      "occurrences": "0-1"
+    }
+  },
+  "quantityType": {
+    "decimal": {
+      "type": "xsd:decimal",
+      "occurrences": "1-1"
+    },
+    "unit": {
+      "type": "unitType",
+      "occurrences": "0-1"
+    }
+  },
+  "recipientType": {
+    "hcparty": {
+      "type": "hcpartyType",
+      "occurrences": "1-unbounded"
+    },
+    "dummyFriend": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    }
+  },
+  "refscopeType": {
+    "cd": {
+      "type": "CD:CD-REFSCOPE",
+      "occurrences": "1-1"
+    }
+  },
+  "renewalType": {},
+  "routeType": {
+    "cd": {
+      "type": "CD:CD-DRUG-ROUTE",
+      "occurrences": "1-1"
+    }
+  },
+  "RRMAXType": {},
+  "RRMINType": {},
+  "senderType": {
+    "hcparty": {
+      "type": "hcpartyType",
+      "occurrences": "1-unbounded"
+    }
+  },
+  "severityType": {
+    "cd": {
+      "type": "CD:CD-SEVERITY",
+      "occurrences": "1-1"
+    }
+  },
+  "sexType": {
+    "cd": {
+      "type": "CD:CD-SEX",
+      "occurrences": "1-1"
+    }
+  },
+  "siteType": {},
+  "standardType": {
+    "cd": {
+      "type": "CD:CD-STANDARD",
+      "occurrences": "1-1"
+    }
+  },
+  "strengthType": {
+    "decimal": {
+      "type": "xsd:decimal",
+      "occurrences": "1-1"
+    },
+    "unit": {
+      "type": "unitType",
+      "occurrences": "1-1"
+    }
+  },
+  "substanceType": {},
+  "telecomType": {
+    "id": {
+      "type": "ID:ID-KMEHR",
+      "occurrences": "0-unbounded"
+    },
+    "cd": {
+      "type": "CD:CD-TELECOM",
+      "occurrences": "1-2"
+    },
+    "telecomnumber": {
+      "type": "xsd:string",
+      "occurrences": "1-1"
+    }
+  },
+  "temporalityType": {
+    "cd": {
+      "type": "CD:CD-TEMPORALITY",
+      "occurrences": "1-1"
+    }
+  },
+  "textWithLayoutType": {},
+  "timequantityType": {
+    "decimal": {
+      "type": "xsd:decimal",
+      "occurrences": "1-1"
+    },
+    "unit": {
+      "type": "timeunitType",
+      "occurrences": "0-1"
+    }
+  },
+  "timeunitType": {
+    "cd": {
+      "type": "CD:CD-TIMEUNIT",
+      "occurrences": "1-1"
+    }
+  },
+  "transactionType": {
+    "confidentiality": {
+      "type": "confidentialityType",
+      "occurrences": "0-1"
+    },
+    "id": {
+      "type": "ID:ID-KMEHR",
+      "occurrences": "1-unbounded"
+    },
+    "cd": {
+      "type": "CD:CD-TRANSACTION",
+      "occurrences": "1-unbounded"
+    },
+    "date": {
+      "type": "xsd:date",
+      "occurrences": "1-1"
+    },
+    "time": {
+      "type": "xsd:time",
+      "occurrences": "1-1"
+    },
+    "author": {
+      "type": "authorType",
+      "occurrences": "1-1"
+    },
+    "redactor": {
+      "type": "authorType",
+      "occurrences": "0-1"
+    },
+    "iscomplete": {
+      "type": "xsd:boolean",
+      "occurrences": "1-1"
+    },
+    "isvalidated": {
+      "type": "xsd:boolean",
+      "occurrences": "1-1"
+    },
+    "expirationdate": {
+      "type": "xsd:date",
+      "occurrences": "0-1"
+    },
+    "recorddatetime": {
+      "type": "xsd:dateTime",
+      "occurrences": "0-1"
+    },
+    "version": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    }
+  },
+  "unitType": {
+    "cd": {
+      "type": "CD:CD-UNIT",
+      "occurrences": "1-1"
+    }
+  },
+  "urgencyType": {
+    "cd": {
+      "type": "CD:CD-URGENCY",
+      "occurrences": "1-1"
+    }
+  },
+  "weekdayType": {
+    "cd": {
+      "type": "CD:CD-WEEKDAY",
+      "occurrences": "1-1"
+    }
+  },
+  "medicinalProductType": {
+    "intendedcd": {
+      "type": "CD:CD-DRUG-CNK",
+      "occurrences": "1-unbounded"
+    },
+    "deliveredcd": {
+      "type": "CD:CD-DRUG-CNK",
+      "occurrences": "0-unbounded"
+    },
+    "intendedname": {
+      "type": "xsd:string",
+      "occurrences": "1-1"
+    },
+    "deliveredname": {
+      "type": "xsd:string",
+      "occurrences": "0-1"
+    }
+  }
+}

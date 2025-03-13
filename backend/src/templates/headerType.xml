@@ -1,0 +1,53 @@
+<kmehrmessage xmlns="http://www.health.fgov.be/telematics/kmehr/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.health.fgov.be/telematics/kmehr/schema kmehr.xsd">
+  <!-- Template starts here -->
+  <!-- <header>
+    <standard>
+        <cd S="CD-STANDARD" SV="1.0">{{standard_cd_value}}</cd>
+    </standard>
+    <id S="ID-KMEHR" SV="1.0">{{header_id}}</id>
+    <date>{{date_value}}</date>
+    <time>{{time_value}}</time>
+    <sender>
+        <hcparty>
+            <id S="ID-HCPARTY" SV="1.0">{{sender_id}}</id>
+            <cd S="CD-HCPARTY" SV="1.0">{{sender_cd}}</cd>
+            <name>{{sender_name}}</name>
+        </hcparty>
+        <hcparty>
+            <cd S="CD-HCPARTY" SV="1.0">{{sender_dept_cd}}</cd>
+        </hcparty>
+        <hcparty>
+            <id S="ID-HCPARTY" SV="1.0">{{sender_physician_id}}</id>
+            <cd S="CD-HCPARTY" SV="1.0">{{sender_physician_cd}}</cd>
+            <firstname>{{sender_physician_firstname}}</firstname>
+            <familyname>{{sender_physician_familyname}}</familyname>
+        </hcparty>
+    </sender>
+    <recipient>
+        <hcparty>
+            <id S="ID-HCPARTY" SV="1.0">{{recipient_id}}</id>
+            <cd S="CD-HCPARTY" SV="1.0">{{recipient_cd}}</cd>
+            <firstname>{{recipient_firstname}}</firstname>
+            <familyname>{{recipient_familyname}}</familyname>
+        </hcparty>
+    </recipient>
+    <urgency>
+        <cd S="CD-URGENCY" SV="1.0">{{urgency_cd}}</cd>
+    </urgency>
+    <acknowledgment>
+        <cd S="CD-ACKNOWLEDGMENT" SV="1.0">{{acknowledgment_cd}}</cd>
+    </acknowledgment>
+    <text L="{{text_language}}">{{text_value}}</text>
+    <lnk TYPE="{{lnk_type}}" MEDIATYPE="{{lnk_mediatype}}" URL="{{lnk_url}}" SIZE="{{lnk_size}}">
+        {{lnk_value}}
+    </lnk>
+    <expirationdate>{{expirationdate_value}}</expirationdate>
+    <externalsource>
+        <source>
+            <cd S="CD-EXTERNALSOURCE" SV="1.0">{{externalsource_cd}}</cd>
+            <datetime>{{externalsource_datetime}}</datetime>
+            <version>{{externalsource_version}}</version>
+            <proof>{{externalsource_proof}}</proof>
+        </source>
+    </externalsource> -->
+</header>

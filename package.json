@@ -1,0 +1,22 @@
+{
+  "name": "nexumedapp",
+  "version": "1.0.2",
+  "main": "index.js",
+  "scripts": {
+    "start:backend": "npm --prefix backend start",
+    "start:frontend": "npm --prefix frontend start",
+    "start:electron": "npm --prefix electron start",
+    "build": "npm --prefix backend run build && npm --prefix frontend run build && npx tsc --project electron && concurrently \"npm --prefix backend start\" \"npm --prefix electron start\"",
+    "dev": "concurrently \"npm --prefix backend run dev\" \"npm --prefix frontend run dev\" \"npx tsc --project electron && npm --prefix electron run start\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "concurrently": "^9.1.0",
+    "eslint": "^9.16.0",
+    "prettier": "^3.4.2"
+  }
+}
+

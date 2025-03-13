@@ -1,0 +1,251 @@
+{
+  "MSH": [
+    {
+      "302000": {
+        "fieldName": "Encoding Characters",
+        "value": "^~\\&"
+      },
+      "303000": {
+        "fieldName": "Sending Application",
+        "value": "SENDING APPLICATION NAME"
+      },
+      "304000": {
+        "fieldName": "Sending Facility",
+        "value": "SENDING FACILITY"
+      },
+      "305000": {
+        "fieldName": "Receiving Application",
+        "value": "DCM4CHE"
+      },
+      "306000": {
+        "fieldName": "Receiving Facility",
+        "value": "PACS"
+      },
+      "307000": {
+        "fieldName": "Date/Time of Message",
+        "value": "20181207123100"
+      },
+      "308000": {
+        "fieldName": "Security",
+        "value": ""
+      },
+      "309000": {
+        "fieldName": "Message Type",
+        "value": [
+          "ORM",
+          "O01",
+          "ORM_O01"
+        ]
+      },
+      "310000": {
+        "fieldName": "Message Control ID",
+        "value": "MSG5213843"
+      },
+      "311000": {
+        "fieldName": "Processing ID",
+        "value": "P"
+      },
+      "312000": {
+        "fieldName": "Version ID",
+        "value": "2.5"
+      },
+      "313000": {
+        "fieldName": "Sequence Number",
+        "value": ""
+      },
+      "314000": {
+        "fieldName": "Continuation Pointer",
+        "value": ""
+      },
+      "315000": {
+        "fieldName": "Accept Acknowledgment Type",
+        "value": "AL"
+      },
+      "316000": {
+        "fieldName": "Application Acknowledgment Type",
+        "value": "NE"
+      },
+      "317000": {
+        "fieldName": "Country Code",
+        "value": ""
+      },
+      "318000": {
+        "fieldName": "Character Set",
+        "value": "UNICODE UTF-8"
+      },
+      "319000": {
+        "fieldName": "Principal Language of Message",
+        "value": ""
+      },
+      "320000": {
+        "fieldName": "Alternate Character Set Handling Scheme",
+        "value": ""
+      }
+    }
+  ],
+  "PID": [
+    {
+      "200000": {
+        "fieldName": "Patient Identification",
+        "value": "1"
+      },
+      "201000": {
+        "fieldName": "Set ID - PID",
+        "value": ""
+      },
+      "202000": {
+        "fieldName": "Patient ID",
+        "value": [
+          "31360",
+          "",
+          "",
+          "MIRTH",
+          "PI"
+        ]
+      },
+      "203000": {
+        "fieldName": "Patient Identifier List",
+        "value": "31360"
+      },
+      "204000": {
+        "fieldName": "Alternate Patient ID - PID",
+        "value": [
+          "PATIENT FAMILY NAME",
+          "PATIENT GIVEN NAME",
+          "",
+          "",
+          "",
+          "",
+          "L"
+        ]
+      },
+      "205000": {
+        "fieldName": "Patient Name",
+        "value": ""
+      },
+      "206000": {
+        "fieldName": "Mother's Maiden Name",
+        "value": "19010101000000"
+      },
+      "207000": {
+        "fieldName": "Date/Time of Birth",
+        "value": "F"
+      },
+      "208000": {
+        "fieldName": "Administrative Sex",
+        "value": ""
+      },
+      "209000": {
+        "fieldName": "Patient Alias",
+        "value": [
+          "2106-3",
+          "White",
+          "CDCREC"
+        ]
+      },
+      "210000": {
+        "fieldName": "Race",
+        "value": [
+          "STREET ADDRESS 1A",
+          "",
+          "CITY",
+          "",
+          "1000",
+          "SLOVENIA",
+          "L"
+        ]
+      },
+      "211000": {
+        "fieldName": "Patient Address",
+        "value": ""
+      },
+      "212000": {
+        "fieldName": "County Code",
+        "value": [
+          "",
+          "PRN",
+          "PH",
+          ""
+        ]
+      },
+      "213000": {
+        "fieldName": "Phone Number - Home",
+        "value": ""
+      },
+      "214000": {
+        "fieldName": "Phone Number - Business",
+        "value": ""
+      },
+      "215000": {
+        "fieldName": "Primary Language",
+        "value": ""
+      },
+      "216000": {
+        "fieldName": "Marital Status",
+        "value": ""
+      },
+      "217000": {
+        "fieldName": "Religion",
+        "value": [
+          "",
+          "",
+          "",
+          "AHV",
+          "NNSUI"
+        ]
+      },
+      "218000": {
+        "fieldName": "Patient Account Number",
+        "value": ""
+      },
+      "219000": {
+        "fieldName": "SSN Number - Patient",
+        "value": ""
+      },
+      "220000": {
+        "fieldName": "Driver's License Number - Patient",
+        "value": ""
+      },
+      "221000": {
+        "fieldName": "Mother's Identifier",
+        "value": "N"
+      },
+      "222000": {
+        "fieldName": "Ethnic Group",
+        "value": ""
+      },
+      "223000": {
+        "fieldName": "Birth Place",
+        "value": ""
+      },
+      "224000": {
+        "fieldName": "Multiple Birth Indicator",
+        "value": ""
+      },
+      "225000": {
+        "fieldName": "Birth Order",
+        "value": "705"
+      },
+      "226000": {
+        "fieldName": "Citizenship",
+        "value": ""
+      },
+      "227000": {
+        "fieldName": "Veterans Military Status",
+        "value": ""
+      },
+      "228000": {
+        "fieldName": "Nationality",
+        "value": ""
+      },
+      "229000": {
+        "fieldName": "Patient Death Date and Time",
+        "value": "N"
+      },
+      "230000": {
+        "fieldName": "Patient Death Indicator",
+        "value": "N"
+      }
+    }
+  ]
+}

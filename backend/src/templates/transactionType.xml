@@ -1,0 +1,37 @@
+<transaction>
+    <id S="ID-KMEHR" SV="1.0">{{transaction_id}}</id>
+    <cd S="CD-TRANSACTION" SV="1.0">{{transaction_cd}}</cd>
+    <date>{{transaction_date}}</date>
+    <time>{{transaction_time}}</time>
+    <author>
+        <hcparty>
+            <cd S="CD-HCPARTY" SV="1.0">{{author_dept_cd}}</cd>
+        </hcparty>
+        <hcparty>
+            <id S="ID-HCPARTY" SV="1.0">{{author_physician_id}}</id>
+            <cd S="CD-HCPARTY" SV="1.0">{{author_physician_cd}}</cd>
+            <firstname>{{author_firstname}}</firstname>
+            <familyname>{{author_familyname}}</familyname>
+        </hcparty>
+    </author>
+    <redactor>
+        <hcparty>
+            <cd S="CD-HCPARTY" SV="1.0">{{redactor_dept_cd}}</cd>
+        </hcparty>
+        <hcparty>
+            <id S="ID-HCPARTY" SV="1.0">{{redactor_physician_id}}</id>
+            <cd S="CD-HCPARTY" SV="1.0">{{redactor_physician_cd}}</cd>
+            <firstname>{{redactor_firstname}}</firstname>
+            <familyname>{{redactor_familyname}}</familyname>
+        </hcparty>
+    </redactor>
+    <iscomplete>{{iscomplete_value}}</iscomplete>
+    <isvalidated>{{isvalidated_value}}</isvalidated>
+    <expirationdate>{{expirationdate_value}}</expirationdate>
+    <heading>{{heading_value}}</heading>
+    <item>{{> itemType.xml}}</item> <!-- This would reference the itemType template -->
+    <text L="{{text_language}}">{{text_value}}</text>
+    <lnk TYPE="{{lnk_type}}" MEDIATYPE="{{lnk_mediatype}}" URL="{{lnk_url}}" SIZE="{{lnk_size}}">{{lnk_value}}</lnk>
+    <recorddatetime>{{recorddatetime_value}}</recorddatetime>
+    <version>{{version_value}}</version>
+</transaction>

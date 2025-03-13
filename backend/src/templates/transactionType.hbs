@@ -1,0 +1,46 @@
+<transaction>
+  {{!-- <id S="ID-KMEHR" SV="1.0">{{transaction_id}}</id>
+  <cd S="CD-TRANSACTION" SV="1.0">{{transaction_cd}}</cd> --}}
+  <id S="ID-KMEHR" SV="1.0">1</id>
+  <cd S="CD-TRANSACTION" SV="1.10">report</cd>
+  <date>{{kmehrmessage.header.date}}</date>
+  <time>{{kmehrmessage.header.time}}</time>
+  <author>
+    <hcparty>
+      <cd S="CD-HCPARTY" SV="1.0">{{author_dept_cd}}</cd>
+    </hcparty>
+    <hcparty>
+      {{!-- <id S="ID-HCPARTY" SV="1.0">{{author_physician_id}}</id>
+      <cd S="CD-HCPARTY" SV="1.0">{{author_physician_cd}}</cd>
+      <firstname>{{author_firstname}}</firstname>
+      <familyname>{{author_familyname}}</familyname> --}}
+        <id S="ID-HCPARTY" SV="1.0">17113669004</id>
+        <cd S="CD-HCPARTY" SV="1.11">deptgeneralpractice</cd>
+        <firstname>Joe</firstname>
+        <familyname>Smith</familyname>
+    </hcparty>
+  </author>
+  {{!-- <redactor>
+    <hcparty>
+      <cd S="CD-HCPARTY" SV="1.0">{{redactor_dept_cd}}</cd>
+    </hcparty>
+    <hcparty>
+      <id S="ID-HCPARTY" SV="1.0">{{redactor_physician_id}}</id>
+      <cd S="CD-HCPARTY" SV="1.0">{{redactor_physician_cd}}</cd>
+      <firstname>{{redactor_firstname}}</firstname>
+      <familyname>{{redactor_familyname}}</familyname>
+    </hcparty>
+  </redactor> --}}
+  {{!-- <iscomplete>{{iscomplete_value}}</iscomplete>
+  <isvalidated>{{isvalidated_value}}</isvalidated> --}}
+    <iscomplete>true</iscomplete>
+    <isvalidated>true</isvalidated>
+  {{!-- <expirationdate>{{expirationdate_value}}</expirationdate>
+  <heading>{{heading_value}}</heading>
+  <item>{{> itemType}}</item>
+  <text L="{{text_language}}">{{text_value}}</text> --}}
+  {{!-- <lnk TYPE="{{lnk_type}}" MEDIATYPE="{{lnk_mediatype}}" URL="{{lnk_url}}" SIZE="{{lnk_size}}">{{kmehrmessage.transaction.link}}</lnk> --}}
+  <lnk TYPE="multimedia" MEDIATYPE="application/pdf">{{kmehrmessage.transaction.link}}</lnk>
+  {{!-- <recorddatetime>{{recorddatetime_value}}</recorddatetime>
+  <version>{{version_value}}</version> --}}
+</transaction>

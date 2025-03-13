@@ -1,0 +1,21 @@
+export const OBXFieldMapping: Record<string, string> = {
+    "700000": "Set ID - OBX",                      
+    "701000": "Value Type",                        
+    "702000": "Observation Identifier",           
+    "703000": "Observation Sub-ID",               
+    "704000": "Observation Value",                
+    "705000": "Units",                            
+    "706000": "References Range",                 
+    "707000": "Abnormal Flags",                  
+    "708000": "Probability",                     
+    "709000": "Nature of Abnormal Test",          
+    "710000": "Observation Result Status",        
+    "711000": "Effective Date of Reference Range",
+    "712000": "User Defined Access Checks",       
+    "713000": "Date/Time of the Observation",     
+    "714000": "Producer's ID",                    
+    "715000": "Responsible Observer",             
+    "716000": "Observation Method",               
+    "717000": "Equipment Instance Identifier",    
+    "718000": "Date/Time of the Analysis"         
+  };

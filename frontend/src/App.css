@@ -1,0 +1,463 @@
+#root {
+  width: 100%;
+  margin: 0px;
+  padding-top: 2rem;
+  text-align: center;
+  background-color: #ffffff;
+}
+/* #4b525a; */
+.nexTitle{
+  font-weight: bold;
+  font-size: 3rem;  
+  color: #4b525a;
+  margin-bottom: 0px;
+}
+.nexSubTitle, .dropDownTitle, .nexSubTitle_not, .nexSubTitle_not_a, .settingUpWorkPlace{
+  font-weight: bold;
+  font-size: 2.5rem;  
+  color: #4b525a;
+  margin-top: 0px;
+}
+.settingUpWorkPlace{
+  font-size: 1.5rem; 
+  margin-top: -20px; 
+}
+.nexSubTitle_not, .nexSubTitle_not_a{
+  text-align: center;
+  margin-bottom: 0px;
+}
+.nexSubTitle_not_a{
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-decoration: none;
+  color: #00adb5;
+}
+.nexSubTitle_not_a:hover{
+  color: #4b525a;
+}
+.dropDownTitle{
+  font-size: 1.5rem;
+}
+.center_wanted {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.div_for_login, .div_for_reg {
+  margin-top: 30px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  background: #ffffff;
+  box-shadow: 7px 7px 10px 13px rgba(0, 173, 181, 0.1);
+}
+.div_for_reg{
+  border: 4px solid #4b525a;
+}
+.nexumed_img{
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  width: 6rem;
+  height: auto;
+}
+.row {
+  display: flex; 
+}
+
+.col-sm-6 {
+  flex: 1;
+}
+.form_label, .form_label_new{
+  font-size: 1.5rem;
+  color: #4b525a;;
+}
+.form_label_new{
+  font-size: 1rem;
+}
+.form_control{
+  background-color: #08a6ae;
+  border: none;
+  height: 2rem;
+  font-size: 1rem;
+  color:#4b525a;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 3px 5px;
+}
+.form_group {
+  margin-bottom: 1rem;
+}
+.sub_button{
+  background-color: #00adb5;
+  color: #4b525a;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.no_underline{
+  text-decoration: none;
+  font-size: 1rem;
+  color: #00adb5;
+}
+.reg_dropdown{
+  background-color: #08a6ae;
+  height: 2rem; 
+  font-size: 1rem; 
+  border-radius: 10px;
+}
+.title_all_patients{
+  margin-bottom: 5px;
+}
+.p_user_email{
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+.btn_pat_table, .btn_sub_new_edit_pat{
+  margin-left: 3px;
+  margin-right: 3px;
+  background-color: #00adb5;
+  color: #4b525a;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.btn_sub_new_edit_pat{
+  margin-top: 10px;
+  margin-bottom: 100px;
+}
+.add_pat_label{
+  font-weight: bold;
+  color: #00adb5;
+  margin-bottom: 3px;
+}
+.form_add_edit{
+  width: 400px;
+}
+.to_the_left{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.to_the_right{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.user_email{
+  font-weight: bold;
+  color: #00adb5;
+  margin-bottom: 5px;
+  font-size: 2.5rem;
+}
+.row_add{
+  display: block;
+}
+.right-aligned-input {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.input-full-width {
+  width: 100%;
+  background-color: #00adb5;
+  height: 1.5rem;
+  color: #4b525a;
+}
+.divForRegister{
+  z-index: 10;
+  width: 80%;
+  margin-top: -500px;
+}
+.SelectedChoice{
+  color: #00adb5;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.nexLogo{
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+}
+.form-select{
+  border: 2px solid #00adb5;
+  padding: 10px;
+  border-radius: 10px;
+  transition: border-color 1.3s ease;
+  color: #4b525a;
+  font-weight: bold;
+}
+.form-select:focus {
+  border: 2px solid #00adb5;
+  padding: 5px;
+  outline: none; 
+  box-shadow: 0 0 5px rgba(0, 173, 181, 0.5);
+}
+.nexButton {
+  margin-top: 20px;
+  color: #4b525a;
+  background-color: #00adb5;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 6px 15px rgba(0, 173, 181, 0.5);
+  transition: all 0.3s ease; 
+}
+
+.nexButton:hover {
+  box-shadow: 0px 9px 23px rgba(0, 173, 181, 0.7);
+  transform: translateY(-2px); 
+}
+.connectionBtnClose{
+  margin-top: 20px;
+  color: #00adb5;
+  border: 2px solid #4b525a;
+  font-weight: bold;
+  background-color: #4b525a;
+  border-radius: 10px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.connectedModal {
+  position: fixed;
+  top: 50%;
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%; 
+  padding: 30px;
+  background-color: #00adb5;
+  border: 4px solid #4b525a;
+  border-radius: 10px;
+  box-shadow: 0px 6px 15px rgba(0, 173, 181, 0.5);
+  z-index: 1000; 
+}
+.pSuccessConn{
+  margin-top: 15px;
+  text-align: center;
+}
+.divInstructions{
+  position:relative;
+  margin-bottom: -100px;
+  z-index: 1000;
+}
+.cdmImage{
+  margin-left: 5px;
+  margin-right: 5px;
+  /* transform: scale(1); */
+  transition: transform 1s ease-out; 
+}
+.cdmImage:hover{
+  transform: scale(2);
+  transform-origin: center;
+  z-index: 10;
+}
+.blurred-screen {
+  filter: blur(3px);
+  pointer-events: none;
+  transition: filter 5s ease-in-out;
+}
+
+
+.spinner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background: rgba( 255, 255, 255, 0.15 );
+  backdrop-filter: blur( 0px );
+  -webkit-backdrop-filter: blur( 0px );
+  border-radius: 10px;  */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* color: white;
+  font-size: 18px; */
+  z-index: 2;
+}
+
+.spinner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.spinner {
+  border: 10px solid #4b525a;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border-left-color: #00adb5;
+  animation: spin 1s linear infinite;
+  z-index: 10;
+}
+.inCorrectLogin {
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  width: 300px;
+  padding: 30px;
+  background-color: #08a6ae;
+  color: #fff;
+  border: 3px solid #4b525a;
+  border-radius: 8px;
+  text-align: center;
+  z-index: 1000; 
+}
+.inCorrectLogin button {
+  margin-top: 10px;
+  background: white;
+  border: none;
+  color: #4b525a;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.inCorrectLogin button:hover {
+  background: #08a6ae;
+}
+
+
+/*********************************8 Update Notification Modal *************************************/
+.update-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.update-modal {
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  width: 300px;
+  padding: 30px;
+  background-color: #08a6ae;
+  color: #fff;
+  border: 3px solid #4b525a;
+  border-radius: 8px;
+  text-align: center;
+  z-index: 1000;
+}
+
+.update-modal h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #4b525a;
+}
+
+.update-modal p {
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+.update-modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.update-modal button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.update-modal .download-button {
+  background-color: #4b525a;
+  color: #fff;
+}
+
+.update-modal .close-button {
+  background-color: #4b525a;
+  color: #fff;
+}
+
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* **************************lic agreement************************************************ */
+.modalMainCSS {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 10vh; /* Adjust as needed */
+  z-index: 1050; /* Higher than Bootstrap’s default modal z-index */
+  border: 3px solid #08a6ae;
+  padding: 10px;
+  border-radius: 20px;
+  width: 450px;
+  background-color: #fff;
+}
+
+.modalBody{
+  max-height: 400px;
+  overflow-y: auto;
+}
+.LicTitle{
+  font-size:24px;
+  margin-top: 20px;
+  font-weight: bold;
+}
+.licPtag, .licPtagTopLIne{
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+.licPtagTopLIne{
+  font-size: 16px;
+  /* font-weight: 300; */
+}
+.licCheckbox{
+  margin-top: 20px;
+}
+.subButtonLic{
+  background-color: #00adb5;
+  color: #4b525a;
+  padding: 10px 20px;
+  margin: 50px 20px 60px 20px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-size: 24px;
+  font-weight: bold;
+}
+.subButtonLic:disabled {
+  background-color: #dc3545 !important;
+  border-color: #dc3545 !important;
+  color: white;
+  padding: 10px 20px;
+  margin: 50px 20px 60px 20px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor:not-allowed;
+  opacity: 1;
+}

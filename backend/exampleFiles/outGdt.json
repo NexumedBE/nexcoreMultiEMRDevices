@@ -1,0 +1,52 @@
+{
+  "sets": [
+    {
+      "sentenceId": "6310",
+      "fields": {
+        "sentenceLength": "00672"
+      }
+    },
+    {
+      "sentenceId": "6310",
+      "fields": {
+        "gdtReceiver": "Vitomed",
+        "gdtSender": "0212-JIRT",
+        "setTypeUsed": "3",
+        "gdtVersion": "02.10",
+        "softwareEntityResponsible": "MESI d.o.o.",
+        "softwareName": "mTABLET.IntegrationService.GDT",
+        "softwareReleaseState": "1.0.0.0",
+        "patientNumberOrLabel": "2",
+        "patientPrefix": "Herr",
+        "patientName": {
+          "lastName": "Muster"
+        },
+        "patientFirstName": {
+          "firstName": "Peter"
+        },
+        "patientDateOfBirth": {
+          "dateOfBirth": "21051956"
+        },
+        "patientResidence": "8408 Winterthur",
+        "patientStreet": "Musterstrasse 14 a",
+        "patientSex": "1",
+        "patientHeightInCm": "185",
+        "patientWeightInKg": "95",
+        "patientFirstLanguage": "Deutsch",
+        "deviceAndMethodSpecificField": {
+          "testGroup": "EKG01",
+          "testNumber": ""
+        },
+        "treatmentDataDaySaved": "04032021",
+        "treatmentDataTimeSaved": "152255",
+        "fileAttribute": "78753318-9d76-435e-8c04-bc9e68393d0b",
+        "fileFormat": "PDF",
+        "fileContent": "Measurement results with basic patient data.",
+        "fileReference": "C:\\MESI services\\MESI mTABLET GDT Integration Service\\Pdf reports\\36f999a4-d142-47c0-b65b-b7c4fdd1bde9_202103041522.pdf",
+        "testStatus": "Final",
+        "readingDate": "04032021",
+        "readingTime": "152255"
+      }
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<!DOCTYPE Message SYSTEM "http://www.hnbe.com/healthweb/imedpub/dtd/imed.dtd">
+<!--
+ I-Med 1.0 beta generated XML-message
+
+ IMed Software by:
+   Frank Verbeke MD
+   IMed@hnbe.com
+
+ Licensed to & distributed by:
+   IXSys NV, Belgium
+   ixsys@hnbe.com
+
+ IMed labeling for IMed compliance by:
+   CIVA vzw, Belgium
+-->
+
+<Message Version="1.0">
+  <ID Country="BE" IDSystem="OmegaSoft">IDENT1</ID>
+  <DateTime>
+    <DateTimeBegin>23/12/2024 09:29</DateTimeBegin>
+  </DateTime>
+  <Sender>
+    <ID Country="BE" IDSystem="OmegaSoft">CareConnect</ID>
+    <Name>
+      <FirstName>OmegaSoft</FirstName>
+      <LastName>CareConnect</LastName>
+    </Name>
+  </Sender>
+  <Addressee>
+    <ID Country="BE" IDSystem="1FLOW">0</ID>
+    <Name>
+      <FirstName>M.E.C.</FirstName>
+      <LastName>One Flow</LastName>
+    </Name>
+  </Addressee>
+  <Document>
+    <ID Country="BE" IDSystem="OmegaSoft">IDENT</ID>
+    <Patient>
+      <ID Country="BE" IDSystem="DM">258</ID>
+      <ID Country="BE" IDSystem="INSS">89012332783</ID>
+      <Name>
+        <FirstName>Carl Adriaan</FirstName>
+        <LastName>Jans</LastName>
+      </Name>
+      <DateOfBirth>23/01/1989</DateOfBirth>
+      <Sex>MALE</Sex>
+      <Address>
+        <Street>Jasmijnstraat</Street>
+        <Number>34</Number>
+        <Zipcode>3500</Zipcode>
+        <City>Hasselt</City>
+      </Address>
+    </Patient>
+    <Transaction>
+      <ID Country="BE" IDSystem="OmegaSoft">OSM-20241223092911212</ID>
+      <DateTime>
+        <DateTimeBegin>23/12/2024 09:29</DateTimeBegin>
+      </DateTime>
+      <Author>
+        <ID Country="BE" IDSystem="OmegaSoft">CareConnect</ID>
+        <Name>
+          <FirstName>OmegaSoft</FirstName>
+          <LastName>CareConnect</LastName>
+        </Name>
+      </Author>
+      <Origin>
+        <ID Country="BE" IDSystem="OmegaSoft">CareConnect</ID>
+        <Description>CareConnect</Description>
+      </Origin>
+      <Validator>
+        <ID Country="BE" IDSystem="OmegaSoft">CareConnect</ID>
+        <Name>
+          <FirstName>OmegaSoft</FirstName>
+          <LastName>CareConnect</LastName>
+        </Name>
+      </Validator>
+      <TransactionType>
+        <ID Country="BE" IDSystem="OmegaSoft">CLININFO</ID>
+        <Description Language="EN">Clinical information</Description>
+      </TransactionType>
+      <Item>
+        <ID Country="BE" IDSystem="OmegaSoft">Prorec-01170-20241223092911212</ID>
+        <ItemType>
+          <ID Country="BE" IDSystem="Prorec">01170</ID>
+          <Description Language="EN">Body weight</Description>
+        </ItemType>
+        <ItemContent DataType="NM"></ItemContent>
+      </Item>
+      <Item>
+        <ID Country="BE" IDSystem="OmegaSoft">Prorec-01180-23/12/2024 09:29</ID>
+        <ItemType>
+          <ID Country="BE" IDSystem="Prorec">01180</ID>
+          <Description Language="EN">Body height</Description>
+        </ItemType>
+        <ItemContent DataType="NM"></ItemContent>
+      </Item>
+    </Transaction>
+    </Document>
+</Message>

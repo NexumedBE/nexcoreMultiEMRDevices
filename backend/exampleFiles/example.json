@@ -1,0 +1,188 @@
+{
+  "kmehrmessage": {
+    "xmlns": "http://www.health.fgov.be/telematics/kmehr/schema",
+    "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "xsi:schemaLocation": "http://www.health.fgov.be/telematics/kmehr/schema kmehr.xsd",
+    "header": {
+      "standard": {
+        "cd": {
+          "_": "20021205",
+          "S": "CD-STANDARD",
+          "SV": "1.0"
+        }
+      },
+      "id": {
+        "_": "71071801.115259412004.msg13a",
+        "S": "ID-KMEHR",
+        "SV": "1.0"
+      },
+      "date": "2001-02-13",
+      "time": "09:03:00",
+      "sender": {
+        "hcparty": [
+          {
+            "id": {
+              "_": "71071801",
+              "S": "ID-HCPARTY",
+              "SV": "1.0"
+            },
+            "cd": {
+              "_": "orghospital",
+              "S": "CD-HCPARTY",
+              "SV": "1.0"
+            },
+            "name": "CHU de Charleroi"
+          },
+          {
+            "cd": {
+              "_": "deptcardiology",
+              "S": "CD-HCPARTY",
+              "SV": "1.0"
+            }
+          },
+          {
+            "id": {
+              "_": "1233330730",
+              "S": "ID-HCPARTY",
+              "SV": "1.0"
+            },
+            "cd": {
+              "_": "persphysician",
+              "S": "CD-HCPARTY",
+              "SV": "1.0"
+            },
+            "firstname": "Jean",
+            "familyname": "Hartmann"
+          }
+        ]
+      },
+      "recipient": {
+        "hcparty": {
+          "id": {
+            "_": "115259412004",
+            "S": "ID-HCPARTY",
+            "SV": "1.0"
+          },
+          "cd": {
+            "_": "persphysician",
+            "S": "CD-HCPARTY",
+            "SV": "1.0"
+          },
+          "firstname": "Jean-Pierre",
+          "familyname": "Rochet"
+        }
+      }
+    },
+    "folder": {
+      "id": {
+        "_": "1",
+        "S": "ID-KMEHR",
+        "SV": "1.0"
+      },
+      "patient": {
+        "id": [
+          {
+            "_": "32031011931",
+            "S": "ID-PATIENT",
+            "SV": "1.0"
+          },
+          {
+            "_": "3001234",
+            "S": "LOCAL",
+            "SL": "ISPPC-ID-PATIENT",
+            "SV": "3.4"
+          }
+        ],
+        "firstname": "Jeanne",
+        "familyname": "Dubois",
+        "birthdate": {
+          "date": "1946-03-10"
+        },
+        "sex": {
+          "cd": {
+            "_": "female",
+            "S": "CD-SEX",
+            "SV": "1.0"
+          }
+        },
+        "address": {
+          "cd": {
+            "_": "home",
+            "S": "CD-ADDRESS",
+            "SV": "1.0"
+          },
+          "country": {
+            "cd": {
+              "_": "be",
+              "S": "CD-COUNTRY",
+              "SV": "1.0"
+            }
+          },
+          "zip": "6044",
+          "city": "ROUX",
+          "street": "Rue du coucou",
+          "housenumber": "6"
+        }
+      },
+      "transaction": {
+        "id": {
+          "_": "1",
+          "S": "ID-KMEHR",
+          "SV": "1.0"
+        },
+        "cd": {
+          "_": "note",
+          "S": "CD-TRANSACTION",
+          "SV": "1.0"
+        },
+        "date": "2001-02-13",
+        "time": "15:25:00",
+        "author": {
+          "hcparty": [
+            {
+              "cd": {
+                "_": "deptcardiology",
+                "S": "CD-HCPARTY",
+                "SV": "1.0"
+              }
+            },
+            {
+              "id": {
+                "_": "1233330730",
+                "S": "ID-HCPARTY",
+                "SV": "1.0"
+              },
+              "cd": {
+                "_": "persphysician",
+                "S": "CD-HCPARTY",
+                "SV": "1.0"
+              },
+              "firstname": "Jean",
+              "familyname": "Hartmann"
+            }
+          ]
+        },
+        "iscomplete": "true",
+        "isvalidated": "true",
+        "text": [
+          {
+            "_": "Suivi hypertension",
+            "L": "fr"
+          },
+          {
+            "_": "TA 12/7 RC 70",
+            "L": "fr"
+          },
+          {
+            "_": "Aucune plainte",
+            "L": "fr"
+          },
+          {
+            "_": "Traitement OK",
+            "L": "fr"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,87 @@
+<kmehrmessage xmlns="http://www.ehealth.fgov.be/standards/kmehr/schema/v1" xmlns:ns2="http://www.w3.org/2001/04/xmlenc#" xmlns:ns3="http://www.w3.org/2000/09/xmldsig#">
+  <header>
+    <standard>
+        <cd S="CD-STANDARD" SV="1.20">20161201</cd>
+    </standard>
+    <id S="ID-KMEHR" SV="1.0">17113669004.20210104105626915</id>
+    <id S="LOCAL" SL="ID-CARECONNECT">d1ff05d1-4a62-4f99-b77d-6ec90ab2e21f</id>
+    <date>{{kmehrmessage.header.date}}</date>
+    <time>{{kmehrmessage.header.time}}</time>
+    <sender>
+        <hcparty>
+          <id S="ID-HCPARTY" SV="1.0">17113669004</id>
+          <cd S="CD-HCPARTY" SV="1.11">deptgeneralpractice</cd>
+          <firstname>Joel</firstname>
+          <familyname>Scharlach</familyname>
+        </hcparty>
+        <hcparty>
+            <cd S="CD-HCPARTY" SV="1.11">application</cd>
+            <name>Nexumed</name>
+        </hcparty>
+    </sender>
+    <recipient>
+      <hcparty>
+      <id S="ID-HCPARTY" SV="1.0">34904657001</id>
+      <firstname>Joel</firstname>
+      <familyname>Scharlach</familyname>
+      </hcparty>
+    </recipient>
+    {{!-- <urgency>
+        <cd S="CD-URGENCY" SV="1.0">{{urgency_cd}}</cd>
+    </urgency>
+    <acknowledgment>
+        <cd S="CD-ACKNOWLEDGMENT" SV="1.0">{{acknowledgment_cd}}</cd>
+    </acknowledgment>
+    <text L="{{text_language}}">{{text_value}}</text>
+    <lnk TYPE="{{lnk_type}}" MEDIATYPE="{{lnk_mediatype}}" URL="{{lnk_url}}" SIZE="{{lnk_size}}">{{lnk_value}}</lnk>
+    <expirationdate>{{expirationdate_value}}</expirationdate>
+    <externalsource>
+        <source>
+            <cd S="CD-EXTERNALSOURCE" SV="1.0">{{externalsource_cd}}</cd>
+            <datetime>{{externalsource_datetime}}</datetime>
+            <version>{{externalsource_version}}</version>
+            <proof>{{externalsource_proof}}</proof>
+        </source>
+    </externalsource> --}}
+  </header>
+  <folder>
+    <id S="ID-KMEHR" SV="1.0">1</id>
+    <patient>
+      <id S="ID-PATIENT" SV="1.0">{{kmehrmessage.folder.patient.id}}</id>
+      <firstname>{{kmehrmessage.folder.patient.firstname}}</firstname>
+      <familyname>{{kmehrmessage.folder.patient.familyname}}</familyname>
+      <birthdate>
+        <date>{{kmehrmessage.folder.patient.birthdate.date}}</date>
+      </birthdate>
+      <sex><cd S="CD-SEX" SV="1.0">{{kmehrmessage.folder.patient.sex.cd}}</cd></sex>
+      <address>
+        <cd S="CD-ADDRESS" SV="1.0">{{patient_address_cd}}</cd>
+        <country><cd S="CD-COUNTRY" SV="1.0">{{patient_country_cd}}</cd></country>
+        <zip>{{patient_zip}}</zip>
+        <city>{{patient_city}}</city>
+        <street>{{patient_street}}</street>
+        <housenumber>{{patient_housenumber}}</housenumber>
+      </address>
+    </patient>
+    <transaction>
+      <id S="ID-KMEHR" SV="1.0">1</id>
+      <cd S="CD-TRANSACTION" SV="1.10">report</cd>
+      <date>{{kmehrmessage.header.date}}</date>
+      <time>{{kmehrmessage.header.time}}</time>
+      <author>
+        <hcparty>
+          <cd S="CD-HCPARTY" SV="1.0">{{author_dept_cd}}</cd>
+        </hcparty>
+        <hcparty>
+            <id S="ID-HCPARTY" SV="1.0">17113669004</id>
+            <cd S="CD-HCPARTY" SV="1.11">deptgeneralpractice</cd>
+            <firstname>Joel</firstname>
+            <familyname>Scharlach</familyname>
+        </hcparty>
+        </author>
+      <iscomplete>true</iscomplete>
+      <isvalidated>true</isvalidated>
+      <lnk TYPE="multimedia" MEDIATYPE="application/pdf">{{kmehrmessage.transaction.link}}</lnk>
+    </transaction>
+  </folder>
+</kmehrmessage>
