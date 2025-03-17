@@ -2,7 +2,8 @@ import cron from "node-cron";
 import fs from "fs";
 import path from "path";
 import User from "../models/User";
-import { stopWatchers, startWatchers } from "../listener";
+import { startWatchers } from "../startWatchers";
+import { stopWatchers } from "../utils/watcherUtils";
 
 const userFile = path.join(__dirname, "../activeUser.json");
 const statusFile = path.join(__dirname, "../userStatus.json");
@@ -41,8 +42,25 @@ const checkUserSubscriptions = async () => {
     fs.writeFileSync(statusFile, JSON.stringify({ current: user.current }), "utf8");
 
     if (user.current) {
-      console.log(`🟢 User ${user.email} is active. Keeping watchers running.`);
-      startWatchers();
+
+      const user = await User.findById(userId).lean(); // ✅ Add `.lean()` to return a plain object
+
+      // console.log(`🟢 User ${user.email} is active. Keeping watchers running.`);
+
+      if (!user) {
+        console.warn(`⛔ User ID ${userId} not found. Stopping watchers...`);
+        stopWatchers();
+        return;
+      }
+
+      const userState = {
+        id: user._id.toString(), 
+        current: user.current,
+        emrProviders: user.emrProviders || [],
+        selectedDevices: user.selectedDevices || [],
+      };
+
+      startWatchers(userState);
     } else {
       console.warn(`⛔ User ${user.email} is inactive. Stopping watchers...`);
       stopWatchers();

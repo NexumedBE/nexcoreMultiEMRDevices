@@ -5,7 +5,7 @@ import chokidar from 'chokidar';
 import { allMappings } from '../constants/mapping';
 
 // Directories for templates and data
-const templatesDir = path.join(__dirname, '..', 'templates');
+const templatesDir = path.join(__dirname, '..', 'templates', 'careConnect');
 const parsedDataFolder = path.join(
     'C:\\Nexumed',
     'inFromDevice',
@@ -14,7 +14,7 @@ const parsedDataFolder = path.join(
 const outputFolder = path.join(
     'C:\\Nexumed',
     'inFromDevice',
-    'output-to-cc'
+    'output-to-emr'
 );
 const base64Folder = path.join(
     'C:\\Nexumed',
@@ -235,7 +235,7 @@ function watchFolder() {
         });
 }
 
-// Watch the `output-to-cc` folder for file processing completion
+// Watch the `output-to-emr` folder for file processing completion
 function watchForThirdPartyProcessing() {
     console.log(`[watchForThirdPartyProcessing] Monitoring folder: ${outputFolder}`);
 
@@ -255,13 +255,13 @@ function watchForThirdPartyProcessing() {
             setTimeout(() => {
                 console.log(`[watchForThirdPartyProcessing] Starting cleanup process...`);
 
-                // Clean subfolders and files in `parsedgdt-inFromDevice`, `output-to-cc`, and `base64`
+                // Clean subfolders and files in `parsedgdt-inFromDevice`, `output-to-emr`, and `base64`
                 cleanUpFolder(parsedDataFolder);
                 cleanUpFolder(outputFolder);
                 cleanUpFolder(base64Folder); 
 
                 // Clean files directly in the root `inFromDevice` folder
-                cleanUpFolder(inFromDeviceFolder, ['parsedgdt-inFromDevice', 'output-to-cc', 'base64']);
+                cleanUpFolder(inFromDeviceFolder, ['parsedgdt-inFromDevice', 'output-to-emr', 'base64']);
 
                 // Clean files in the `Output` folder while preserving the listener
                 cleanUpFolder(thirdPartyOutputFolder, [preservedListenerFile]);
@@ -273,12 +273,17 @@ function watchForThirdPartyProcessing() {
         });
 }
 
-export function generateKMEHR(outputFolder?: string) {
-    registerPartials();
+export function generateKMEHR(parsedJson: any) {
+    registerPartials(); 
+    const mappedData = mapGDTToKMEHR(parsedJson);
+    const outputFilename = `kmehr_output_${Date.now()}.xml`;
+    populateKMEHRTemplate(mappedData, outputFilename);
+
     watchFolder();
-    watchForThirdPartyProcessing(); 
+    watchForThirdPartyProcessing();
 
     if (outputFolder) {
         console.log(`[KMEHRGenerators] Using provided output folder: ${outputFolder}`);
     }
 }
+

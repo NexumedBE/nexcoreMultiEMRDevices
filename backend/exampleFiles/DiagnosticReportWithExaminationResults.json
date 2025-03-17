@@ -1,0 +1,324 @@
+{
+  "type": "message",
+  "id": "3ac7a2a5-4a7d-46e7-b7cf-80a98a1cd455",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:096f5e20-ca36-4286-9896-f87f9db3dc92",
+      "resource": {
+        "id": "7204b41d-4bf8-466f-8de2-5e02f2ad86f5",
+        "eventCoding": {
+          "system": "http://hl7.org/fhir/message-events",
+          "code": "diagnostic-report-provide",
+          "display": "Diagnostic Report Provide"
+        },
+        "source": {
+          "name": "",
+          "software": "",
+          "version": "",
+          "endpoint": ""
+        },
+        "destination": [
+          {
+            "endpoint": {
+              "Value": "https://localhost:44329/api/Bundle"
+            }
+          }
+        ],
+        "focus": [
+          {
+            "reference": "urn:uuid:6ded1c45-d235-4cd1-b174-f4707e8b216f"
+          }
+        ],
+        "response": {
+          "identifier": "https://localhost:44329/api/Bundle/ac769e31-833c-463c-8d3e-1932e659da52",
+          "code": "ok"
+        },
+        "resourceType": "MessageHeader"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:be61b17c-ef12-4ffb-b82c-98e592ff6be9",
+      "resource": {
+        "id": "d909a143-6fc0-4d31-ba04-07aba3a7b143",
+        "identifier": [
+          {
+            "use": "official",
+            "value": "_123456789"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Doe-B",
+            "given": [
+              "John",
+              "Michael"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1999-12-30T00:00:00",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/patient-race",
+            "valuecodeableconcept": {
+              "coding": [
+                {
+                  "code": "2106-3",
+                  "display": "Caucasian"
+                }
+              ],
+              "text": "Caucasian"
+            }
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/bodyheight",
+            "valuequantity": {
+              "value": 188.0,
+              "unit": "cm",
+              "code": "Height"
+            }
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/bodyweight",
+            "valuequantity": {
+              "value": 115.21,
+              "unit": "kg",
+              "code": "Weight"
+            }
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/smokingdetails",
+            "valuecodeableconcept": {
+              "coding": [
+                {
+                  "code": "LA18976-3",
+                  "display": "Smoker"
+                }
+              ],
+              "text": "Smoker"
+            }
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/cigarettesperday",
+            "valuequantity": {
+              "value": 100.0,
+              "code": "63640-7"
+            }
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/yearsmoked",
+            "valuequantity": {
+              "value": 100.0,
+              "code": "88029-4"
+            }
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/packyears",
+            "valuequantity": {
+              "value": 150.0,
+              "code": "PackYears"
+            }
+          }
+        ],
+        "resourceType": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6ded1c45-d235-4cd1-b174-f4707e8b216f",
+      "resource": {
+        "id": "58ab7cde-a8fa-4067-91b8-3e06dc2ac2d5",
+        "basedOn": [
+          {
+            "reference": "https://localhost:44329/api/Bundle/ServiceRequest/17b5f6f9-9938-4845-a88c-4a4f8d3dda120"
+          }
+        ],
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "19868-9",
+              "display": "Spirometry"
+            }
+          ],
+          "text": "Spirometry"
+        },
+        "subject": {
+          "reference": "urn:uuid:be61b17c-ef12-4ffb-b82c-98e592ff6be9"
+        },
+        "effectiveDateTime": "2024-08-06T15:55:09.368",
+        "result": [
+          {
+            "reference": "urn:uuid:7c963bb8-1215-48e2-b614-dcecf8817fc6"
+          },
+          {
+            "reference": "urn:uuid:d18ff410-8861-49a3-ac7d-dae411a9f4ce"
+          },
+          {
+            "reference": "urn:uuid:e1cfc663-c34f-45a4-9974-036f8a0de713"
+          },
+          {
+            "reference": "urn:uuid:6e71d9cd-293b-43f8-9f8c-39f7229aa6ef"
+          },
+          {
+            "reference": "urn:uuid:36306217-85ae-40b3-b1ed-4a62e1ac56d2"
+          },
+          {
+            "reference": "urn:uuid:88f8ee5e-4f59-4c0b-8b94-a400ff11ba82"
+          }
+        ],
+        "presentedForm": [
+          {
+            "contentType": "application/pdf",
+            "data": "JVBERi0xLjQNCiWio=",
+            "hash": "FLVEjvgznFJzAZg5s3QuKRTfPdm5kd4EkHQxJ9InOJY=",
+            "title": "Report PDF",
+            "creation": "2024-08-06T11:14:54"
+          },
+          {
+            "contentType": "application/pdf",
+            "data": "JVBERi0xLjQNCiWio4+TDQ=",
+            "hash": "rJy4AlZ1lRLThPz8LnIQG7AVb9Sc3IT78pOIeXTFqwk=",
+            "title": "Report PDF",
+            "creation": "2024-08-06T11:15:22"
+          }
+        ],
+        "resourceType": "DiagnosticReport"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7c963bb8-1215-48e2-b614-dcecf8817fc6",
+      "resource": {
+        "id": "7c963bb8-1215-48e2-b614-dcecf8817fc6",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "code": "19866-3",
+              "display": "VC"
+            }
+          ],
+          "text": "VC"
+        },
+        "valueQuantity": {
+          "value": 2.28,
+          "unit": "L",
+          "code": "19866-3"
+        },
+        "resourceType": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d18ff410-8861-49a3-ac7d-dae411a9f4ce",
+      "resource": {
+        "id": "d18ff410-8861-49a3-ac7d-dae411a9f4ce",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "code": "19865-5",
+              "display": "VC Predicted"
+            }
+          ],
+          "text": "VC Predicted"
+        },
+        "valueQuantity": {
+          "value": 6.34,
+          "unit": "L",
+          "code": "19865-5"
+        },
+        "resourceType": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e1cfc663-c34f-45a4-9974-036f8a0de713",
+      "resource": {
+        "id": "e1cfc663-c34f-45a4-9974-036f8a0de713",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "code": "19868-9",
+              "display": "FVC"
+            }
+          ],
+          "text": "FVC"
+        },
+        "valueQuantity": {
+          "value": 1.30,
+          "unit": "L",
+          "code": "19868-9"
+        },
+        "resourceType": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6e71d9cd-293b-43f8-9f8c-39f7229aa6ef",
+      "resource": {
+        "id": "6e71d9cd-293b-43f8-9f8c-39f7229aa6ef",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "code": "19869-7",
+              "display": "FVC Predicted"
+            }
+          ],
+          "text": "FVC Predicted"
+        },
+        "valueQuantity": {
+          "value": 6.34,
+          "unit": "L",
+          "code": "19869-7"
+        },
+        "resourceType": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:36306217-85ae-40b3-b1ed-4a62e1ac56d2",
+      "resource": {
+        "id": "36306217-85ae-40b3-b1ed-4a62e1ac56d2",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "code": "20150-9",
+              "display": "FEV1"
+            }
+          ],
+          "text": "FEV1"
+        },
+        "valueQuantity": {
+          "value": 1.10,
+          "unit": "L",
+          "code": "20150-9"
+        },
+        "resourceType": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:88f8ee5e-4f59-4c0b-8b94-a400ff11ba82",
+      "resource": {
+        "id": "88f8ee5e-4f59-4c0b-8b94-a400ff11ba82",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "code": "20149-1",
+              "display": "FEV1 Predicted"
+            }
+          ],
+          "text": "FEV1 Predicted"
+        },
+        "valueQuantity": {
+          "value": 5.25,
+          "unit": "L",
+          "code": "20149-1"
+        },
+        "resourceType": "Observation"
+      }
+    }
+  ],
+  "resourceType": "Bundle"
+}

@@ -1,30 +1,36 @@
 import { startMESIListener } from "./listeners/mesiListener";
-import { startCareConnectListener } from "./listeners/careconnectListener";
+// import { startCareConnectListener } from "./listeners/careconnectListener";
 import { startBaxterListener } from "./listeners/baxterListener";
 
-
-export const startWatchers = (user: any) => {
+export const startWatchers = (user: {
+  id: string;
+  current: boolean;
+  emrProviders: any;
+  selectedDevices: any;
+}) => {
   console.log("🔥 [startWatchers] Checking user's setup...");
 
   const emr = user?.emrProviders?.[0]?.name || "Unknown EMR";
-  const devices = user?.selectedDevices || [];
+  const devices: { manufacturer: string }[] = user?.selectedDevices || [];
 
   console.log(`🚀 [startWatchers] User's EMR: ${emr}`);
-  console.log(`🔍 [startWatchers] Devices:`, devices.map(d => d.device));
+  console.log(`🔍 [startWatchers] Devices:`, devices.map(d => d.manufacturer));
 
   // **Start EMR Listeners**
-  if (emr === "CareConnect") {
-    startCareConnectListener();
-  } else if (emr === "Sandy") {
-    console.log("🔜 FHIR Listener for Sandy coming soon...");
-  }
+  // if (emr === "CareConnect") {
+  //   startCareConnectListener(user);
+  // } else if (emr === "Sanday") {
+  //   console.log("🔜 FHIR Listener for Sanday coming soon...");
+  // }
 
   // **Start Device Listeners**
-  devices.forEach((device) => {
-    if (device.manufacturer === "MESI") {
-      startMESIListener();
-    }
-  });
+  if (devices.some(device => device.manufacturer === "MESI")) {
+    startMESIListener(emr); // ✅ Pass EMR name
+  }
+  if (devices.some(device => device.manufacturer === "Baxter")) {
+    startBaxterListener(emr);
+  }
 
-  console.log("✅ [startWatchers] Listeners have been successfully started.");
+  console.log("✅ [startWatchers] Listeners have been successfully initiaited.");
 };
+

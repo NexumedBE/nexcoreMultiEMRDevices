@@ -1,0 +1,163 @@
+{
+  "resourceType": "Bundle",
+  "type": "message",
+  "id": "ac769e31-833c-463c-8d3e-1932e659da52",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:6be4396f-52ad-465d-8fd4-74af52abc2dc",
+      "resource": {
+        "resourceType": "MessageHeader",
+        "id": "15058526-1ead-4780-b7a9-ed7bd358ab4c",
+        "eventCoding": {
+          "system": "http://hl7.org/fhir/message-events",
+          "code": "order-request",
+          "display": "Diagnostic Order Request"
+        },
+        "source": {
+          "endpoint": "http://exampleorganization.com",
+          "name": "exampleOrganization",
+          "software": "exampleSoftware",
+          "version": "4.0.1"
+        },
+        "focus": [
+          {
+            "reference": "urn:uuid:5666e54d-5c12-4fae-8c22-30e536f0acc9"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d909a143-6fc0-4d31-ba04-07aba3a7b143",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "d909a143-6fc0-4d31-ba04-07aba3a7b143",
+        "identifier": [
+          {
+            "use": "official",
+            "system": "http://hospital.smarthealthit.org",
+            "value": "_123456789"
+          },
+          {
+            "use": "secondary",
+            "system": "http://hospital.smarthealthit.org",
+            "value": "987654321"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Doe-B",
+            "given": ["John", "Michael"]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1999-12-30",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/patient-race",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "code": "2106-3",
+                  "display": "White"
+                }
+              ]
+            }
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/bodyheight",
+            "valueQuantity": {
+              "value": 188,
+              "unit": "cm",
+              "code": "height"
+            }
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/bodyweight",
+            "valueQuantity": {
+              "value": 254,
+              "unit": "lbs",
+              "code": "weight"
+            }
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/smokingdetails",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "code": "LA18976-3",
+                  "display": "Smoker"
+                }
+              ]
+            }
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/cigarettesperday",
+            "valueQuantity": {
+              "value": 100,
+              "code": "63640-7"
+            }
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/yearssmoked",
+            "valueQuantity": {
+              "value": 100,
+              "code": "88029-4"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d48f17de-20a0-49c3-850b-a4afc89321d0",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "d48f17de-20a0-49c3-850b-a4afc89321d0",
+        "identifier": [
+          {
+            "value": "78901"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Smith",
+            "given": ["Jane"],
+            "prefix": ["Dr."]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5666e54d-5c12-4fae-8c22-30e536f0acc9",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "17b5f6f9-9938-4845-a88c-4a4f8d3dda120",
+        "status": "active",
+        "intent": "order",
+        "identifier": [
+          {
+            "use": "official",
+            "value": "14"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "code": "81459-0",
+              "display": "Spirometry"
+            }
+          ],
+          "text": "Spirometry"
+        },
+        "subject": {
+          "reference": "urn:uuid:d909a143-6fc0-4d31-ba04-07aba3a7b143"
+        },
+        "authoredOn": "2024-05-28T09:00:00",
+        "requester": {
+          "reference": "urn:uuid:d48f17de-20a0-49c3-850b-a4afc89321d0"
+        }
+      }
+    }
+  ]
+}

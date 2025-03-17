@@ -1,0 +1,11 @@
+{
+  "watch": ["src"],
+  "ignore": [
+    "userStatus.json", 
+    "activeUser.json", 
+    "sessions/*",
+    "src/**/*.json", 
+    "C:/Nexumed/nexumedIn/parsedxml-*"
+  ],
+  "ext": "ts"
+}

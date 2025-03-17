@@ -1,84 +1,89 @@
-import chokidar from "chokidar";
+import chokidar, { FSWatcher } from "chokidar";
 import path from "path";
 import fs from "fs";
-import { debounce } from "lodash";
-import { parseGDT } from "../parsers/gdtParser";
-import { saveAsJSON } from "../utils/saveAsJSON";
-import { jsonToGDT, saveGDTFile } from "../fileConverters/GDTGenerator";
-import { parseXML } from "../parsers/xmlParser";
-import { parseHL7 } from "../parsers/hl7Parser";
+import { debouncedProcessFile } from "../utils/watcherUtils"; 
+import { setListenersActive } from "../routes/checkListeners";
 
 const baseCPath = "C:\\Nexumed";
-const nexumedInFolder = path.join(baseCPath, "nexumedIn"); //Files dropped by any EMR
-const infromEMR = "C:\\MESI services\\MESI mTABLET GDT Integration Service\\Input"; //MESI Input folder
+const nexumedInFolder = path.join(baseCPath, "nexumedIn");
+const inFromDeviceFolder = path.join(baseCPath, "inFromDevice");
+const mesiOutputFolder = "C:\\MESI services\\MESI mTABLET GDT Integration Service\\Output";
 
-export const startMESIListener = () => {
-  console.log("📡 Starting MESI GDT Listener...");
+// Ensure required directories exist
+[nexumedInFolder, inFromDeviceFolder, mesiOutputFolder].forEach((folder) => {
+  if (!fs.existsSync(folder)) {
+    fs.mkdirSync(folder, { recursive: true });
+    console.log(`Created folder at: ${folder}`);
+  }
+});
 
-  // Watch for files in `nexumedIn`
-  const watcher = chokidar.watch(nexumedInFolder, {
+// File Watchers
+let watchers: FSWatcher[] = [];
+let mesiWatcher: FSWatcher | null = null;
+
+export const startMESIListener = (emr:string) => {
+  console.log("🔥 [startMESIListener] Checking if listeners should start...");
+
+  // ✅ Prevent duplicate watchers
+  if (watchers.length > 0 || mesiWatcher) {
+    console.log("⚠️ [startMESIListener] MESI Listeners are already running. Skipping...");
+    return;
+  }
+
+  console.log("🚀 [startMESIListener] Starting MESI file listeners...");
+
+  let startedWatchers = 0;
+  const totalWatchers = 2; // Only necessary watchers
+
+  const markWatcherReady = () => {
+    startedWatchers++;
+    console.log(`✅ [startMESIListener] Watcher initialized: ${startedWatchers}/${totalWatchers}`);
+    if (startedWatchers === totalWatchers) {
+      setListenersActive(true);
+      console.log("💯 [startMESIListener] All MESI listeners have started.");
+    }
+  };
+
+  watchers = [
+    chokidar.watch(nexumedInFolder, {
+      persistent: true,
+      ignored: [/parsedhl7|parsedxml|parsedgdt|parsedJSON-.*/i],
+    }),
+  ];
+
+  watchers.forEach((watcher) => {
+    watcher.on("ready", () => {
+      console.log(`✅ [startMESIListener] Watcher ready for nexumedIn`);
+      markWatcherReady();
+    });
+
+    watcher.on("add", (filePath) => {
+      console.log(`[startMESIListener] New file detected in nexumedIn: ${filePath}`);
+      debouncedProcessFile(filePath, "nexumedIn", "MESI", emr);
+    });
+
+    watcher.on("error", (error) => console.error(`❌ [startMESIListener] Error in nexumedIn: ${error}`));
+  });
+
+  // ✅ MESI Output Watcher
+  mesiWatcher = chokidar.watch(mesiOutputFolder, {
     persistent: true,
-    ignored: [/parsedhl7|parsedxml|parsedgdt|\.json$/i],
+    ignored: [
+      "**/parsedgdt-mesiOutput/**", // Ignore all contents within parsedgdt-mesiOutput
+      /parsedgdt-mesiOutput/, // Ignore the folder itself
+      /\.exe$/, // Ignore executables
+    ],
   });
 
-  watcher.on("ready", () => console.log("✅ MESI Listener initialized."));
-
-  watcher.on("add", (filePath) => {
-    console.log(`📥 [MESI] New file detected in nexumedIn: ${filePath}`);
-    debouncedProcessFile(filePath);
+  mesiWatcher.on("ready", () => {
+    console.log(`🎅 [startMESIListener] MESI watcher initialized.`);
+    markWatcherReady();
   });
 
-  console.log("✅ MESI Listener started.");
+  mesiWatcher.on("add", (filePath) => {
+    console.log(`📄 New GDT file detected in MESI Output: ${filePath}`);
+    debouncedProcessFile(filePath, "mesiOutput", "MESI", emr);
+  });
+
+  console.log("✅ [startMESIListener] Listeners have been successfully started.");
 };
-
-// Debounce processing to avoid duplicate processing
-const debouncedProcessFile = debounce((filePath: string) => {
-  processFile(filePath);
-}, 100);
-
-// Process incoming files and convert to GDT
-function processFile(filePath: string) {
-  console.log(`[MESI] Processing file: ${filePath}`);
-
-  const fileExtension = path.extname(filePath).toLowerCase();
-
-  fs.readFile(filePath, "utf8", (err, data) => {
-    if (err) {
-      console.error(`[MESI] ❌ Error reading file: ${filePath}`, err);
-      return;
-    }
-
-    let parsedMessage;
-
-    switch (fileExtension) {
-      case ".xml":
-        console.log(`[MESI] 🔄 Converting XML to GDT...`);
-        parseXML(data, (parsedXML) => {
-          saveAsJSON(filePath, parsedXML, "parsedxml");
-          convertToGDTAndSend(parsedXML, filePath);
-        });
-        break;
-
-      case ".hl7":
-        console.log(`[MESI] 🔄 Converting HL7 to GDT...`);
-        parseHL7(filePath, (hl7FilePath, parsedHL7) => {
-          saveAsJSON(hl7FilePath, parsedHL7, "parsedhl7");
-          convertToGDTAndSend(parsedHL7, filePath);
-        });
-        break;
-
-      default:
-        console.warn(`[MESI] ❌ Unsupported file format: ${fileExtension}`);
-    }
-  });
-}
-
-// Convert parsed data to GDT and send it to MESI
-function convertToGDTAndSend(parsedData: any, originalFilePath: string) {
-  const gdtContent = jsonToGDT(parsedData);
-  const gdtFilename = path.basename(originalFilePath, path.extname(originalFilePath)) + ".gdt";
-  const gdtFilePath = path.join(infromEMR, gdtFilename);
-
-  saveGDTFile(gdtFilePath, gdtContent);
-  console.log(`✅ [MESI] GDT file saved to: ${gdtFilePath}`);
-}

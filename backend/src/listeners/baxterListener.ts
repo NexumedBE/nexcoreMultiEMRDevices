@@ -15,7 +15,7 @@ if (!fs.existsSync(SAVE_DIR)) {
   fs.mkdirSync(SAVE_DIR, { recursive: true });
 }
 
-export const startBaxterListener = () => {
+export const startBaxterListener = (emr: string) => {
   const server = net.createServer((socket) => {
     console.log("📡 HL7 Connection established");
     let hl7Message = "";

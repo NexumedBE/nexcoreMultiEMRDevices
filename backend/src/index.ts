@@ -9,7 +9,7 @@ import connectDB from "./config/db";
 import authRoutes from "./routes/auth/authRoutes";
 import acceptLicRoutes from "./routes/users/acceptLic";
 import checkListenersRoute from "./routes/checkListeners";
-import { startWatchers, stopWatchers } from "./listener";
+import { stopWatchers as stopAllWatchers } from "./utils/watcherManager";
 import checkUserSubscriptions from "./utils/subscriptionChecker"
 import fs from "fs";
 import { exec } from "child_process";
@@ -104,8 +104,8 @@ app.get("/", (req, res) => {
 
 // ✅ Stop watchers before login
 app.post("/api/auth/login", (req, res, next) => {
-  console.log("⏹ Stopping watchers before login...");
-  stopWatchers();
+  console.log("🍷🍷Stopping watchers before login...from watcherManager");
+  stopAllWatchers();
   next();
 });
 
@@ -200,4 +200,4 @@ app.all("*", (req, res) => {
 
 
 startBackend();
-// startBaxterListener();
+

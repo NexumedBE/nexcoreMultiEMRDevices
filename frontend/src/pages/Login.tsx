@@ -19,7 +19,7 @@ const Login: React.FC = () => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setBlurActive(false);
-    }, 16000);
+    }, 1000);
 
     return () => clearTimeout(timeout);
   }, []);
