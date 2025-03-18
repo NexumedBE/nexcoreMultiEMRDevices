@@ -203,12 +203,14 @@ export function saveGDTFile(filePath: string, gdtContent: string) {
     } else {
         gdtData["3110"] = ""; // Default fallback
     }
-    // const officialIdentifier = patient.identifier?.find((id: any) => id.use === "official")?.value;
-    // if (officialIdentifier) {
-    //     gdtData["3105"] = officialIdentifier;
-    // } else {
-    //     console.warn("[parseFHIRtoGDT] No official identifier found for Patient.");
-    // }
+
+  const secondaryIdentifier = patient.identifier?.find((id: any) => id.use === "secondary")?.value;
+  if (secondaryIdentifier) {
+        gdtData["3105"] = secondaryIdentifier;
+        console.log(`[parseFHIRtoGDT] Assigned secondary identifier to 3105: ${secondaryIdentifier}`);
+    } else {
+        console.warn("[parseFHIRtoGDT] No secondary identifier found for Patient.");
+    }
 
 
       if (patient.extension) {
@@ -222,19 +224,19 @@ export function saveGDTFile(filePath: string, gdtContent: string) {
     }
 
 
-  // const practitionerEntry = fhirData.entry.find((e: any) => e.resource.resourceType === "Practitioner");
-  // if (practitionerEntry) {
-  //     const practitioner = practitionerEntry.resource;
-  //     gdtData["8316"] = practitioner.name?.[0]?.family + " " + (practitioner.name?.[0]?.given?.[0] || ""); 
-  // }
+  const practitionerEntry = fhirData.entry.find((e: any) => e.resource.resourceType === "Practitioner");
+  if (practitionerEntry) {
+      const practitioner = practitionerEntry.resource;
+      gdtData["8316"] = practitioner.name?.[0]?.family + " " + (practitioner.name?.[0]?.given?.[0] || ""); 
+  }
 
-  // const serviceRequestEntry = fhirData.entry.find((e: any) => e.resource.resourceType === "ServiceRequest");
-  // if (serviceRequestEntry) {
-  //     const serviceRequest = serviceRequestEntry.resource;
-      gdtData["8402"] =  "null"; 
-      // gdtData["8410"] = serviceRequest.code?.coding?.[0]?.code || "";
-      // gdtData["8432"] = serviceRequest.authoredOn?.replace(/[-T:]/g, "").slice(0, 8) || ""; // Order Date YYYYMMDD
-  // }
+  const serviceRequestEntry = fhirData.entry.find((e: any) => e.resource.resourceType === "ServiceRequest");
+  if (serviceRequestEntry) {
+      const serviceRequest = serviceRequestEntry.resource;
+      gdtData["8402"] = serviceRequest.code?.coding?.[0]?.display || ""; 
+      gdtData["8410"] = serviceRequest.code?.coding?.[0]?.code || "";
+      gdtData["8432"] = serviceRequest.authoredOn?.replace(/[-T:]/g, "").slice(0, 8) || ""; // Order Date YYYYMMDD
+  }
   
     console.log("[parseFHIRtoGDT] Mapped FHIR data:", gdtData);
 
@@ -247,8 +249,7 @@ export function saveGDTFile(filePath: string, gdtContent: string) {
       }
   
       const gdtLines: string[] = [];
-      gdtLines.push('01380006302', '014810000264', '0170102Nexumed'); // GDT header
-      // gdtLines.push('0170102Nexumed');
+      gdtLines.push('01380006302', '014810000264'); // GDT header
 
       for (const [gdtKey, value] of Object.entries(gdtData)) {
         let processedValue = value; 
@@ -258,14 +259,14 @@ export function saveGDTFile(filePath: string, gdtContent: string) {
         // }
     
         if (gdtKey === "3103" || gdtKey === "8432") {
-          processedValue = processedValue.replace(/-/g, ""); 
-          if (processedValue.length === 8) {
-              processedValue = `${processedValue.slice(6, 8)}${processedValue.slice(4, 6)}${processedValue.slice(0, 4)}`; // Convert DDMMYYYY
-          }
-      }
+    processedValue = processedValue.replace(/-/g, ""); // Remove hyphens if any
+    if (processedValue.length === 8) {
+        processedValue = `${processedValue.slice(6, 8)}${processedValue.slice(4, 6)}${processedValue.slice(0, 4)}`; // Convert YYYYMMDD to DDMMYYYY
+    }
+}
     
         if (processedValue !== "") {
-            const lineLength = 3 + gdtKey.length + processedValue.length; 
+            const lineLength = 3 + gdtKey.length + processedValue.length + 2; // Add 2 for CR+LF
             const linePrefix = lineLength.toString().padStart(3, '0'); 
             const gdtLine = `${linePrefix}${gdtKey}${processedValue}`;
     
@@ -275,6 +276,7 @@ export function saveGDTFile(filePath: string, gdtContent: string) {
             console.warn(`[parseFHIRtoGDT] Skipping empty value for key: ${gdtKey}`);
         }
     }
+    gdtLines.push("0160102Nexumed");
       console.log(`[parseFHIRtoGDT] Added GDT line: ${gdtLines}`);
       return gdtLines.join('\r\n'); 
   }
