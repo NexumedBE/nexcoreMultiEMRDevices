@@ -4,13 +4,13 @@ import { loginUser, validateToken, refreshToken } from "./authController";
 const router = express.Router();
 
 // ✅ Register the login route
-router.post("/auth/login", loginUser);
+router.post("/login", loginUser);
 
 // ✅ Register the token validation route
-router.post("/auth/validate", validateToken);
+router.post("/validate", validateToken);
 
 // ✅ Register the refresh token validation route
-router.post("/auth/refresh", refreshToken); 
+router.post("/refresh", refreshToken); 
 
 
 export default router;

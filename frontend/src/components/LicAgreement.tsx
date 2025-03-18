@@ -15,12 +15,14 @@ const BetaTestAgreement: React.FC<BetaTestAgreementProps> = ({ userEmail, onAcce
   todayPlus30.setDate(todayPlus30.getDate() + 30);
   const today30 = todayPlus30.toLocaleDateString("en-GB");
 
+  const API_BASE_URL = "http://nexcore.nexumed.eu";
+
   const handleAccept = async () => {
     console.log('userEmail', userEmail);
     if (!accepted) return;
-    console.log("5555555555555", `http://localhost:2756/api/users/email/${userEmail}/acceptLic`)
+    console.log("5555555555555", `${API_BASE_URL}api/users/email/${userEmail}/acceptLic`)
     try {
-      const response = await fetch(`http://localhost:2756/api/users/email/${userEmail}/acceptLic`, {
+      const response = await fetch(`${API_BASE_URL}/api/users/email/${userEmail}/acceptLic`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

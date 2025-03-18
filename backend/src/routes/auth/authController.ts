@@ -122,27 +122,42 @@ export const loginUser = async (req: Request, res: Response, next: NextFunction)
 
 export const validateToken = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
-    const token = req.headers.authorization?.split(" ")[1]; // Extract token from "Bearer <token>"
+    console.log("🔍 [validateToken] Received request to validate token");
+
+    const token = req.headers.authorization?.split(" ")[1]; 
     if (!token) {
+      console.log("❌ [validateToken] No token provided in request headers");
       res.status(401).json({ message: "Unauthorized: No token provided" });
       return;
     }
 
-    const decoded = jwt.verify(token, SECRET_KEY) as { id: string };
+    console.log("🔑 [validateToken] Token received:", token);
+
+    let decoded;
+    try {
+      decoded = jwt.verify(token, SECRET_KEY) as { id: string };
+      console.log("✅ [validateToken] Token decoded successfully:", decoded);
+    } catch (verifyError) {
+      console.error("❌ [validateToken] Token verification failed:", verifyError);
+      res.status(401).json({ message: "Invalid or expired token" });
+      return;
+    }
 
     const user = await User.findById(decoded.id).select("-password");
     if (!user) {
-     res.status(401).json({ message: "Unauthorized: User not found" });
-     return;
+      console.log("❌ [validateToken] User not found for token:", decoded.id);
+      res.status(401).json({ message: "Unauthorized: User not found" });
+      return;
     }
+
+    console.log("✅ [validateToken] Token is valid for user:", user.email);
     res.status(200).json({ message: "Token valid", user });
-    return;
   } catch (error) {
-    console.error("❌ Token validation error:", error);
-    res.status(401).json({ message: "Invalid token" });
-    return;
+    console.error("❌ [validateToken] Unexpected error:", error);
+    res.status(500).json({ message: "Internal server error" });
   }
 };
+
 
 export const refreshToken = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {

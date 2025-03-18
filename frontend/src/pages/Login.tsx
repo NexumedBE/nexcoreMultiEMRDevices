@@ -16,10 +16,12 @@ const Login: React.FC = () => {
 
   const currentSubRef = useRef<boolean | null>(null);
 
+  const API_BASE_URL = "http://nexcore.nexumed.eu";
+
   useEffect(() => {
     const timeout = setTimeout(() => {
       setBlurActive(false);
-    }, 1000);
+    }, 15000);
 
     return () => clearTimeout(timeout);
   }, []);
@@ -48,7 +50,7 @@ const Login: React.FC = () => {
         }
   
         console.log(`🔑 Found token for ${email}. Verifying with backend...`);
-        const response = await fetch("http://localhost:2756/api/auth/validate", {
+        const response = await fetch(`${API_BASE_URL}/api/auth/validate`, {
           method: "POST",
           headers: { "Authorization": `Bearer ${storedToken}` },
         });
@@ -71,7 +73,7 @@ const Login: React.FC = () => {
   
         // If token is invalid, try to refresh it
         console.log("⚠️ Token expired or invalid. Attempting refresh...");
-        const refreshResponse = await fetch("http://localhost:2756/api/auth/refresh-token", {
+        const refreshResponse = await fetch(`${API_BASE_URL}/api/auth/refresh`, {
           method: "POST",
           headers: { "Authorization": `Bearer ${storedToken}` },
         });
@@ -107,7 +109,7 @@ const Login: React.FC = () => {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:2756/api/auth/login", {
+      const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

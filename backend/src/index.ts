@@ -6,8 +6,10 @@ import session from "express-session";
 import FileStore from "session-file-store";
 import passport from "./config/passport";
 import connectDB from "./config/db";
+import helmet from "helmet";
 import authRoutes from "./routes/auth/authRoutes";
 import acceptLicRoutes from "./routes/users/acceptLic";
+import fileRoutes from "./routes/fileRoutes"; // Contains /receive-file endpoint
 import checkListenersRoute from "./routes/checkListeners";
 import { stopWatchers as stopAllWatchers } from "./utils/watcherManager";
 import checkUserSubscriptions from "./utils/subscriptionChecker"
@@ -21,9 +23,11 @@ import "./utils/subscriptionChecker";
 dotenv.config({ path: path.resolve(__dirname, process.env.NODE_ENV === "production" ? "../.env" : ".env") });
 
 const app = express();
-const PORT = process.env.PORT || 2756;
-const MAX_RETRIES = 3;
-let retryCount = 0;
+const DEFAULT_PORT = 80;
+const FALLBACK_PORT = 2756;
+let activePort = DEFAULT_PORT;
+// const MAX_RETRIES = 3;
+// let retryCount = 0;
 
 // 📝 Logging setup
 const logFile = path.join(__dirname, "backend.log");
@@ -50,11 +54,16 @@ const checkIfPortIsInUse = (port: number) => {
 
 // ✅ CORS Configuration
 app.use(
-  cors({
-    origin: "http://localhost:5173",
-    credentials: true, // ✅ Allows session cookies
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: ["'self'", "http://localhost:5173", "http://nexcore.nexumed.eu"],
+        connectSrc: ["'self'", "http://localhost:5173", "http://nexcore.nexumed.eu"],
+        imgSrc: ["'self'", "data:"],
+        styleSrc: ["'self'", "'unsafe-inline'"],
+      },
+    },
   })
 );
 
@@ -120,10 +129,12 @@ app.post("/check-subscription", async (req, res) => {
 });
 
 // Authentication Routes
-app.use("/api", authRoutes);
+app.use("/api/auth", authRoutes);
+
+//extra routes
 app.use("/api", checkListenersRoute);
 app.use("/api", acceptLicRoutes);
-
+app.use("/api", fileRoutes);
 
 
 
@@ -137,20 +148,20 @@ process.on("SIGTERM", () => gracefulShutdown("SIGTERM"));
 process.on("SIGINT", () => gracefulShutdown("SIGINT"));
 
 // 🔄 Restart logic if backend crashes
-const restartBackend = async () => {
-  if (retryCount >= MAX_RETRIES) {
-    log("ERROR", "❌ Max restart attempts reached. Backend shutting down.");
-    process.exit(1);
-  }
+// const restartBackend = async () => {
+//   if (retryCount >= MAX_RETRIES) {
+//     log("ERROR", "❌ Max restart attempts reached. Backend shutting down.");
+//     process.exit(1);
+//   }
 
-  retryCount++;
-  log("WARN", `⚠️ Backend restarting... Attempt ${retryCount}/${MAX_RETRIES}`);
+//   retryCount++;
+//   log("WARN", `⚠️ Backend restarting... Attempt ${retryCount}/${MAX_RETRIES}`);
 
-  setTimeout(() => {
-    log("INFO", "🚀 Restarting backend...");
-    startBackend();
-  }, 5000);
-};
+//   setTimeout(() => {
+//     log("INFO", "🚀 Restarting backend...");
+//     startBackend(DEFAULT_PORT);
+//   }, 5000);
+// };
 
 // 🛠 Error Handling
 process.on("uncaughtException", (err: Error & { code?: string }) => {
@@ -159,28 +170,37 @@ process.on("uncaughtException", (err: Error & { code?: string }) => {
     return;
   }
   log("ERROR", "👩‍🦽 UNCAUGHT EXCEPTION! Backend crashed:", err);
-  restartBackend();
+  // restartBackend();
 });
 
 process.on("unhandledRejection", (reason) => {
   log("ERROR", "🏌️‍♂️ UNHANDLED PROMISE REJECTION:", reason);
-  restartBackend();
+  // restartBackend();
 });
 
 // 🚀 Start Backend
-const startBackend = async () => {
-  const isPortInUse = await checkIfPortIsInUse(PORT as number);
+const startBackend = async (port: number) => {
+  const isPortInUse = await checkIfPortIsInUse(port);
+
   if (isPortInUse) {
-    log("WARN", "⚠️ Backend already running. Skipping launch.");
-    return;
+    log("WARN", `⚠️ Port ${port} is already in use.`);
+
+    if (port === DEFAULT_PORT) {
+      log("INFO", `🔄 Trying fallback port ${FALLBACK_PORT}...`);
+      return startBackend(FALLBACK_PORT);
+    }
+
+    log("ERROR", `❌ Both ports are unavailable. Backend cannot start.`);
+    process.exit(1);
   }
+
+  activePort = port;
 
   try {
     await connectDB();
-    log("INFO", `✅ MongoDB connected! Starting backend...`);
-
-    const server = app.listen(PORT, () => {
-      log("INFO", `✅ Server running on http://localhost:${PORT}`);
+    log("INFO", "✅ MongoDB connected! Starting backend...");
+    const server = app.listen(activePort, () => {
+      log("INFO", `✅ Server running at: http://nexcore.nexumed.eu${activePort === 80 ? "" : ":" + activePort}`);
     });
 
     server.on("error", (err) => {
@@ -193,11 +213,13 @@ const startBackend = async () => {
   }
 };
 
+
 app.all("*", (req, res) => {
   console.log("❌ Route Not Found:", req.method, req.url);
   res.status(404).json({ message: `Route ${req.method} ${req.url} not found` });
 });
 
 
-startBackend();
 
+// 🚀 **Try to start on port 80 first, then fallback if necessary**
+startBackend(DEFAULT_PORT);
