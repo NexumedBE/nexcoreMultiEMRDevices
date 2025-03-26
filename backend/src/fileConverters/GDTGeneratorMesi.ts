@@ -1,8 +1,8 @@
 import path from 'path';
-import fs from 'fs';
+// import fs from 'fs';
 import { processedFiles } from '../utils/watcherUtils'; 
-import { GDTFieldMapping } from '../constants/GDTFieldMapping';
-
+import { GDTFieldMappingMESICareconnect } from '../constants/GDTFieldMappingMESICareconnect';
+import fs from "fs/promises";
 /**
  * Converts a JSON object into a GDT-formatted string.
  * @param jsonData The JSON data to convert.
@@ -18,7 +18,7 @@ export function jsonToMesiGDT(jsonData: any): string {
     gdtLines.push('01380006302', '014810000264');
 
  
-    Object.entries(GDTFieldMapping).forEach(([gdtKey, jsonKey]) => {
+    Object.entries(GDTFieldMappingMESICareconnect).forEach(([gdtKey, jsonKey]) => {
         console.log(`[jsonToMesiGDT] Processing GDT key: ${gdtKey}, JSON key: ${jsonKey}`);
 
         let value = getValueFromJson(jsonData, jsonKey);
@@ -105,79 +105,81 @@ export function getValueFromJson(jsonData: any, jsonKey: string): string | undef
  * @param filePath The path of the original file.
  * @param gdtContent The GDT content to save.
  */
-export function saveGDTFile(filePath: string, gdtContent: string) {
-  const outputFolder = 'C:\\MESI services\\MESI mTABLET GDT Integration Service\\Input';
 
-  if (!fs.existsSync(outputFolder)) {
-    fs.mkdirSync(outputFolder);
-    console.log(`Created output folder at: ${outputFolder}`);
-  }
+export async function saveGDTFile(filePath: string, gdtContent: string) {
+    const outputFolder = "C:\\MESI services\\MESI mTABLET GDT Integration Service\\Input";
 
-  const baseName = path.basename(filePath, path.extname(filePath));
-  const gdtFilePath = path.join(outputFolder, `${baseName}.gdt`);
-
-  if (processedFiles.has(gdtFilePath)) {
-    console.warn(`[saveGDTFile] File already saved: ${gdtFilePath}`);
-    return;
-  }
-
-  console.log(`[saveGDTFile] Attempting to save GDT file at: ${gdtFilePath}`);
-
-  try {
-    fs.writeFileSync(gdtFilePath, gdtContent);
-    processedFiles.add(gdtFilePath);
-    console.log(`[saveGDTFile] Successfully saved GDT file: ${gdtFilePath}`);
-    cleanNexumedInFolder();
-  } catch (err) {
-    if (err instanceof Error) {
-      console.error(`[saveGDTFile] Error writing GDT file: ${err.message}`);
-    } else {
-      console.error('[saveGDTFile] Unknown error writing GDT file:', err);
+    try {
+        await fs.access(outputFolder); // Check if folder exists
+    } catch (error: any) {
+        if (error.code === "ENOENT") { // If it doesn’t exist, create it
+            await fs.mkdir(outputFolder, { recursive: true });
+            console.log(`Created output folder at: ${outputFolder}`);
+        } else {
+            console.error(`[saveGDTFile] Error checking folder: ${error.message}`);
+            return;
+        }
     }
-  }
+
+    const baseName = path.basename(filePath, path.extname(filePath));
+    const gdtFilePath = path.join(outputFolder, `${baseName}.gdt`);
+
+    if (processedFiles.has(gdtFilePath)) {
+        console.warn(`[saveGDTFile] File already saved: ${gdtFilePath}`);
+        return;
+    }
+
+    console.log(`[saveGDTFile] Attempting to save GDT file at: ${gdtFilePath}`);
+
+    try {
+        await fs.writeFile(gdtFilePath, gdtContent); 
+        processedFiles.add(gdtFilePath);
+        console.log(`[saveGDTFile] Successfully saved GDT file: ${gdtFilePath}`);
+        await cleanNexumedInFolder(); 
+    } catch (err: any) {
+        console.error(`[saveGDTFile] Error writing GDT file: ${err.message}`);
+    }
 }
 
+
   // Function to clean up the `nexumedIn` folder
-  function cleanNexumedInFolder() {
-    const nexumedInFolder = 'C:\\Nexumed\\nexumedIn';
-  
+
+async function cleanNexumedInFolder() {
+    const nexumedInFolder = "C:\\Nexumed\\nexumedIn";
+
     console.log(`[cleanNexumedInFolder] Cleaning up folder: ${nexumedInFolder}`);
-    fs.readdir(nexumedInFolder, (err, files) => {
-      if (err) {
-        console.error(`[cleanNexumedInFolder] Error reading folder: ${err.message}`);
-        return;
-      }
-  
-      files.forEach((file) => {
-        const filePath = path.join(nexumedInFolder, file);
-        fs.stat(filePath, (statErr, stats) => {
-          if (statErr) {
-            console.error(`[cleanNexumedInFolder] Error accessing ${filePath}: ${statErr.message}`);
+
+    try {
+        const files = await fs.readdir(nexumedInFolder);
+        if (files.length === 0) {
+            console.log("[cleanNexumedInFolder] Folder is already empty. Skipping cleanup.");
             return;
-          }
-  
-          if (stats.isDirectory()) {
-            // Recursively delete the subdirectory
-            fs.rm(filePath, { recursive: true, force: true }, (rmErr) => {
-              if (rmErr) {
-                console.error(`[cleanNexumedInFolder] Error deleting folder ${filePath}: ${rmErr.message}`);
-              } else {
-                console.log(`[cleanNexumedInFolder] Deleted folder: ${filePath}`);
-              }
-            });
-          } else {
-            fs.unlink(filePath, (unlinkErr) => {
-              if (unlinkErr) {
-                console.error(`[cleanNexumedInFolder] Error deleting file ${filePath}: ${unlinkErr.message}`);
-              } else {
-                console.log(`[cleanNexumedInFolder] Deleted file: ${filePath}`);
-              }
-            });
-          }
-        });
-      });
-    });
-  }
+        }
+
+        for (const file of files) {
+            const filePath = path.join(nexumedInFolder, file);
+
+            try {
+                const stats = await fs.stat(filePath);
+
+                if (stats.isDirectory()) {
+                    await fs.rm(filePath, { recursive: true, force: true });
+                    console.log(`[cleanNexumedInFolder] Deleted folder: ${filePath}`);
+                } else {
+                    await fs.unlink(filePath);
+                    console.log(`[cleanNexumedInFolder] Deleted file: ${filePath}`);
+                }
+            } catch (statErr: any) {
+                if (statErr.code !== "ENOENT") { // Ignore "file not found" errors
+                    console.error(`[cleanNexumedInFolder] Error accessing ${filePath}: ${statErr.message}`);
+                }
+            }
+        }
+    } catch (err: any) {
+        console.error(`[cleanNexumedInFolder] Error reading folder: ${err.message}`);
+    }
+}
+
 
   export function parseFHIRtoGDT(fhirData: any): any {
     console.log("[parseFHIRtoGDT] Extracting relevant data from FHIR...");
@@ -195,13 +197,13 @@ export function saveGDTFile(filePath: string, gdtContent: string) {
       const patient = patientEntry.resource;
       gdtData["3101"] = patient.name?.[0]?.family || ""; 
       gdtData["3102"] = patient.name?.[0]?.given?.join(" ") || "";  
-      gdtData["3103"] = patient.birthDate ? patient.birthDate.replace(/-/g, "") : "";  // Birthdate YYYYMMDD
+      gdtData["3103"] = patient.birthDate ? patient.birthDate.replace(/-/g, "") : ""; 
       if (patient.gender?.toLowerCase() === "male") {
-        gdtData["3110"] = "1"; // Assign value 311
+        gdtData["3110"] = "1"; 
     } else if (patient.gender?.toLowerCase() === "female") {
-        gdtData["3110"] = "2"; // Assign value 311
+        gdtData["3110"] = "2"; 
     } else {
-        gdtData["3110"] = ""; // Default fallback
+        gdtData["3110"] = "";
     }
 
   const secondaryIdentifier = patient.identifier?.find((id: any) => id.use === "secondary")?.value;
@@ -235,7 +237,7 @@ export function saveGDTFile(filePath: string, gdtContent: string) {
       const serviceRequest = serviceRequestEntry.resource;
       gdtData["8402"] = serviceRequest.code?.coding?.[0]?.display || ""; 
       gdtData["8410"] = serviceRequest.code?.coding?.[0]?.code || "";
-      gdtData["8432"] = serviceRequest.authoredOn?.replace(/[-T:]/g, "").slice(0, 8) || ""; // Order Date YYYYMMDD
+      gdtData["8432"] = serviceRequest.authoredOn?.replace(/[-T:]/g, "").slice(0, 8) || ""; 
   }
   
     console.log("[parseFHIRtoGDT] Mapped FHIR data:", gdtData);
@@ -249,7 +251,7 @@ export function saveGDTFile(filePath: string, gdtContent: string) {
       }
   
       const gdtLines: string[] = [];
-      gdtLines.push('01380006302', '014810000264'); // GDT header
+      gdtLines.push('01380006302', '014810000264'); 
 
       for (const [gdtKey, value] of Object.entries(gdtData)) {
         let processedValue = value; 
@@ -259,7 +261,7 @@ export function saveGDTFile(filePath: string, gdtContent: string) {
         // }
     
         if (gdtKey === "3103" || gdtKey === "8432") {
-    processedValue = processedValue.replace(/-/g, ""); // Remove hyphens if any
+    processedValue = processedValue.replace(/-/g, ""); 
     if (processedValue.length === 8) {
         processedValue = `${processedValue.slice(6, 8)}${processedValue.slice(4, 6)}${processedValue.slice(0, 4)}`; // Convert YYYYMMDD to DDMMYYYY
     }

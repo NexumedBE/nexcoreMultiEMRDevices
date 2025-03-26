@@ -13,7 +13,7 @@ export const startCareConnectListener = (user: any) => {
   if (devices.some((device) => device.manufacturer === "MESI")) {
     inputFolder = "C:\\Nexumed\\inFromDevice\\kmehr-xml-output"; 
     console.log(`🟢 [CareConnect] Watching KMEHR XML Output folder: ${inputFolder}`);
-  } else if (devices.some((device) => device.manufacturer === "Baxter")) {
+  } else if (devices.some((device) => device.manufacturer === "BAXTER")) {
     inputFolder = "C:\\Nexumed\\baxter";
     console.log(`🟢 [CareConnect] Watching Baxter HL7 folder: ${inputFolder}`);
   } else {

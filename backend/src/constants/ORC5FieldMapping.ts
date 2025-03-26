@@ -1,5 +1,5 @@
 export const ORCFieldMapping: Record<string, string> = {
-  "300000": "Message Header",
+  // "300000": "Message Header",
     "500000": "Common Order",
     "501000": "Order Control",
     "502000": "Placer Order Number",

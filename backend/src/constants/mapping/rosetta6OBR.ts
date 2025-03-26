@@ -1,1424 +1,1605 @@
-export const RosettaOBRFieldMapping: Record<string, { HL7: string; GDT: string; XMLcarecon: string; KMEHR: string }> = {
-    "600000": {
-        HL7: "Observation Request",
+export const RosettaOBRFieldMapping: Record<string, { description:string; HL7: string; GDT: string; XMLcarecon: string; KMEHR: string }> = {
+    "601001": {
+        description: "Set ID - OBR",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
-    },
-    "601000": {
-        HL7: "Set ID - OBR",
-        GDT: "",
-        XMLcarecon: "",
-        KMEHR: ""
-    },
-    "602000": {
-        HL7: "Placer Order Number",
-        GDT: "",
-        XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "602001": {
-        HL7: "Entity Identifier",
+        description: "Placer Order NumberEntity Identifier",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:"602001"  
     },
     "602002": {
-        HL7: "Namespace ID",
+        description: "Namespace ID",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "602003": {
-        HL7: "Universal ID",
+        description: "Universal ID",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:"602003"
     },
     "602004": {
-        HL7: "Universal ID Type",
+        description: "Universal ID Type",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
-    },
-    "603000": {
-        HL7: "Filler Order Number",
-        GDT: "",
-        XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:"602004"
     },
     "603001": {
-        HL7: "Entity Identifier",
+        description: "Filler Order Number Entity Identifier",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:"603001"
     },
     "603002": {
-        HL7: "Namespace ID",
+        description: "Namespace ID",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:"603002"
     },
     "603003": {
-        HL7: "Universal ID",
+        description: "Universal ID",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:"603003"
     },
     "603004": {
-        HL7: "Universal ID Type",
+        description: "Universal ID Type",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
-    },
-    "604000": {
-        HL7: "Universal Service Identifier",
-        GDT: "",
-        XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:"603004"
     },
     "604001": {
-        HL7: "Identifier",
+        description: "Universal Service Identifier Identifier",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:"604002"
     },
     "604002": {
-        HL7: "Text",
+        description: "Text",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:"604002"
     },
     "604003": {
-        HL7: "Name Of Coding System",
+        description: "Name Of Coding System",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:"604003"
     },
     "604004": {
-        HL7: "Alternate Identifier",
+        description: "Alternate Identifier",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:"604004"
     },
     "604005": {
-        HL7: "Alternate Text",
+        description: "Alternate Text",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:"604005"
     },
     "604006": {
-        HL7: "Name Of Alternate Coding System",
+        description: "Name Of Alternate Coding System",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:"604006"
     },
-    "605000": {
-        HL7: "Priority",
+    "605001": {
+        description: "Priority",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
-    },
-    "606000": {
-        HL7: "Requested Date/Time",
-        GDT: "",
-        XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:"605001"
     },
     "606001": {
-        HL7: "Time",
+        description: "Requested Date/Time",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:"606001"
     },
     "606002": {
-        HL7: "Degree Of Precision",
+        description: "Degree Of Precision",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
-    },
-    "607000": {
-        HL7: "Observation Date/Time",
-        GDT: "",
-        XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:"606002"
     },
     "607001": {
-        HL7: "Time",
+        description: "Observation Date/Time",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:"607001"
     },
     "607002": {
-        HL7: "Degree Of Precision",
+        description: "Degree Of Precision",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
-    },
-    "608000": {
-        HL7: "Observation End Date/Time",
-        GDT: "",
-        XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:"607002"
     },
     "608001": {
-        HL7: "Time",
+        description: "Observation End Date/Time",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:"608001"
     },
     "608002": {
-        HL7: "Degree Of Precision",
+        description: "Degree Of Precision",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
-    },
-    "609000": {
-        HL7: "Collection Volume",
-        GDT: "",
-        XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:"608002"
     },
     "609001": {
-        HL7: "Quantity",
+        description: "Collection Volume Quantity",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:"609001"
     },
     "609002": {
-        HL7: "Units",
+        description: "Units",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "610000": {
-        HL7: "Collector Identifier",
+        description: "Collector Identifier",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "610001": {
-        HL7: "ID Number",
+        description: "ID Number",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "610002": {
-        HL7: "Family Name",
+        description: "Family Name",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "610003": {
-        HL7: "Given Name",
+        description: "Given Name",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "610004": {
-        HL7: "Second And Further Given Names Or Initials Thereof",
+        description: "Second And Further Given Names Or Initials Thereof",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "610005": {
-        HL7: "Suffix",
+        description: "Suffix",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "610006": {
-        HL7: "Prefix",
+        description: "Prefix",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "610007": {
-        HL7: "Degree",
+        description: "Degree",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "610008": {
-        HL7: "Source Table",
+        description: "Source Table",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "610009": {
-        HL7: "Assigning Authority",
+        description: "Assigning Authority",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "610010": {
-        HL7: "Name Type Code",
+        description: "Name Type Code",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "610011": {
-        HL7: "Identifier Check Digit",
+        description: "Identifier Check Digit",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "610012": {
-        HL7: "Check Digit Scheme",
+        description: "Check Digit Scheme",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "610013": {
-        HL7: "Identifier Type Code",
+        description: "Identifier Type Code",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "610014": {
-        HL7: "Assigning Facility",
+        description: "Assigning Facility",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "610015": {
-        HL7: "Name Representation Code",
+        description: "Name Representation Code",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "610016": {
-        HL7: "Name Context",
+        description: "Name Context",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "610017": {
-        HL7: "Name Validity Range",
+        description: "Name Validity Range",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "610018": {
-        HL7: "Name Assembly Order",
+        description: "Name Assembly Order",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "610019": {
-        HL7: "Effective Date",
+        description: "Effective Date",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "610020": {
-        HL7: "Expiration Date",
+        description: "Expiration Date",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "610021": {
-        HL7: "Professional Suffix",
+        description: "Professional Suffix",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "610022": {
-        HL7: "Assigning Jurisdiction",
+        description: "Assigning Jurisdiction",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "610023": {
-        HL7: "Assigning Agency Or Department",
+        description: "Assigning Agency Or Department",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "611000": {
-        HL7: "Specimen Action Code",
+        description: "Specimen Action Code",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "612000": {
-        HL7: "Danger Code",
+        description: "Danger Code",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "612001": {
-        HL7: "Identifier",
+        description: "Identifier",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "612002": {
-        HL7: "Text",
+        description: "Text",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "612003": {
-        HL7: "Name Of Coding System",
+        description: "Name Of Coding System",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "612004": {
-        HL7: "Alternate Identifier",
+        description: "Alternate Identifier",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "612005": {
-        HL7: "Alternate Text",
+        description: "Alternate Text",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "612006": {
-        HL7: "Name Of Alternate Coding System",
+        description: "Name Of Alternate Coding System",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "613000": {
-        HL7: "Relevant Clinical Information",
+        description: "Relevant Clinical Information",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "614000": {
-        HL7: "Specimen Received Date/Time",
+        description: "Specimen Received Date/Time",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "614001": {
-        HL7: "Time",
+        description: "Time",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "614002": {
-        HL7: "Degree Of Precision",
+        description: "Degree Of Precision",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "615000": {
-        HL7: "Specimen Source",
+        description: "Specimen Source",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "615001": {
-        HL7: "Specimen Source Name Or Code",
+        description: "Specimen Source Name Or Code",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "615002": {
-        HL7: "Additives",
+        description: "Additives",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "615003": {
-        HL7: "Specimen Collection Method",
+        description: "Specimen Collection Method",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "615004": {
-        HL7: "Body Site",
+        description: "Body Site",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "615005": {
-        HL7: "Site Modifier",
+        description: "Site Modifier",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "615006": {
-        HL7: "Collection Method Modifier Code",
+        description: "Collection Method Modifier Code",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "615007": {
-        HL7: "Specimen Role",
+        description: "Specimen Role",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "616000": {
-        HL7: "Ordering Provider",
+        description: "Ordering Provider",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "616001": {
-        HL7: "ID Number",
+        description: "ID Number",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "616002": {
-        HL7: "Family Name",
+        description: "Family Name",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "616003": {
-        HL7: "Given Name",
+        description: "Given Name",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "616004": {
-        HL7: "Second And Further Given Names Or Initials Thereof",
+        description: "Second And Further Given Names Or Initials Thereof",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "616005": {
-        HL7: "Suffix",
+        description: "Suffix",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "616006": {
-        HL7: "Prefix",
+        description: "Prefix",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "616007": {
-        HL7: "Degree",
+        description: "Degree",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "616008": {
-        HL7: "Source Table",
+        description: "Source Table",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "616009": {
-        HL7: "Assigning Authority",
+        description: "Assigning Authority",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "616010": {
-        HL7: "Name Type Code",
+        description: "Name Type Code",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "616011": {
-        HL7: "Identifier Check Digit",
+        description: "Identifier Check Digit",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "616012": {
-        HL7: "Check Digit Scheme",
+        description: "Check Digit Scheme",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "616013": {
-        HL7: "Identifier Type Code",
+        description: "Identifier Type Code",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "616014": {
-        HL7: "Assigning Facility",
+        description: "Assigning Facility",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "616015": {
-        HL7: "Name Representation Code",
+        description: "Name Representation Code",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "616016": {
-        HL7: "Name Context",
+        description: "Name Context",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "616017": {
-        HL7: "Name Validity Range",
+        description: "Name Validity Range",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "616018": {
-        HL7: "Name Assembly Order",
+        description: "Name Assembly Order",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "616019": {
-        HL7: "Effective Date",
+        description: "Effective Date",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "616020": {
-        HL7: "Expiration Date",
+        description: "Expiration Date",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "616021": {
-        HL7: "Professional Suffix",
+        description: "Professional Suffix",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "616022": {
-        HL7: "Assigning Jurisdiction",
+        description: "Assigning Jurisdiction",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "616023": {
-        HL7: "Assigning Agency Or Department",
+        description: "Assigning Agency Or Department",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "617000": {
-        HL7: "Order Callback Phone Number",
+        description: "Order Callback Phone Number",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "617001": {
-        HL7: "Telephone Number",
+        description: "Telephone Number",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "617002": {
-        HL7: "Telecommunication Use Code",
+        description: "Telecommunication Use Code",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "617003": {
-        HL7: "Telecommunication Equipment Type",
+        description: "Telecommunication Equipment Type",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "617004": {
-        HL7: "Email Address",
+        description: "Email Address",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "617005": {
-        HL7: "Country Code",
+        description: "Country Code",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "617006": {
-        HL7: "Area/City Code",
+        description: "Area/City Code",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "617007": {
-        HL7: "Local Number",
+        description: "Local Number",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "617008": {
-        HL7: "Extension",
+        description: "Extension",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "617009": {
-        HL7: "Any Text",
+        description: "Any Text",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "617010": {
-        HL7: "Extension Prefix",
+        description: "Extension Prefix",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "617011": {
-        HL7: "Speed Dial Code",
+        description: "Speed Dial Code",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "617012": {
-        HL7: "Unformatted Telephone Number",
+        description: "Unformatted Telephone Number",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "618000": {
-        HL7: "Placer Field 1",
+        description: "Placer Field 1",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "619000": {
-        HL7: "Placer Field 2",
+        description: "Placer Field 2",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "620000": {
-        HL7: "Filler Field 1",
+        description: "Filler Field 1",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "621000": {
-        HL7: "Filler Field 2",
+        description: "Filler Field 2",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "622000": {
-        HL7: "Results Rpt/Status Chng - Date/Time",
+        description: "Results Rpt/Status Chng - Date/Time",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "622001": {
-        HL7: "Time",
+        description: "Time",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "622002": {
-        HL7: "Degree Of Precision",
+        description: "Degree Of Precision",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "623000": {
-        HL7: "Charge to Practice",
+        description: "Charge to Practice",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "623001": {
-        HL7: "Monetary Amount",
+        description: "Monetary Amount",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "623002": {
-        HL7: "Charge Code",
+        description: "Charge Code",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "624000": {
-        HL7: "Diagnostic Serv Sect ID",
+        description: "Diagnostic Serv Sect ID",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "625000": {
-        HL7: "Result Status",
+        description: "Result Status",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "626000": {
-        HL7: "Parent Result",
+        description: "Parent Result",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "626001": {
-        HL7: "Parent Observation Identifier",
+        description: "Parent Observation Identifier",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "626002": {
-        HL7: "Parent Observation Sub-identifier",
+        description: "Parent Observation Sub-identifier",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "626003": {
-        HL7: "Parent Observation Value Descriptor",
+        description: "Parent Observation Value Descriptor",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "627000": {
-        HL7: "Quantity/Timing",
+        description: "Quantity/Timing",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "627001": {
-        HL7: "Quantity",
+        description: "Quantity",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "627002": {
-        HL7: "Interval",
+        description: "Interval",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "627003": {
-        HL7: "Duration",
+        description: "Duration",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "627004": {
-        HL7: "Start Date/Time",
+        description: "Start Date/Time",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "627005": {
-        HL7: "End Date/Time",
+        description: "End Date/Time",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "627006": {
-        HL7: "Priority",
+        description: "Priority",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "627007": {
-        HL7: "Condition",
+        description: "Condition",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "627008": {
-        HL7: "Text",
+        description: "Text",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "627009": {
-        HL7: "Conjunction",
+        description: "Conjunction",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "627010": {
-        HL7: "Order Sequencing",
+        description: "Order Sequencing",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "627011": {
-        HL7: "Occurrence Duration",
+        description: "Occurrence Duration",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "627012": {
-        HL7: "Total Occurrences",
+        description: "Total Occurrences",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "628000": {
-        HL7: "Result Copies To",
+        description: "Result Copies To",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "628001": {
-        HL7: "ID Number",
+        description: "ID Number",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "628002": {
-        HL7: "Family Name",
+        description: "Family Name",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "628003": {
-        HL7: "Given Name",
+        description: "Given Name",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "628004": {
-        HL7: "Second And Further Given Names Or Initials Thereof",
+        description: "Second And Further Given Names Or Initials Thereof",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "628005": {
-        HL7: "Suffix",
+        description: "Suffix",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "628006": {
-        HL7: "Prefix",
+        description: "Prefix",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "628007": {
-        HL7: "Degree",
+        description: "Degree",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "628008": {
-        HL7: "Source Table",
+        description: "Source Table",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "628009": {
-        HL7: "Assigning Authority",
+        description: "Assigning Authority",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "628010": {
-        HL7: "Name Type Code",
+        description: "Name Type Code",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "628011": {
-        HL7: "Identifier Check Digit",
+        description: "Identifier Check Digit",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "628012": {
-        HL7: "Check Digit Scheme",
+        description: "Check Digit Scheme",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "628013": {
-        HL7: "Identifier Type Code",
+        description: "Identifier Type Code",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "628014": {
-        HL7: "Assigning Facility",
+        description: "Assigning Facility",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "628015": {
-        HL7: "Name Representation Code",
+        description: "Name Representation Code",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "628016": {
-        HL7: "Name Context",
+        description: "Name Context",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "628017": {
-        HL7: "Name Validity Range",
+        description: "Name Validity Range",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "628018": {
-        HL7: "Name Assembly Order",
+        description: "Name Assembly Order",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "628019": {
-        HL7: "Effective Date",
+        description: "Effective Date",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "628020": {
-        HL7: "Expiration Date",
+        description: "Expiration Date",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "628021": {
-        HL7: "Professional Suffix",
+        description: "Professional Suffix",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "628022": {
-        HL7: "Assigning Jurisdiction",
+        description: "Assigning Jurisdiction",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "628023": {
-        HL7: "Assigning Agency Or Department",
+        description: "Assigning Agency Or Department",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "629000": {
-        HL7: "Parent",
+        description: "Parent",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "629001": {
-        HL7: "Placer Assigned Identifier",
+        description: "Placer Assigned Identifier",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "629002": {
-        HL7: "Filler Assigned Identifier",
+        description: "Filler Assigned Identifier",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "630000": {
-        HL7: "Transportation Mode",
+        description: "Transportation Mode",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "631000": {
-        HL7: "Identifier",
+        description: "Identifier",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "631001": {
-        HL7: "Identifier",
+        description: "Identifier",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "631002": {
-        HL7: "Text",
+        description: "Text",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "631003": {
-        HL7: "Name Of Coding System",
+        description: "Name Of Coding System",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "631004": {
-        HL7: "Alternate Identifier",
+        description: "Alternate Identifier",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "631005": {
-        HL7: "Alternate Text",
+        description: "Alternate Text",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "631006": {
-        HL7: "Name Of Alternate Coding System",
+        description: "Name Of Alternate Coding System",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "632000": {
-        HL7: "Principal Result Interpreter",
+        description: "Principal Result Interpreter",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "632001": {
-        HL7: "Name",
+        description: "Name",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "632002": {
-        HL7: "Start Date/Time",
+        description: "Start Date/Time",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "632003": {
-        HL7: "End Date/Time",
+        description: "End Date/Time",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "632004": {
-        HL7: "Point Of Care",
+        description: "Point Of Care",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "632005": {
-        HL7: "Room",
+        description: "Room",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "632006": {
-        HL7: "Bed",
+        description: "Bed",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "632007": {
-        HL7: "Facility",
+        description: "Facility",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "632008": {
-        HL7: "Location Status",
+        description: "Location Status",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "632009": {
-        HL7: "Patient Location Type",
+        description: "Patient Location Type",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "632010": {
-        HL7: "Building",
+        description: "Building",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "632011": {
-        HL7: "Floor",
+        description: "Floor",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "633000": {
-        HL7: "Assistant Result Interpreter",
+        description: "Assistant Result Interpreter",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "633001": {
-        HL7: "Name",
+        description: "Name",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "633002": {
-        HL7: "Start Date/Time",
+        description: "Start Date/Time",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "633003": {
-        HL7: "End Date/Time",
+        description: "End Date/Time",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "633004": {
-        HL7: "Point Of Care",
+        description: "Point Of Care",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "633005": {
-        HL7: "Room",
+        description: "Room",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "633006": {
-        HL7: "Bed",
+        description: "Bed",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "633007": {
-        HL7: "Facility",
+        description: "Facility",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "633008": {
-        HL7: "Location Status",
+        description: "Location Status",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "633009": {
-        HL7: "Patient Location Type",
+        description: "Patient Location Type",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "633010": {
-        HL7: "Building",
+        description: "Building",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "633011": {
-        HL7: "Floor",
+        description: "Floor",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "634000": {
-        HL7: "Technician",
+        description: "Technician",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "634001": {
-        HL7: "Name",
+        description: "Name",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "634002": {
-        HL7: "Start Date/Time",
+        description: "Start Date/Time",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "634003": {
-        HL7: "End Date/Time",
+        description: "End Date/Time",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "634004": {
-        HL7: "Point Of Care",
+        description: "Point Of Care",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "634005": {
-        HL7: "Room",
+        description: "Room",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "634006": {
-        HL7: "Bed",
+        description: "Bed",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "634007": {
-        HL7: "Facility",
+        description: "Facility",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "634008": {
-        HL7: "Location Status",
+        description: "Location Status",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "634009": {
-        HL7: "Patient Location Type",
+        description: "Patient Location Type",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "634010": {
-        HL7: "Building",
+        description: "Building",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "634011": {
-        HL7: "Floor",
+        description: "Floor",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "635000": {
-        HL7: "Transcriptionist",
+        description: "Transcriptionist",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "636000": {
-        HL7: "Scheduled Date/Time",
+        description: "Scheduled Date/Time",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "637000": {
-        HL7: "Number of Sample Containers",
+        description: "Number of Sample Containers",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "638000": {
-        HL7: "Transport Logistics of Collected Sample",
+        description: "Transport Logistics of Collected Sample",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "639000": {
-        HL7: "Collector's Comment",
+        description: "Collector's Comment",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "640000": {
-        HL7: "Transport Arrangement Responsibility",
+        description: "Transport Arrangement Responsibility",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "641000": {
-        HL7: "Transport Arranged",
+        description: "Transport Arranged",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "642000": {
-        HL7: "Escort Required",
+        description: "Escort Required",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "643000": {
-        HL7: "Planned Patient Transport Comment",
+        description: "Planned Patient Transport Comment",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "644000": {
-        HL7: "Procedure Code",
+        description: "Procedure Code",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "644001": {
-        HL7: "Identifier",
+        description: "Identifier",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "644002": {
-        HL7: "Text",
+        description: "Text",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "644003": {
-        HL7: "Name of Coding System",
+        description: "Name of Coding System",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "645000": {
-        HL7: "Procedure Code Modifier",
+        description: "Procedure Code Modifier",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "646000": {
-        HL7: "Placer Supplemental Service Information",
+        description: "Placer Supplemental Service Information",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "647000": {
-        HL7: "Filler Supplemental Service Information",
+        description: "Filler Supplemental Service Information",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "648000": {
-        HL7: "Medically Necessary Duplicate Procedure Reason",
+        description: "Medically Necessary Duplicate Procedure Reason",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "649000": {
-        HL7: "Result Handling",
+        description: "Result Handling",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "650000": {
-        HL7: "Parent Universal Service Identifier",
+        description: "Parent Universal Service Identifier",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "651000": {
-        HL7: "Observation Group ID",
+        description: "Observation Group ID",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "652000": {
-        HL7: "Parent Observation Group ID",
+        description: "Parent Observation Group ID",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "653000": {
-        HL7: "Alternate Placer Order Number",
+        description: "Alternate Placer Order Number",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "654000": {
-        HL7: "Alternate Filler Order Number",
+        description: "Alternate Filler Order Number",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     },
     "655000": {
-        HL7: "Order Workflow Profile",
+        description: "Order Workflow Profile",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: ""
+        KMEHR: "",
+        HL7:""
     }
 }

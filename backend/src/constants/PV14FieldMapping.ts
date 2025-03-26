@@ -1,9 +1,7 @@
 export const PV1FieldMapping: Record<string, string> = {
-    "400000": "Patient Visit",
-    "401000": "Set ID - PV1",
-    "402000": "Patient Class",
-    "403000": "Assigned Patient Location",
-    "403001": "Point of Care",
+    "401001": "Set ID - PV1",
+    "402001": "Patient Class",
+    "403001": "Assigned Patient Location Point of Care",
     "403002": "Room",
     "403003": "Bed",
     "403004": "Facility",

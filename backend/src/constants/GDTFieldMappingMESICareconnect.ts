@@ -1,5 +1,5 @@
-export const GDTFieldMapping: { [key: string]: string } = {
-    '0102': 'Message.Sender.Name.FirstName', // Example for Sender's FirstName
+export const GDTFieldMappingMESICareconnect: { [key: string]: string } = {
+    '0102': 'Message.Sender.Name.LastName', // Example for Sender's FirstName
     '0103': 'softwareName',
     '0132': 'softwareReleaseState',
     '3000': 'patientNumberOrLabel',
@@ -34,7 +34,7 @@ export const GDTFieldMapping: { [key: string]: string } = {
     '8000': 'sentenceId',
     '8100': 'sentenceLength',
     '8315': 'gdtReceiver',
-    '8316': 'gdtSender',
+    '8316': 'Message.Sender.Name.LastName',
     '8402': 'deviceAndMethodSpecificField',
     '8410': 'testId',
     '8411': 'testName',

@@ -27,7 +27,7 @@ export const startWatchers = (user: {
   if (devices.some(device => device.manufacturer === "MESI")) {
     startMESIListener(emr); // ✅ Pass EMR name
   }
-  if (devices.some(device => device.manufacturer === "Baxter")) {
+  if (devices.some(device => device.manufacturer === "BAXTER")) {
     startBaxterListener(emr);
   }
 

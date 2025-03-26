@@ -1,4 +1,39 @@
 export const RosettaPIDFieldMapping: Record<string, { description:string; HL7: string; GDT: string; XMLcarecon: string; KMEHR: string }> = {
+    // "200000": {
+    //     description: "Patient Identification",
+    //     GDT: "",
+    //     XMLcarecon: "",
+    //     KMEHR: "",
+    //     HL7: "200000"
+    // },
+    "201001": {
+        description: "Set ID - PID",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+        HL7: "201001"
+    },
+    "202001": {
+        description: "Patient ID",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+        HL7: "202001"
+    },
+    "203001": {
+        description: "Patient Identification",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+        HL7: "203001"
+    },
+    "204001": {
+        description: "Alternate Patient ID - PID",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+        HL7: "204001"
+    },
     "205001": {
         description: "Family Name",
         GDT: "3101",
@@ -13,19 +48,165 @@ export const RosettaPIDFieldMapping: Record<string, { description:string; HL7: s
         KMEHR: "/kmehrmessage/folder/patient/firstname",
         HL7: "205002"
     },
-    "207000": {
+    "206001": {
+        description: "Mother's Maiden Name Family Name",
+        GDT: "3103",
+        XMLcarecon: "/Message/Document/Patient/DateOfBirth",
+        KMEHR: "/kmehrmessage/folder/patient/birthdate/date",
+        HL7: "206001"
+    },
+    "207001": {
         description: "Date/Time of Birth",
         GDT: "3103",
         XMLcarecon: "/Message/Document/Patient/DateOfBirth",
         KMEHR: "/kmehrmessage/folder/patient/birthdate/date",
-        HL7: "207000"
+        HL7: "207001"
     },
-    "208000":{
+    "208001":{
         description: "Administrative Sex",
         GDT: " 3110",
         XMLcarecon: "",
         KMEHR: "/kmehrmessage/folder/patient/sex/cd",
-        HL7: "208000"
+        HL7: "208001"
+    },
+    "209001":{
+        description: "Patient Alias Family name",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+        HL7: "209001"
+    },
+    "210001":{
+        description: "Race Identifier",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "/",
+        HL7: "210001"
+    },
+    "210002":{
+        description: "Text",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+        HL7: "210002"
+    },
+    "210003":{
+        description: "Name Of Coding System",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+        HL7: "210003"
+    },
+    "211001":{
+        description: "Patient Address Street Address",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "/",
+        HL7: "211001"
+    },
+    "211002":{
+        description: "Other Designation",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+        HL7: "211002"
+    },
+    "211003":{
+        description: "City",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+        HL7: "211003"
+    },
+    "211004":{
+        description: "State Or Province",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "/",
+        HL7: "211004"
+    },
+    "211005":{
+        description: "Zip Or Postal Code",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+        HL7: "211005"
+    },
+    "211006":{
+        description: "Country",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+        HL7: "211006"
+    },
+    "211007":{
+        description: "Address Type",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+        HL7: "211007"
+    },
+    "212001":{
+        description: "County Code",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+        HL7: "211007"
+    },
+    "213001":{
+        description: "Phone Number - Home",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+        HL7: "211007"
+    },
+    "214001":{
+        description: "Phone Number - Business",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+        HL7: "214001"
+    },"215001":{
+        description: "Primary Language Identifier",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+        HL7: "211007"
+    },
+    "215002":{
+        description: "Text",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+        HL7: "210002"
+    },
+    "215003":{
+        description: "Name Of Coding System",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+        HL7: "210003"
+    },
+    "216001":{
+        description: "Marital Status Identifier",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+        HL7: "211007"
+    },
+    "217001":{
+        description: "Address Type",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+        HL7: "211007"
+    },
+    "218001":{
+        description: "Address Type",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+        HL7: "211007"
     },
     "219001":{
         description: "SSN Number - Patient",

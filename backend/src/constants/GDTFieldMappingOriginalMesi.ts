@@ -1,4 +1,4 @@
-export const GDTFieldMapping: { [key: string]: string } = {
+export const GDTFieldMappingMESI: { [key: string]: string } = {
     '0102': 'softwareEntityResponsible',
     '0103': 'softwareName',
     '0132': 'softwareReleaseState',

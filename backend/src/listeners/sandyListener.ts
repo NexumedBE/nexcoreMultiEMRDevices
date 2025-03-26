@@ -12,7 +12,7 @@ export const startSandyListener = (user: any) => {
   if (devices.some((device) => device.manufacturer === "MESI")) {
     inputFolder = "C:\\MESI services\\MESI mTABLET GDT Integration Service\\Output";
     console.log(`🟢 [Sanday] Watching MESI Output folder: ${inputFolder}`);
-  } else if (devices.some((device) => device.manufacturer === "Baxter")) {
+  } else if (devices.some((device) => device.manufacturer === "BAXTER")) {
     inputFolder = "C:\\Nexumed\\baxter"; 
     console.log(`🟢 [Sanday] Watching Baxter HL7 folder: ${inputFolder}`);
   } else {

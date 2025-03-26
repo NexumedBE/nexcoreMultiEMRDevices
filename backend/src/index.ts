@@ -23,11 +23,15 @@ import "./utils/subscriptionChecker";
 dotenv.config({ path: path.resolve(__dirname, process.env.NODE_ENV === "production" ? "../.env" : ".env") });
 
 const app = express();
-const DEFAULT_PORT = 80;
-const FALLBACK_PORT = 2756;
-let activePort = DEFAULT_PORT;
-// const MAX_RETRIES = 3;
-// let retryCount = 0;
+
+app.use(cors({
+  origin: 'http://localhost:5173',
+  credentials: true,
+}));
+
+app.use(express.json());
+
+const PORT = 2756;
 
 // 📝 Logging setup
 const logFile = path.join(__dirname, "backend.log");
@@ -179,28 +183,20 @@ process.on("unhandledRejection", (reason) => {
 });
 
 // 🚀 Start Backend
-const startBackend = async (port: number) => {
-  const isPortInUse = await checkIfPortIsInUse(port);
+// 🚀 Start Backend
+const startBackend = async () => {
+  const isPortInUse = await checkIfPortIsInUse(PORT);
 
   if (isPortInUse) {
-    log("WARN", `⚠️ Port ${port} is already in use.`);
-
-    if (port === DEFAULT_PORT) {
-      log("INFO", `🔄 Trying fallback port ${FALLBACK_PORT}...`);
-      return startBackend(FALLBACK_PORT);
-    }
-
-    log("ERROR", `❌ Both ports are unavailable. Backend cannot start.`);
+    log("ERROR", `❌ Port ${PORT} is already in use. Backend cannot start.`);
     process.exit(1);
   }
-
-  activePort = port;
 
   try {
     await connectDB();
     log("INFO", "✅ MongoDB connected! Starting backend...");
-    const server = app.listen(activePort, () => {
-      log("INFO", `✅ Server running at: http://nexcore.nexumed.eu${activePort === 80 ? "" : ":" + activePort}`);
+    const server = app.listen(PORT, () => {
+      log("INFO", `✅ Server running at: http://nexcore.nexumed.eu:${PORT}`);
     });
 
     server.on("error", (err) => {
@@ -220,6 +216,5 @@ app.all("*", (req, res) => {
 });
 
 
+startBackend();
 
-// 🚀 **Try to start on port 80 first, then fallback if necessary**
-startBackend(DEFAULT_PORT);

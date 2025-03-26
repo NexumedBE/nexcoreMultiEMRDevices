@@ -1,507 +1,591 @@
-export const RosettaMSHFieldMapping: Record<string, { HL7: string; GDT: string; XMLcarecon: string; KMEHR: string }> = {
+export const RosettaMSHFieldMapping: Record<string, { decription: string; HL7: string; GDT: string; XMLcarecon: string; KMEHR: string }> = {
     "300000": { 
-        HL7: "Message Header", 
+        decription: "Message Header", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:""
     },
-    "301000": { 
-        HL7: "Field Separator", 
+    "301001": { 
+        decription: "Field Separator", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:""
     },
-    "302000": { 
-        HL7: "Encoding Characters", 
+    "302001": { 
+        decription: "Encoding Characters", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"302001" 
     },
-    "303000": { 
-        HL7: "Sending Application", 
-        GDT: "", 
-        XMLcarecon: "", 
-        KMEHR: "" 
-    },
+    // "303000": { 
+    //     decription: "Sending Application", 
+    //     GDT: "", 
+    //     XMLcarecon: "", 
+    //     KMEHR: "",
+    //     HL7:"" 
+    // },
     "303001": { 
-        HL7: "Namespace ID", 
+        decription: "Sending Application Namespace ID", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"03001" 
     },
     "303002": { 
-        HL7: "Universal ID", 
+        decription: "Universal ID", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"03002" 
     },
     "303003": { 
-        HL7: "Universal ID Type", 
+        decription: "Universal ID Type", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"03003" 
     },
-    "304000": { 
-        HL7: "Sending Facility", 
-        GDT: "", 
-        XMLcarecon: "", 
-        KMEHR: "" 
-    },
+    // "304000": { 
+    //     decription: "Sending Facility", 
+    //     GDT: "", 
+    //     XMLcarecon: "", 
+    //     KMEHR: "",
+    //     HL7:"" 
+    // },
     "304001": { 
-        HL7: "Namespace ID", 
+        decription: "Sending Facility Namespace ID", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"304001" 
     },
     "304002": { 
-        HL7: "Universal ID", 
+        decription: "Universal ID", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"304002" 
     },
     "304003": { 
-        HL7: "Universal ID Type", 
+        decription: "Universal ID Type", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"304003" 
     },    
-    "305000": { 
-        HL7: "Receiving Application", 
-        GDT: "", 
-        XMLcarecon: "", 
-        KMEHR: "" 
-    },
+    // "305000": { 
+    //     decription: "Receiving Application", 
+    //     GDT: "", 
+    //     XMLcarecon: "", 
+    //     KMEHR: "",
+    //     HL7:"" 
+    // },
     "305001": { 
-        HL7: "Namespace ID", 
+        decription: "Receiving Application Namespace ID", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"305001" 
     },
     "305002": { 
-        HL7: "Universal ID", 
+        decription: "Universal ID", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"305002" 
     },
     "305003": { 
-        HL7: "Universal ID Type", 
+        decription: "Universal ID Type", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"305003" 
     },
-    "306000": { 
-        HL7: "Receiving Facility", 
-        GDT: "", 
-        XMLcarecon: "", 
-        KMEHR: "" 
-    },
+    // "306000": { 
+    //     decription: "Receiving Facility", 
+    //     GDT: "", 
+    //     XMLcarecon: "", 
+    //     KMEHR: "",
+    //     HL7:"" 
+    // },
     "306001": { 
-        HL7: "Namespace ID", 
+        decription: "Receiving Facility Namespace ID", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"306001" 
     },
     "306002": { 
-        HL7: "Universal ID", 
+        decription: "Universal ID", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"306002" 
     },
     "306003": { 
-        HL7: "Universal ID Type", 
+        decription: "Universal ID Type", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"306003" 
     },
-    "307000": { 
-        HL7: "Date/Time of Message", 
-        GDT: "", 
-        XMLcarecon: "", 
-        KMEHR: "" 
-    },
+    // "307000": { 
+    //     decription: "Date/Time of Message", 
+    //     GDT: "", 
+    //     XMLcarecon: "", 
+    //     KMEHR: "",
+    //     HL7:"" 
+    // },
     "307001": { 
-        HL7: "Time", 
+        decription: "Date/Time of Message Time", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"307001" 
     },
     "307002": { 
-        HL7: "Degree Of Precision", 
+        decription: "Degree Of Precision", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"307002" 
     },
-    "308000": { 
-        HL7: "Security", 
+    "308001": { 
+        decription: "Security", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"308001" 
     },
-    "309000": { 
-        HL7: "Message Type", 
-        GDT: "", 
-        XMLcarecon: "", 
-        KMEHR: "" 
-    },
+    // "309000": { 
+    //     decription: "Message Type", 
+    //     GDT: "", 
+    //     XMLcarecon: "", 
+    //     KMEHR: "",
+    //     HL7:"" 
+    // },
     "309001": { 
-        HL7: "Message Code", 
+        decription: "Security Message Type Message Code", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"309001" 
     },
     "309002": { 
-        HL7: "Trigger Event", 
+        decription: "Trigger Event", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"309002" 
     },
     "309003": { 
-        HL7: "Message Structure", 
+        decription: "Message Structure", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"309003" 
     },
-    "310000": { 
-        HL7: "Message Control ID", 
+    "310001": { 
+        decription: "Message Control ID", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"310001" 
     },
-    "311000": { 
-        HL7: "Processing ID", 
-        GDT: "", 
-        XMLcarecon: "", 
-        KMEHR: "" 
-    },
+    // "311001": { 
+    //     decription: "Processing ID", 
+    //     GDT: "", 
+    //     XMLcarecon: "", 
+    //     KMEHR: "",
+    //     HL7:"311001" 
+    // },
     "311001": { 
-        HL7: "Processing ID", 
+        decription: "Processing ID", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"311001" 
     },
     "311002": { 
-        HL7: "Processing Mode", 
+        decription: "Processing Mode", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"311002" 
     },
-    "312000": { 
-        HL7: "Version ID", 
-        GDT: "", 
-        XMLcarecon: "", 
-        KMEHR: "" 
-    },
+    // "312000": { 
+    //     decription: "Version ID", 
+    //     GDT: "", 
+    //     XMLcarecon: "", 
+    //     KMEHR: "",
+    //     HL7:"" 
+    // },
     "312001": { 
-        HL7: "Version ID", 
+        decription: "Version ID", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"312001" 
     },
     "312002": { 
-        HL7: "Internationalization Code", 
+        decription: "Internationalization Code", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "312003": { 
-        HL7: "International Version ID", 
+        decription: "International Version ID", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "313000": { 
-        HL7: "Sequence Number", 
+        decription: "Sequence Number", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "314000": { 
-        HL7: "Continuation Pointer", 
+        decription: "Continuation Pointer", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "315000": { 
-        HL7: "Accept Acknowledgment Type", 
+        decription: "Accept Acknowledgment Type", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "316000": { 
-        HL7: "Application Acknowledgment Type", 
+        decription: "Application Acknowledgment Type", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "317000": { 
-        HL7: "Country Code", 
+        decription: "Country Code", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "318000": { 
-        HL7: "Character Set", 
+        decription: "Character Set", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "319000": { 
-        HL7: "Principal Language of Message", 
+        decription: "Principal Language of Message", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "319001": { 
-        HL7: "Identifier", 
+        decription: "Identifier", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },    
     "319002": { 
-        HL7: "Text", 
+        decription: "Text", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "319003": { 
-        HL7: "Name Of Coding System", 
+        decription: "Name Of Coding System", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "319004": { 
-        HL7: "Alternate Identifier", 
+        decription: "Alternate Identifier", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "319005": { 
-        HL7: "Alternate Text", 
+        decription: "Alternate Text", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "319006": { 
-        HL7: "Name Of Alternate Coding System", 
+        decription: "Name Of Alternate Coding System", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "320000": { 
-        HL7: "Alternate Character Set Handling Scheme", 
+        decription: "Alternate Character Set Handling Scheme", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "321000": { 
-        HL7: "Message Profile Identifier", 
+        decription: "Message Profile Identifier", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "321001": { 
-        HL7: "Entity Identifier", 
+        decription: "Entity Identifier", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "321002": { 
-        HL7: "Namespace ID", 
+        decription: "Namespace ID", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "321003": { 
-        HL7: "Universal ID", 
+        decription: "Universal ID", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "321004": { 
-        HL7: "Universal ID Type", 
+        decription: "Universal ID Type", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "322000": { 
-        HL7: "Sending Responsible Organization", 
+        decription: "Sending Responsible Organization", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "322001": { 
-        HL7: "Organization Name", 
+        decription: "Organization Name", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "322002": { 
-        HL7: "Organization Name Type Code", 
+        decription: "Organization Name Type Code", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "322003": { 
-        HL7: "ID Number", 
+        decription: "ID Number", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "322004": { 
-        HL7: "Identifier Check Digit", 
+        decription: "Identifier Check Digit", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "322005": { 
-        HL7: "Check Digit Scheme", 
+        decription: "Check Digit Scheme", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "322006": { 
-        HL7: "Assigning Authority", 
+        decription: "Assigning Authority", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "322007": { 
-        HL7: "Identifier Type Code", 
+        decription: "Identifier Type Code", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "322008": { 
-        HL7: "Assigning Facility", 
+        decription: "Assigning Facility", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "322009": { 
-        HL7: "Name Representation Code", 
+        decription: "Name Representation Code", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "322010": { 
-        HL7: "Organization Identifier", 
+        decription: "Organization Identifier", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "323000": { 
-        HL7: "Receiving Responsible Organization", 
+        decription: "Receiving Responsible Organization", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "323001": { 
-        HL7: "Organization Name", 
+        decription: "Organization Name", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:""  
     },
     "323002": { 
-        HL7: "Organization Name Type Code", 
+        decription: "Organization Name Type Code", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "323003": { 
-        HL7: "ID Number", 
+        decription: "ID Number", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "323004": { 
-        HL7: "Identifier Check Digit", 
+        decription: "Identifier Check Digit", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "323005": { 
-        HL7: "Check Digit Scheme", 
+        decription: "Check Digit Scheme", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "323006": { 
-        HL7: "Assigning Authority", 
+        decription: "Assigning Authority", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "323007": { 
-        HL7: "Identifier Type Code", 
+        decription: "Identifier Type Code", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "323008": { 
-        HL7: "Assigning Facility", 
+        decription: "Assigning Facility", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "323009": { 
-        HL7: "Name Representation Code", 
+        decription: "Name Representation Code", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "323010": { 
-        HL7: "Organization Identifier", 
+        decription: "Organization Identifier", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "324000": { 
-        HL7: "Sending Network Address", 
+        decription: "Sending Network Address", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "324001": { 
-        HL7: "Namespace ID", 
+        decription: "Namespace ID", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "324002": { 
-        HL7: "Universal ID", 
+        decription: "Universal ID", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "324003": { 
-        HL7: "Universal ID Type", 
+        decription: "Universal ID Type", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "325000": { 
-        HL7: "Receiving Network Address", 
+        decription: "Receiving Network Address", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "325001": { 
-        HL7: "Namespace ID", 
+        decription: "Namespace ID", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "325002": { 
-        HL7: "Universal ID", 
+        decription: "Universal ID", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     },
     "325003": { 
-        HL7: "Universal ID Type", 
+        decription: "Universal ID Type", 
         GDT: "", 
         XMLcarecon: "", 
-        KMEHR: "" 
+        KMEHR: "",
+        HL7:"" 
     }
 };
 

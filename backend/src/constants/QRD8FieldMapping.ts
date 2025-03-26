@@ -1,0 +1,15 @@
+export const QRDFieldMapping: Record<string, string> = {
+    "801001": "Query Date/Time",
+    "802001":"Query Format Code",
+    "803001": "Query Priority",
+    "804001": "Query ID",
+    "805001": "Deferred Response Type",
+    "806001": "Deferred Response Date/Time",
+    "807001": "Quantity Limited Request",
+    "807002": "Units",
+    "808001": "Who Subject Filter",
+    "809001": "What Subject Filter",
+    "810001": "What Department Data Code",
+    "811001": "What Data Code Value Qual",
+    "812001": "Query Results Level",
+  }
