@@ -15,8 +15,8 @@ const BetaTestAgreement: React.FC<BetaTestAgreementProps> = ({ userEmail, onAcce
   todayPlus30.setDate(todayPlus30.getDate() + 30);
   const today30 = todayPlus30.toLocaleDateString("en-GB");
 
-  // const API_BASE_URL = "http://nexcore.nexumed.eu:2756";
-  const API_BASE_URL = "http://localhost:2756";
+  const API_BASE_URL = "http://nexcore.nexumed.eu:2756";
+  // const API_BASE_URL = "http://localhost:2756";
 
   const handleAccept = async () => {
     console.log('userEmail', userEmail);

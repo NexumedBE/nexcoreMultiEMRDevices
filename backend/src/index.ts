@@ -24,12 +24,12 @@ dotenv.config({ path: path.resolve(__dirname, process.env.NODE_ENV === "producti
 
 const app = express();
 
-app.use(cors({
-  origin: 'http://localhost:5173',
-  credentials: true,
-}));
+// app.use(cors({
+//   origin: 'http://localhost:5173',
+//   credentials: true,
+// }));
 
-app.use(express.json());
+// app.use(express.json());
 
 const PORT = 2756;
 
