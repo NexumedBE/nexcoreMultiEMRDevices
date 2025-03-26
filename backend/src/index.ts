@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import dotenv from "dotenv";
 import path from "path";
 import cors from "cors";
@@ -9,29 +9,20 @@ import connectDB from "./config/db";
 import helmet from "helmet";
 import authRoutes from "./routes/auth/authRoutes";
 import acceptLicRoutes from "./routes/users/acceptLic";
-import fileRoutes from "./routes/fileRoutes"; // Contains /receive-file endpoint
+import fileRoutes from "./routes/fileRoutes";
 import checkListenersRoute from "./routes/checkListeners";
 import { stopWatchers as stopAllWatchers } from "./utils/watcherManager";
 import checkUserSubscriptions from "./utils/subscriptionChecker"
 import fs from "fs";
+import https from "https";
 import { exec } from "child_process";
 import "./utils/subscriptionChecker";
-// import { startBaxterListener } from "./listeners/baxterListener";
-// import versionRoutes from "./routes/version";
-
 
 dotenv.config({ path: path.resolve(__dirname, process.env.NODE_ENV === "production" ? "../.env" : ".env") });
 
 const app = express();
-
-// app.use(cors({
-//   origin: 'http://localhost:5173',
-//   credentials: true,
-// }));
-
-// app.use(express.json());
-
 const PORT = 2756;
+const isProduction = process.env.NODE_ENV === "production";
 
 // 📝 Logging setup
 const logFile = path.join(__dirname, "backend.log");
@@ -44,26 +35,40 @@ const log = (level: string, ...args: any[]) => {
   console.log(message);
 };
 
-log("INFO", "🔍 ENV CHECK - MONGO_URI:", process.env.MONGO_URI || "⚠️ NOT SET!");
-log("INFO", "🚀 Starting backend...");
+// CORS
+// app.use(cors({
+//   origin: isProduction ? "https://nexcore.nexumed.eu" : "http://localhost:5173",
+//   credentials: true,
+// }));
 
-// 🛠 Check if the backend is already running
-const checkIfPortIsInUse = (port: number) => {
-  return new Promise<boolean>((resolve) => {
-    exec(`netstat -ano | findstr :${port}`, (error, stdout) => {
-      resolve(stdout.includes("LISTENING"));
-    });
-  });
-};
+app.use(cors({
+  origin: (origin, callback) => {
+    const allowedOrigins = [
+      "http://localhost:5173",
+      "https://localhost:5173",
+      "https://nexcore.nexumed.eu",
+    ];
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
+}));
 
-// ✅ CORS Configuration
+// Helmet CSP
 app.use(
   helmet({
     contentSecurityPolicy: {
       directives: {
         defaultSrc: ["'self'"],
-        scriptSrc: ["'self'", "http://localhost:5173", "http://nexcore.nexumed.eu"],
-        connectSrc: ["'self'", "http://localhost:5173", "http://nexcore.nexumed.eu"],
+        scriptSrc: isProduction
+          ? ["'self'", "https://nexcore.nexumed.eu"]
+          : ["'self'", "http://localhost:5173", "https://nexcore.nexumed.eu"],
+        connectSrc: isProduction
+          ? ["'self'", "https://nexcore.nexumed.eu"]
+          : ["'self'", "http://localhost:5173", "https://nexcore.nexumed.eu"],
         imgSrc: ["'self'", "data:"],
         styleSrc: ["'self'", "'unsafe-inline'"],
       },
@@ -71,53 +76,49 @@ app.use(
   })
 );
 
-// 🛠 Middleware to log requests
+// Logging requests
 app.use((req, res, next) => {
   log("INFO", "🚀 Incoming request:", req.method, req.url);
   log("INFO", "🔍 Request Headers:", JSON.stringify(req.headers, null, 2));
   next();
 });
 
-// Middleware to parse JSON requests
 app.use(express.json());
 
-// ✅ Store sessions in a file (Persists even after Electron restart)
+// Session
 const FileStoreSession = FileStore(session);
 
 app.use(
   session({
-    store: new FileStoreSession({ path: "./sessions", ttl: 86400 }), // Sessions persist for 1 day
+    store: new FileStoreSession({ path: "./sessions", ttl: 86400 }),
     secret: process.env.SESSION_SECRET || "default_secret",
     resave: false,
     saveUninitialized: false,
     cookie: {
       httpOnly: true,
-      secure: false, // ⚠️ Must be `true` in production (HTTPS required)
+      secure: isProduction,
       sameSite: "lax",
-      maxAge: 1000 * 60 * 60 * 24, // 1 day
+      maxAge: 1000 * 60 * 60 * 24,
     },
   })
 );
 
-// Passport Middleware
+// Passport
 app.use(passport.initialize());
 app.use(passport.session());
 
-// ✅ Debug session storage
 app.use((req, res, next) => {
   log("INFO", "📝 Current Session:", JSON.stringify(req.session, null, 2));
   next();
 });
 
-// Default Route
-app.get("/", (req, res) => {
+// Routes
+app.get("/", (req: Request, res: Response) => {
   res.send("Backend is running!");
 });
 
-
-// ✅ Stop watchers before login
 app.post("/api/auth/login", (req, res, next) => {
-  console.log("🍷🍷Stopping watchers before login...from watcherManager");
+  console.log("🍷🍷Stopping watchers before login...");
   stopAllWatchers();
   next();
 });
@@ -132,17 +133,18 @@ app.post("/check-subscription", async (req, res) => {
   }
 });
 
-// Authentication Routes
 app.use("/api/auth", authRoutes);
-
-//extra routes
 app.use("/api", checkListenersRoute);
 app.use("/api", acceptLicRoutes);
 app.use("/api", fileRoutes);
 
+// 404
+app.all("*", (req, res) => {
+  console.log("❌ Route Not Found:", req.method, req.url);
+  res.status(404).json({ message: `Route ${req.method} ${req.url} not found` });
+});
 
-
-// 🌍 Graceful shutdown handling
+// Graceful shutdown
 const gracefulShutdown = (signal: string) => {
   log("WARN", `🔴 ${signal} received. Closing backend gracefully...`);
   process.exit(0);
@@ -151,42 +153,31 @@ const gracefulShutdown = (signal: string) => {
 process.on("SIGTERM", () => gracefulShutdown("SIGTERM"));
 process.on("SIGINT", () => gracefulShutdown("SIGINT"));
 
-// 🔄 Restart logic if backend crashes
-// const restartBackend = async () => {
-//   if (retryCount >= MAX_RETRIES) {
-//     log("ERROR", "❌ Max restart attempts reached. Backend shutting down.");
-//     process.exit(1);
-//   }
-
-//   retryCount++;
-//   log("WARN", `⚠️ Backend restarting... Attempt ${retryCount}/${MAX_RETRIES}`);
-
-//   setTimeout(() => {
-//     log("INFO", "🚀 Restarting backend...");
-//     startBackend(DEFAULT_PORT);
-//   }, 5000);
-// };
-
-// 🛠 Error Handling
+// Error handling
 process.on("uncaughtException", (err: Error & { code?: string }) => {
   if (err.code === "EPIPE") {
     log("WARN", "⚠️ EPIPE error ignored: Broken pipe when writing.");
     return;
   }
   log("ERROR", "👩‍🦽 UNCAUGHT EXCEPTION! Backend crashed:", err);
-  // restartBackend();
 });
 
 process.on("unhandledRejection", (reason) => {
   log("ERROR", "🏌️‍♂️ UNHANDLED PROMISE REJECTION:", reason);
-  // restartBackend();
 });
 
-// 🚀 Start Backend
-// 🚀 Start Backend
+// Check port
+const checkIfPortIsInUse = (port: number) => {
+  return new Promise<boolean>((resolve) => {
+    exec(`netstat -ano | findstr :${port}`, (error, stdout) => {
+      resolve(stdout.includes("LISTENING"));
+    });
+  });
+};
+
+// 🚀 Start backend
 const startBackend = async () => {
   const isPortInUse = await checkIfPortIsInUse(PORT);
-
   if (isPortInUse) {
     log("ERROR", `❌ Port ${PORT} is already in use. Backend cannot start.`);
     process.exit(1);
@@ -194,27 +185,27 @@ const startBackend = async () => {
 
   try {
     await connectDB();
-    log("INFO", "✅ MongoDB connected! Starting backend...");
-    const server = app.listen(PORT, () => {
-      log("INFO", `✅ Server running at: http://nexcore.nexumed.eu:${PORT}`);
-    });
+    log("INFO", "✅ MongoDB connected!");
 
-    server.on("error", (err) => {
-      log("ERROR", "❌ SERVER ERROR:", err);
-      process.exit(1);
-    });
+    if (isProduction) {
+      const httpsOptions = {
+        key: fs.readFileSync(path.resolve(__dirname, "certs/key.pem")),
+        cert: fs.readFileSync(path.resolve(__dirname, "certs/cert.pem")),
+        secureProtocol: "TLSv1_2_method",
+      };
+
+      https.createServer(httpsOptions, app).listen(PORT, () => {
+        log("INFO", `✅ TLS Server running at: https://nexcore.nexumed.eu:${PORT}`);
+      });
+    } else {
+      app.listen(PORT, () => {
+        log("INFO", `✅ Dev Server running at: http://localhost:${PORT}`);
+      });
+    }
   } catch (error) {
     log("ERROR", "❌ Error connecting to MongoDB:", error);
     process.exit(1);
   }
 };
 
-
-app.all("*", (req, res) => {
-  console.log("❌ Route Not Found:", req.method, req.url);
-  res.status(404).json({ message: `Route ${req.method} ${req.url} not found` });
-});
-
-
 startBackend();
-

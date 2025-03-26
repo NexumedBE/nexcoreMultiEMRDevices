@@ -4,8 +4,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node dist/index.js",
+    "start:prod": "cross-env NODE_ENV=production node dist/index.js",
     "dev": "nodemon --exec ts-node -r tsconfig-paths/register src/index.ts",
-    "build": "tsc && cpx \"src/templates/**/*\" dist/templates && cpx \"src/.env\" dist/ --verbose && cpx src/userStatus.json dist/",
+    "build": "tsc && cpx \"src/templates/**/*\" dist/templates && cpx src/userStatus.json dist/ && cpx \"certs/**/*\" dist/certs",
     "obfuscate": "javascript-obfuscator dist --output dist --config obfuscator-config.json",
     "build:obfuscate": "npm run build && npm run obfuscate",
     "generate-mappings": "ts-node -r tsconfig-paths/register scripts/generateMappings.ts"
@@ -55,6 +56,7 @@
     "@types/pdf-parse": "^1.1.4",
     "@types/xml2js": "^0.4.14",
     "cpx": "^1.5.0",
+    "cross-env": "^7.0.3",
     "javascript-obfuscator": "^4.1.1",
     "nodemon": "^3.1.9",
     "ts-node": "^10.9.2",

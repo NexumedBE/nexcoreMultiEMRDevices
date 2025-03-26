@@ -16,8 +16,8 @@ const Login: React.FC = () => {
 
   const currentSubRef = useRef<boolean | null>(null);
 
-  const API_BASE_URL = "http://nexcore.nexumed.eu:2756";
-  // const API_BASE_URL = "http://localhost:2756";
+  // const API_BASE_URL = "https://nexcore.nexumed.eu:2756";
+  const API_BASE_URL = "https://localhost:2756";
   useEffect(() => {
     const timeout = setTimeout(() => {
       setBlurActive(false);
