@@ -20,13 +20,6 @@ export const RosettaMSHFieldMapping: Record<string, { decription: string; HL7: s
         KMEHR: "",
         HL7:"302001" 
     },
-    // "303000": { 
-    //     decription: "Sending Application", 
-    //     GDT: "", 
-    //     XMLcarecon: "", 
-    //     KMEHR: "",
-    //     HL7:"" 
-    // },
     "303001": { 
         decription: "Sending Application Namespace ID", 
         GDT: "", 
@@ -48,13 +41,6 @@ export const RosettaMSHFieldMapping: Record<string, { decription: string; HL7: s
         KMEHR: "",
         HL7:"03003" 
     },
-    // "304000": { 
-    //     decription: "Sending Facility", 
-    //     GDT: "", 
-    //     XMLcarecon: "", 
-    //     KMEHR: "",
-    //     HL7:"" 
-    // },
     "304001": { 
         decription: "Sending Facility Namespace ID", 
         GDT: "", 
@@ -75,14 +61,7 @@ export const RosettaMSHFieldMapping: Record<string, { decription: string; HL7: s
         XMLcarecon: "", 
         KMEHR: "",
         HL7:"304003" 
-    },    
-    // "305000": { 
-    //     decription: "Receiving Application", 
-    //     GDT: "", 
-    //     XMLcarecon: "", 
-    //     KMEHR: "",
-    //     HL7:"" 
-    // },
+    },   
     "305001": { 
         decription: "Receiving Application Namespace ID", 
         GDT: "", 
@@ -104,13 +83,6 @@ export const RosettaMSHFieldMapping: Record<string, { decription: string; HL7: s
         KMEHR: "",
         HL7:"305003" 
     },
-    // "306000": { 
-    //     decription: "Receiving Facility", 
-    //     GDT: "", 
-    //     XMLcarecon: "", 
-    //     KMEHR: "",
-    //     HL7:"" 
-    // },
     "306001": { 
         decription: "Receiving Facility Namespace ID", 
         GDT: "", 
@@ -132,13 +104,6 @@ export const RosettaMSHFieldMapping: Record<string, { decription: string; HL7: s
         KMEHR: "",
         HL7:"306003" 
     },
-    // "307000": { 
-    //     decription: "Date/Time of Message", 
-    //     GDT: "", 
-    //     XMLcarecon: "", 
-    //     KMEHR: "",
-    //     HL7:"" 
-    // },
     "307001": { 
         decription: "Date/Time of Message Time", 
         GDT: "", 
@@ -160,13 +125,6 @@ export const RosettaMSHFieldMapping: Record<string, { decription: string; HL7: s
         KMEHR: "",
         HL7:"308001" 
     },
-    // "309000": { 
-    //     decription: "Message Type", 
-    //     GDT: "", 
-    //     XMLcarecon: "", 
-    //     KMEHR: "",
-    //     HL7:"" 
-    // },
     "309001": { 
         decription: "Security Message Type Message Code", 
         GDT: "", 
@@ -195,13 +153,6 @@ export const RosettaMSHFieldMapping: Record<string, { decription: string; HL7: s
         KMEHR: "",
         HL7:"310001" 
     },
-    // "311001": { 
-    //     decription: "Processing ID", 
-    //     GDT: "", 
-    //     XMLcarecon: "", 
-    //     KMEHR: "",
-    //     HL7:"311001" 
-    // },
     "311001": { 
         decription: "Processing ID", 
         GDT: "", 
@@ -216,13 +167,6 @@ export const RosettaMSHFieldMapping: Record<string, { decription: string; HL7: s
         KMEHR: "",
         HL7:"311002" 
     },
-    // "312000": { 
-    //     decription: "Version ID", 
-    //     GDT: "", 
-    //     XMLcarecon: "", 
-    //     KMEHR: "",
-    //     HL7:"" 
-    // },
     "312001": { 
         decription: "Version ID", 
         GDT: "", 
@@ -335,7 +279,7 @@ export const RosettaMSHFieldMapping: Record<string, { decription: string; HL7: s
         KMEHR: "",
         HL7:"" 
     },
-    "320000": { 
+    "320001": { 
         decription: "Alternate Character Set Handling Scheme", 
         GDT: "", 
         XMLcarecon: "", 

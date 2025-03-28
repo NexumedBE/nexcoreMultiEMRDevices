@@ -20,6 +20,20 @@ export const RosettaOBXFieldMapping: Record<string, { description:string; HL7: s
         KMEHR: "",
         HL7: "703001"
     },
+    "703002": {
+        description: "Text",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+        HL7: "703002"
+    },
+    "703003": {
+        description: "Name Of Coding System",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+        HL7: "703003"
+    },
     "704001": {
         description: "Observation Sub-ID",
         GDT: "",
@@ -40,6 +54,20 @@ export const RosettaOBXFieldMapping: Record<string, { description:string; HL7: s
         XMLcarecon: "",
         KMEHR: "",
         HL7: "706001"
+    },
+    "706002": {
+        description: "Text",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+        HL7: "706002"
+    },
+    "706003": {
+        description: "Name Of Coding System",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+        HL7: "706003"
     },
     "707001": {
         description: "References Range",
@@ -132,9 +160,51 @@ export const RosettaOBXFieldMapping: Record<string, { description:string; HL7: s
         XMLcarecon: "",
         KMEHR: "",
     },
+    "717002": {
+        description: "Text",
+        HL7: "717002",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+    },
+    "717003": {
+        description: "Name Of Coding System",
+        HL7: "717003",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+    },
     "718001": {
         description: "Equipment Instance Identifier",
         HL7: "718001",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+    },
+    "718002": {
+        description: "Namespace Id",
+        HL7: "718002",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+    },
+    "718003": {
+        description: "EUniversal Id",
+        HL7: "718003",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+    },
+    "718004": {
+        description: "Universal Id Type",
+        HL7: "718004",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+    },
+    "718005": {
+        description: "unknown in 2.6",
+        HL7: "718005",
         GDT: "",
         XMLcarecon: "",
         KMEHR: "",
@@ -155,119 +225,3 @@ export const RosettaOBXFieldMapping: Record<string, { description:string; HL7: s
     }
 }
 
-// export const RosettaOBXFieldMapping: Record<string, { HL7: string; GDT: string; XMLcarecon: string; KMEHR: string }> = {
-//     "701000": {
-//         HL7: "Set ID - OBX",
-//         GDT: "",
-//         XMLcarecon: "",
-//         KMEHR: ""
-//     },
-//     "702000": {
-//         HL7: "Value Type",
-//         GDT: "",
-//         XMLcarecon: "",
-//         KMEHR: ""
-//     },
-//     "703000": {
-//         HL7: "Observation Identifier",
-//         GDT: "",
-//         XMLcarecon: "",
-//         KMEHR: ""
-//     },
-//     "704000": {
-//         HL7: "Observation Sub-ID",
-//         GDT: "",
-//         XMLcarecon: "",
-//         KMEHR: ""
-//     },
-//     "705000": {
-//         HL7: "Observation Value",
-//         GDT: "",
-//         XMLcarecon: "",
-//         KMEHR: ""
-//     },
-//     "706000": {
-//         HL7: "Units",
-//         GDT: "",
-//         XMLcarecon: "",
-//         KMEHR: ""
-//     },
-//     "707000": {
-//         HL7: "References Range",
-//         GDT: "",
-//         XMLcarecon: "",
-//         KMEHR: ""
-//     },
-//     "70800": {
-//         HL7: "Abnormal Flags",
-//         GDT: "",
-//         XMLcarecon: "",
-//         KMEHR: ""
-//     },
-//     "709000": {
-//         HL7: "Probability",
-//         GDT: "",
-//         XMLcarecon: "",
-//         KMEHR: ""
-//     },
-//     "710000": {
-//         HL7: "Nature of Abnormal Test",
-//         GDT: "",
-//         XMLcarecon: "",
-//         KMEHR: ""
-//     },
-//     "711000": {
-//         HL7: "Observation Result Status",
-//         GDT: "",
-//         XMLcarecon: "",
-//         KMEHR: ""
-//     },
-//     "712000": {
-//         HL7: "Effective Date of Reference Range",
-//         GDT: "",
-//         XMLcarecon: "",
-//         KMEHR: ""
-//     },
-//     "713000": {
-//         HL7: "User Defined Access Checks",
-//         GDT: "",
-//         XMLcarecon: "",
-//         KMEHR: ""
-//     },
-//     "714000": {
-//         HL7: "Date/Time of the Observation",
-//         GDT: "",
-//         XMLcarecon: "",
-//         KMEHR: ""
-//     },
-//     "715000": {
-//         HL7: "Producer's ID",
-//         GDT: "",
-//         XMLcarecon: "",
-//         KMEHR: ""
-//     },
-//     "716000": {
-//         HL7: "Responsible Observer",
-//         GDT: "",
-//         XMLcarecon: "",
-//         KMEHR: ""
-//     },
-//     "717000": {
-//         HL7: "Observation Method",
-//         GDT: "",
-//         XMLcarecon: "",
-//         KMEHR: ""
-//     },
-//     "718000": {
-//         HL7: "Equipment Instance Identifier",
-//         GDT: "",
-//         XMLcarecon: "",
-//         KMEHR: ""
-//     },
-//     "719000": {
-//         HL7: "Date/Time of the Analysis",
-//         GDT: "",
-//         XMLcarecon: "",
-//         KMEHR: ""
-//     }
-// }

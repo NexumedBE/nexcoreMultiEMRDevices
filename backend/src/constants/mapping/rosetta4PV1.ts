@@ -826,14 +826,14 @@ export const RosettaPV1FieldMapping: Record<string, { description: string; HL7: 
         KMEHR: "",
         HL7:""
     },
-    "412000": {
+    "412001": {
         description: "Preadmit Test Indicator",
         GDT: "",
         XMLcarecon: "",
         KMEHR: "",
-        HL7:""
+        HL7:"412001"
     },
-    "413000": {
+    "413001": {
         description: "Readmission Indicator",
         GDT: "",
         XMLcarecon: "",
@@ -1162,12 +1162,12 @@ export const RosettaPV1FieldMapping: Record<string, { description: string; HL7: 
         KMEHR: "",
         HL7:""
     },
-    "426000": {
+    "426001": {
         description: "Contract Amount",
         GDT: "",
         XMLcarecon: "",
         KMEHR: "",
-        HL7:""
+        HL7:"426001"
     },
     "427000": {
         description: "Contract Period",
@@ -1575,22 +1575,15 @@ export const RosettaPV1FieldMapping: Record<string, { description: string; HL7: 
         KMEHR: "",
         HL7:""
     },
-    "451000": {
+    "451001": {
         description: "Visit Indicator",
         GDT: "",
         XMLcarecon: "",
         KMEHR: "",
         HL7:""
     },
-    "452000": {
-        description: "Other Healthcare Provider",
-        GDT: "",
-        XMLcarecon: "",
-        KMEHR: "",
-        HL7:""
-    },
     "452001": {
-        description: "Id Number",
+        description: "Other Healthcare Provide Id Number",
         GDT: "",
         XMLcarecon: "",
         KMEHR: "",

@@ -80,7 +80,7 @@ export const RosettaPIDFieldMapping: Record<string, { description:string; HL7: s
         description: "Race Identifier",
         GDT: "",
         XMLcarecon: "",
-        KMEHR: "/",
+        KMEHR: "",
         HL7: "210001"
     },
     "210002":{
@@ -151,14 +151,14 @@ export const RosettaPIDFieldMapping: Record<string, { description:string; HL7: s
         GDT: "",
         XMLcarecon: "",
         KMEHR: "",
-        HL7: "211007"
+        HL7: "212001"
     },
     "213001":{
         description: "Phone Number - Home",
         GDT: "",
         XMLcarecon: "",
         KMEHR: "",
-        HL7: "211007"
+        HL7: "213001"
     },
     "214001":{
         description: "Phone Number - Business",
@@ -171,38 +171,38 @@ export const RosettaPIDFieldMapping: Record<string, { description:string; HL7: s
         GDT: "",
         XMLcarecon: "",
         KMEHR: "",
-        HL7: "211007"
+        HL7: "215001"
     },
     "215002":{
         description: "Text",
         GDT: "",
         XMLcarecon: "",
         KMEHR: "",
-        HL7: "210002"
+        HL7: "215002"
     },
     "215003":{
         description: "Name Of Coding System",
         GDT: "",
         XMLcarecon: "",
         KMEHR: "",
-        HL7: "210003"
+        HL7: "215003"
     },
     "216001":{
         description: "Marital Status Identifier",
         GDT: "",
         XMLcarecon: "",
         KMEHR: "",
-        HL7: "211007"
+        HL7: "216001"
     },
     "217001":{
-        description: "Address Type",
+        description: "Religion Identifier",
         GDT: "",
         XMLcarecon: "",
         KMEHR: "",
-        HL7: "211007"
+        HL7: "217001"
     },
     "218001":{
-        description: "Address Type",
+        description: "Patient Account Number Id Number",
         GDT: "",
         XMLcarecon: "",
         KMEHR: "",
@@ -214,7 +214,91 @@ export const RosettaPIDFieldMapping: Record<string, { description:string; HL7: s
         XMLcarecon: "",
         KMEHR: "/kmehrmessage/folder/patient/id",
         HL7: "219001"
-    }
+    },
+    "220001": {
+        description: "Driver's License Number - Patient License Number",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+        HL7: "220001"
+    },
+    "221001": {
+        description: "Mother's IdentifierId Number",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+        HL7: "221001"
+    },
+      "222001": {
+        description: "Ethnic Group Identifier",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+        HL7: "222001"
+    },
+      "223001": {
+        description: "Birth Place",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+        HL7: "223001"
+    },
+      "224001": {
+        description: "Multiple Birth Indicator",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+        HL7: "224001"
+    },
+      "225001": {
+        description: "Birth Order",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+        HL7: "225001"
+    },
+      "226001": {
+        description: "Citizenship Identifier",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+        HL7: "22600"
+    },
+      "227001": {
+        description: "Veterans Military Status Identifier",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+        HL7: "227001"
+    },
+      "228001": {
+        description: "Nationality Identifier",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+        HL7: "228001"
+    },
+      "229001": {
+        description: "Patient Death Date and Time",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+        HL7: "229001"
+    },
+      "230001": {
+        description: "Patient Death Indicator",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+        HL7: "230001"
+    },
+      "231001": {
+        description: "Identity Unknown Indicator",
+        GDT: "",
+        XMLcarecon: "",
+        KMEHR: "",
+        HL7: "231001"
+    },
 };
 
 

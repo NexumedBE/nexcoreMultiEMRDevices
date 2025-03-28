@@ -1,6 +1,6 @@
 import { startMESIListener } from "./listeners/mesiListener";
-// import { startCareConnectListener } from "./listeners/careconnectListener";
 import { startBaxterListener } from "./listeners/baxterListener";
+import { activeListeners } from "./utils/watcherManager"; 
 
 export const startWatchers = (user: {
   id: string;
@@ -16,18 +16,15 @@ export const startWatchers = (user: {
   console.log(`🚀 [startWatchers] User's EMR: ${emr}`);
   console.log(`🔍 [startWatchers] Devices:`, devices.map(d => d.manufacturer));
 
-  // **Start EMR Listeners**
-  // if (emr === "CareConnect") {
-  //   startCareConnectListener(user);
-  // } else if (emr === "Sanday") {
-  //   console.log("🔜 FHIR Listener for Sanday coming soon...");
-  // }
-
-  // **Start Device Listeners**
-  if (devices.some(device => device.manufacturer === "MESI")) {
-    startMESIListener(emr); // ✅ Pass EMR name
+  // ✅ Avoid double starting MESI
+  if (devices.some(device => device.manufacturer === "MESI") && !activeListeners.has("MESI")) {
+    activeListeners.add("MESI");
+    startMESIListener(emr);
   }
-  if (devices.some(device => device.manufacturer === "BAXTER")) {
+
+  // ✅ Avoid double starting BAXTER
+  if (devices.some(device => device.manufacturer === "BAXTER") && !activeListeners.has("BAXTER")) {
+    activeListeners.add("BAXTER");
     startBaxterListener(emr);
   }
 

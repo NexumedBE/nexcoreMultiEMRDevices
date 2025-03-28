@@ -5,7 +5,11 @@ import {
     OBRFieldMapping, 
     PV1FieldMapping, 
     OBXFieldMapping,
-    QRDFieldMapping  
+    QRDFieldMapping,
+    MSAFieldMapping,
+    QAKFieldMapping,
+    QPDFieldMapping,
+    RCPFieldMapping 
   } from '../constants'; 
   
   import fs from 'fs';
@@ -15,13 +19,17 @@ import {
   
   // Base numbers for dynamic key generation for each HL7 segment type
   const SegmentBaseNumbers: Record<string, number> = {
-    MSH: 301000, //in MSH it is different than all the others....the first filed is literally the | 
+    MSH: 301000, //in MSH it is different than all the others....the first fieled is literally the | 
     PID: 200000, 
+    PV1: 400000, 
     ORC: 500000,
     OBR: 600000, 
-    PV1: 400000, 
     OBX: 700000,
     QRD: 800000,  
+    MSA: 900000,
+    QAK: 1000000,
+    QPD: 1100000,
+    RCP: 1200000
   };
   
   // Segment-to-field mapping for different HL7 segments
@@ -32,7 +40,11 @@ import {
     OBR: OBRFieldMapping, 
     PV1: PV1FieldMapping, 
     OBX: OBXFieldMapping,
-    QRD: QRDFieldMapping  
+    QRD: QRDFieldMapping,
+    MSA: MSAFieldMapping,
+    QAK: QAKFieldMapping,
+    QPD: QPDFieldMapping,
+    RCP: RCPFieldMapping      
   };
   
   /**

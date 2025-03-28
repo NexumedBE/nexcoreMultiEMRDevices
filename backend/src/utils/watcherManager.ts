@@ -1,6 +1,7 @@
 import { FSWatcher } from "chokidar";
 
 export let watchers: FSWatcher[] = [];
+export let activeListeners = new Set<string>(); 
 
 export const addWatcher = (watcher: FSWatcher) => {
   watchers.push(watcher);
@@ -11,16 +12,15 @@ export const stopWatchers = () => {
 
   if (watchers.length === 0) {
     console.log("⚠️ No active watchers found.");
-    return;
+  } else {
+    watchers.forEach((watcher) => {
+      console.log("🥃🥃 Stopping watcher...");
+      watcher.close();
+    });
+    watchers = [];
+    console.log("🐖🐖 All listeners successfully stopped.");
   }
 
-  // Stop and clear all watchers
-  watchers.forEach((watcher) => {
-    console.log("🥃🥃 Stopping watcher...");
-    watcher.close();
-  });
-
-  watchers = []; // Clear the array
-
-  console.log("🐖🐖 All listeners successfully stopped.");
+  // ⬅️ Clear activeListeners too
+  activeListeners.clear();
 };

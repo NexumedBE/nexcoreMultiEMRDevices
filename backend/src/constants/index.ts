@@ -5,3 +5,7 @@ export { ORCFieldMapping } from './ORC5FieldMapping';
 export { PV1FieldMapping } from './PV14FieldMapping';
 export { OBXFieldMapping } from './OBX7FieldMapping';
 export { QRDFieldMapping } from './QRD8FieldMapping';
+export { MSAFieldMapping } from './MSA9FieldMapping';
+export { QAKFieldMapping } from './QAK10FieldMapping';
+export { QPDFieldMapping } from './QPD11FieldMapping';
+export { RCPFieldMapping } from './RCP12FieldMapping';
