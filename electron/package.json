@@ -85,9 +85,6 @@
             "signAndEditExecutable": false
         },
         "nsis": {
-            "perMachine": true,
-            "oneClick": false,
-            "allowToChangeInstallationDirectory": true,
             "createDesktopShortcut": true,
             "createStartMenuShortcut": true,
             "shortcutName": "Nexcore",
