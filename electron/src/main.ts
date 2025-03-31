@@ -17,6 +17,7 @@ let isQuitting = false; // 🔹 Track whether the app is quitting
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const userDataPath = app.getPath('userData');
 
 // Detect environment
 const isDev = process.env.NODE_ENV === "development";
@@ -206,7 +207,7 @@ app.whenReady().then(() => {
     }
   });
 
-
+  // 🔹 Create base folder for CareConnect
   const baseCPath = 'C:\\Nexumed';
   if (!fs.existsSync(baseCPath)) {
     fs.mkdirSync(baseCPath, { recursive: true });
@@ -219,60 +220,68 @@ app.whenReady().then(() => {
     .then(() => console.log('✅ Care Connect folder copied to C:\\Nexumed\\emrReciever.'))
     .catch(err => console.error('❌ Error copying folder:', err));
 
+  // ✅ Copy .env to userData folder so backend can read it
+  const envSource = path.join(process.resourcesPath, 'backend', '.env');
+  const envDestination = path.join(app.getPath('userData'), '.env');
+
+  if (fs.existsSync(envSource)) {
+    fs.copy(envSource, envDestination)
+      .then(() => console.log('✅ .env copied to userData folder'))
+      .catch(err => console.error('❌ Failed to copy .env file:', err));
+  }
+
   // 🔹 Register Secure Storage IPC Handlers
-    ipcMain.handle("secureStorage:saveToken", async (_event, email, token) => {
-      try {
-        await keytar.setPassword("Nexcore", email, token);
-        console.log(`✅ Token saved for ${email}`);
-        return true;
-      } catch (error) {
-        console.error("❌ Error saving token:", error);
-        return false;
-      }
-    });
-  
-    ipcMain.handle("secureStorage:getToken", async (_event, email) => {
-      try {
-        const token = await keytar.getPassword("Nexcore", email);
-        console.log(`🔍 Retrieved token for ${email}:`, token);
-        return token;
-      } catch (error) {
-        console.error("❌ Error retrieving token:", error);
-        return null;
-      }
-    });
-  
-    ipcMain.handle("secureStorage:removeToken", async (_event, email) => {
-      try {
-        await keytar.deletePassword("Nexcore", email);
-        console.log(`✅ Token removed for ${email}`);
-        return true;
-      } catch (error) {
-        console.error("❌ Error removing token:", error);
-        return false;
-      }
-    });
+  ipcMain.handle("secureStorage:saveToken", async (_event, email, token) => {
+    try {
+      await keytar.setPassword("Nexcore", email, token);
+      console.log(`✅ Token saved for ${email}`);
+      return true;
+    } catch (error) {
+      console.error("❌ Error saving token:", error);
+      return false;
+    }
+  });
 
-    ipcMain.handle("secureStorage:getAllEmails", async () => {
-      try {
-        const accounts = await keytar.findCredentials("Nexcore"); 
-        return accounts.map(account => account.account); 
-      } catch (error) {
-        console.error("❌ Error retrieving stored emails:", error);
-        return [];
-      }
-    });
-    
+  ipcMain.handle("secureStorage:getToken", async (_event, email) => {
+    try {
+      const token = await keytar.getPassword("Nexcore", email);
+      console.log(`🔍 Retrieved token for ${email}:`, token);
+      return token;
+    } catch (error) {
+      console.error("❌ Error retrieving token:", error);
+      return null;
+    }
+  });
+
+  ipcMain.handle("secureStorage:removeToken", async (_event, email) => {
+    try {
+      await keytar.deletePassword("Nexcore", email);
+      console.log(`✅ Token removed for ${email}`);
+      return true;
+    } catch (error) {
+      console.error("❌ Error removing token:", error);
+      return false;
+    }
+  });
+
+  ipcMain.handle("secureStorage:getAllEmails", async () => {
+    try {
+      const accounts = await keytar.findCredentials("Nexcore"); 
+      return accounts.map(account => account.account); 
+    } catch (error) {
+      console.error("❌ Error retrieving stored emails:", error);
+      return [];
+    }
+  });
+
+  // 🔹 Setup Tray, Check for Updates, and Launch Backend/UI
   setupTray();
-  // 🔹 Check for updates
   checkForUpdates();
-
-  // 🔹 Start backend server
   startBackendServer();
-
-  // 🔹 Finally, create the Electron window (UI)
-  createWindow(); 
+  createWindow();
 });
+
+
 
 
 // Expose update notifications to frontend via IPC
@@ -367,6 +376,7 @@ const startBackendServer = async () => {
       MONGO_URI: "mongodb+srv://Admin:Nexumed6348906@userdata.luekt.mongodb.net/?retryWrites=true&w=majority&appName=UserDat",
       JWT_SECRET: "ice_hockey_is_simply_the_best_sport",
       SESSION_SECRET: "golf_is_a_close_second",
+      USER_DATA_PATH: app.getPath('userData'),
     },
   });
   

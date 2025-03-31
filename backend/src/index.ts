@@ -21,6 +21,7 @@ import "./utils/subscriptionChecker";
 
 
 dotenv.config({ path: path.resolve(__dirname, process.env.NODE_ENV === "production" ? "../.env" : ".env") });
+const userDataPath = process.env.USER_DATA_PATH || path.resolve(__dirname);
 
 const app = express();
 
@@ -86,7 +87,7 @@ const FileStoreSession = FileStore(session);
 
 app.use(
   session({
-    store: new FileStoreSession({ path: "./sessions", ttl: 86400 }), // Sessions persist for 1 day
+    store: new FileStoreSession({ path: path.join(userDataPath, "sessions"), ttl: 86400 }), // Sessions persist for 1 day
     secret: process.env.SESSION_SECRET || "default_secret",
     resave: false,
     saveUninitialized: false,
@@ -217,4 +218,3 @@ app.all("*", (req, res) => {
 
 
 startBackend();
-
