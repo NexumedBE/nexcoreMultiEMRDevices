@@ -2,7 +2,7 @@ import AutoLaunch from 'electron-auto-launch';
 import { fileURLToPath } from "url";
 import fs from "fs-extra";
 import path from "path";
-import { app, BrowserWindow, ipcMain, Tray, Menu, nativeImage } from "electron";
+import { app, BrowserWindow, ipcMain, Tray, Menu, nativeImage, session } from "electron";
 import { spawn, ChildProcess } from "child_process";
 import os from "os";
 import net from "net";
@@ -20,6 +20,16 @@ const __dirname = path.dirname(__filename);
 
 // Detect environment
 const isDev = process.env.NODE_ENV === "development";
+
+const keyPath = path.resolve(__dirname, "certs/key.pem");
+const certPath = path.resolve(__dirname, "certs/cert.pem");
+
+if (!fs.existsSync(keyPath)) {
+  console.log("ERROR", "❌ key.pem not found at", keyPath);
+}
+if (!fs.existsSync(certPath)) {
+  console.log("ERROR", "❌ cert.pem not found at", certPath);
+}
 
 // Determine Node.js path
 const arch = os.arch();
@@ -62,6 +72,12 @@ console.error = (...args) => {
 
 
 const iconPath = path.resolve(__dirname, "icon.ico");
+
+app.on("certificate-error", (_event, _webContents, _url, _error, _certificate, callback) => {
+  _event.preventDefault();
+  callback(true); 
+});
+
 // Create the Electron window
 const createWindow = () => {
   mainWindow = new BrowserWindow({
@@ -364,6 +380,7 @@ const startBackendServer = async () => {
     windowsHide: true, // ✅ Hides the process from popping up
     cwd: isDev ? path.join(__dirname, "../../backend") : path.join(process.resourcesPath, "backend"),
     env: {
+      NODE_ENV: "production",
       MONGO_URI: "mongodb+srv://Admin:Nexumed6348906@userdata.luekt.mongodb.net/?retryWrites=true&w=majority&appName=UserDat",
       JWT_SECRET: "ice_hockey_is_simply_the_best_sport",
       SESSION_SECRET: "golf_is_a_close_second",

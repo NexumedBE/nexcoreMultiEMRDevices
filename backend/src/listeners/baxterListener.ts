@@ -15,15 +15,6 @@ if (!fs.existsSync(SAVE_DIR)) {
   fs.mkdirSync(SAVE_DIR, { recursive: true });
 }
 
-// const baxterResponseHL7 = 
-//   "\x0B" +
-//   "MSH|^~\\&|CSM|WelchAllyn|EMR|HIS|20140123094559-0500||RSP^K22|20140123094559728|P|2.6|||AL|NE\r" +
-//   "MSA|AA|20140122123838853\r" +
-//   "QAK|20140122123838853|OK\r" +
-//   "QPD|PatientQuery|20140123094459728|@PID.3.1^135798642|Ward2|100033241216\r" +
-//   "PID|||135798642||Eastwood^Clint||19780423|M\r" +
-//   "\x1C\r";
-
 function getUTCFormattedTimestamp() {
   const now = new Date();
   const year = now.getUTCFullYear();
@@ -61,28 +52,6 @@ export const startBaxterListener = (emr: string) => {
           .replace(/(MSA|MSH|OBR|OBX|ORC|PID|PV1|QAK|QPD|QRD)/g, "\r\n$1")
           .replace(/^\r\n/, "");
 
-          // console.log("📑 Parsed HL7 segments:");
-          // formattedMessage.split(/\r?\n/).forEach((segment) => {
-          //   if (segment.trim()) console.log(`🔹 ${segment}`);
-          // });
-
-          // const pidSegment = formattedMessage.split(/\r?\n/).find((line) => line.startsWith("PID|"));
-          // if (pidSegment) {
-          //   const fields = pidSegment.split("|");
-          //   const patientId = fields[3] || "(no ID)";
-          //   const patientName = fields[5] || "(no name)";
-          //   const dob = fields[7] || "(no DOB)";
-          //   const gender = fields[8] || "(no gender)";
-
-          //   console.log(" Patient Info:");
-          //   console.log(`   ID:        ${patientId}`);
-          //   console.log(`   Name:      ${patientName}`);
-          //   console.log(`   DOB:       ${dob}`);
-          //   console.log(`   Gender:    ${gender}`);
-          // } else {
-          //   console.warn("⚠️ No PID segment found.");
-          // }
-
         console.log("📥 Received HL7 Message:\n", formattedMessage);
 
         const timestamp = getUTCFormattedTimestamp();
@@ -100,10 +69,6 @@ export const startBaxterListener = (emr: string) => {
 
         socket.write(ackMessage);
         console.log("✅ Sent HL7 ACK message:\n", ackMessage);
-
-        // const ackFilePath = path.join(SAVE_DIR, `ack_${timestamp}.hl7`);
-        // fs.writeFileSync(ackFilePath, ackMessage, "utf8");
-        // console.log(`📝 ACK message also saved to: ${ackFilePath}`);
       }
     });
 
@@ -172,3 +137,39 @@ export const startBaxterListener = (emr: string) => {
 
 
 // const timestamp = getUTCFormattedTimestamp();
+
+          // console.log("📑 Parsed HL7 segments:");
+          // formattedMessage.split(/\r?\n/).forEach((segment) => {
+          //   if (segment.trim()) console.log(`🔹 ${segment}`);
+          // });
+
+          // const pidSegment = formattedMessage.split(/\r?\n/).find((line) => line.startsWith("PID|"));
+          // if (pidSegment) {
+          //   const fields = pidSegment.split("|");
+          //   const patientId = fields[3] || "(no ID)";
+          //   const patientName = fields[5] || "(no name)";
+          //   const dob = fields[7] || "(no DOB)";
+          //   const gender = fields[8] || "(no gender)";
+
+          //   console.log(" Patient Info:");
+          //   console.log(`   ID:        ${patientId}`);
+          //   console.log(`   Name:      ${patientName}`);
+          //   console.log(`   DOB:       ${dob}`);
+          //   console.log(`   Gender:    ${gender}`);
+          // } else {
+          //   console.warn("⚠️ No PID segment found.");
+          // }
+
+          
+        // const ackFilePath = path.join(SAVE_DIR, `ack_${timestamp}.hl7`);
+        // fs.writeFileSync(ackFilePath, ackMessage, "utf8");
+        // console.log(`📝 ACK message also saved to: ${ackFilePath}`);
+
+        // const baxterResponseHL7 = 
+//   "\x0B" +
+//   "MSH|^~\\&|CSM|WelchAllyn|EMR|HIS|20140123094559-0500||RSP^K22|20140123094559728|P|2.6|||AL|NE\r" +
+//   "MSA|AA|20140122123838853\r" +
+//   "QAK|20140122123838853|OK\r" +
+//   "QPD|PatientQuery|20140123094459728|@PID.3.1^135798642|Ward2|100033241216\r" +
+//   "PID|||135798642||Eastwood^Clint||19780423|M\r" +
+//   "\x1C\r";

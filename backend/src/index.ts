@@ -195,7 +195,8 @@ const startBackend = async () => {
       };
 
       https.createServer(httpsOptions, app).listen(PORT, () => {
-        log("INFO", `✅ TLS Server running at: https://nexcore.nexumed.eu:${PORT}`);
+        const host = process.env.HOSTNAME || "localhost";
+        log("INFO", `✅ TLS Server running at: https://${host}:${PORT}`);
       });
     } else {
       app.listen(PORT, () => {
