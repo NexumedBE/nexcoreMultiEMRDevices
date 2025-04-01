@@ -119,6 +119,73 @@ function mapGDTToKMEHR(jsonData: Record<string, string>): Record<string, any> {
     return mappedData;
 }
 
+function formatDate(hl7DateTime: string): string {
+    return hl7DateTime?.substring(0, 4) + '-' +
+           hl7DateTime?.substring(4, 6) + '-' +
+           hl7DateTime?.substring(6, 8);
+  }
+  
+  function formatTime(hl7DateTime: string): string {
+    return hl7DateTime?.substring(8, 10) + ':' +
+           hl7DateTime?.substring(10, 12) + ':' +
+           hl7DateTime?.substring(12, 14);
+  }
+  
+
+function mapHL7ToKMEHR(jsonData: any): Record<string, any> {
+    const PID = jsonData.PID?.[0] || {};
+    const OBX = jsonData.OBX?.[0] || {}; // First measurement for now
+  
+    const mappedData: Record<string, any> = {
+      patient_firstname: PID["205002"]?.value || '',
+      patient_familyname: PID["205001"]?.value || '',
+      patient_birthdate: PID["207001"]?.value || '',
+      patient_sex_cd: (PID["208001"]?.value === "M" ? "male" : PID["208001"]?.value === "F" ? "female" : "unknown"),
+  
+      transaction_date: formatDate(OBX["714001"]?.value || ''),
+      transaction_time: formatTime(OBX["714001"]?.value || ''),
+  
+      transaction_iscomplete: true,
+      transaction_isvalidated: true,
+      transaction_text_1: `${OBX["703002"]?.value}: ${OBX["705001"]?.value} ${OBX["706002"]?.value || ''}`,
+      transaction_text_2: '',
+      transaction_text_3: '',
+      transaction_text_4: '',
+  
+      lnk_value: '',
+      lnk_type: '',
+      lnk_mediatype: '',
+  
+      // Add other required fields with static or default values
+      sender_id: 'NEXCORE',
+      sender_name: 'Nexumed System',
+      sender_cd: 'organisation',
+      recipient_id: 'CAFE_CONNECT',
+      recipient_cd: 'emr',
+      recipient_firstname: '',
+      recipient_familyname: '',
+  
+      folder_id: `FOLDER-${Date.now()}`,
+      transaction_id: `TRANS-${Date.now()}`,
+      header_id: `HDR-${Date.now()}`,
+      date_value: formatDate(new Date().toISOString()),
+      time_value: formatTime(new Date().toISOString()),
+  
+      text_language: 'en',
+      text_value: 'Auto-generated via Nexumed HL7',
+      urgency_cd: 'normal',
+      acknowledgment_cd: 'none',
+      externalsource_cd: 'externaldevice',
+      externalsource_datetime: OBX["714001"]?.value || '',
+      externalsource_version: '1.0',
+      externalsource_proof: 'auto-measurement'
+    };
+  
+    return mappedData;
+  }
+  
+
+
 // Base64 encode a file
 function encodeFileToBase64(filePath: string): string | null {
     try {
@@ -276,6 +343,20 @@ function watchForThirdPartyProcessing() {
 export function generateKMEHR(parsedJson: any) {
     registerPartials(); 
     const mappedData = mapGDTToKMEHR(parsedJson);
+    const outputFilename = `kmehr_output_${Date.now()}.xml`;
+    populateKMEHRTemplate(mappedData, outputFilename);
+
+    watchFolder();
+    watchForThirdPartyProcessing();
+
+    if (outputFolder) {
+        console.log(`[KMEHRGenerators] Using provided output folder: ${outputFolder}`);
+    }
+}
+
+export function generateKMEHRFromHL7(parsedJson: any) {
+    registerPartials(); 
+    const mappedData = mapHL7ToKMEHR(parsedJson);
     const outputFilename = `kmehr_output_${Date.now()}.xml`;
     populateKMEHRTemplate(mappedData, outputFilename);
 

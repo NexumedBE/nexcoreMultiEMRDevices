@@ -6,14 +6,18 @@ import https from "https";
 import express from "express";
 import { parseHL7 } from "../parsers/hl7Parser";
 import { saveAsJSON } from "../utils/saveAsJSON";
+import { debouncedProcessFile } from "../utils/watcherUtils";
+import { generateKMEHRFromHL7 } from "../fileConverters/KMEHRGenerators"
 
 const HL7_PORT = 281;
 const HTTPS_PORT = 4344;
 const SAVE_DIR = "C:\\Nexumed\\baxter";
+const nexumedInFolder = path.join("C:\\Nexumed", "nexumedIn");
 
 if (!fs.existsSync(SAVE_DIR)) {
   fs.mkdirSync(SAVE_DIR, { recursive: true });
 }
+
 
 function getUTCFormattedTimestamp() {
   const now = new Date();
@@ -28,6 +32,24 @@ function getUTCFormattedTimestamp() {
 
 export const startBaxterListener = (emr: string) => {
   console.log("💥 startBaxterListener called with EMR:", emr);
+
+  const watcher = chokidar.watch(nexumedInFolder, {
+    persistent: true,
+    ignored: [/parsedhl7|parsedxml|parsedgdt|parsedJSON-.*/i],
+  });
+  
+  watcher.on("ready", () => {
+    console.log("✅ [startBaxterListener] Watcher ready for nexumedIn");
+  });
+  
+  watcher.on("add", (filePath) => {
+    console.log(`[startBaxterListener] New file detected in nexumedIn: ${filePath}`);
+    debouncedProcessFile(filePath, "nexumedIn", "BAXTER", emr);
+  });
+  
+  watcher.on("error", (error) => {
+    console.error(`❌ [startBaxterListener] Error in nexumedIn watcher: ${error}`);
+  })
 
   const server = net.createServer((socket) => {
     console.log(`[${new Date().toISOString()}] 📡 HL7 Connection established`);
@@ -46,6 +68,8 @@ export const startBaxterListener = (emr: string) => {
 
       if (startIdx !== -1 && endIdx !== -1 && endIdx > startIdx) {
         const rawMessage = buffer.slice(startIdx + 1, endIdx);
+        const timestamp = getUTCFormattedTimestamp();
+        const controlId = new Date().toISOString().replace(/[-:.TZ]/g, "").slice(0, 17);
         buffer = buffer.slice(endIdx + 2); // prepare for more HL7s in the same socket
 
         const formattedMessage = rawMessage
@@ -54,21 +78,64 @@ export const startBaxterListener = (emr: string) => {
 
         console.log("📥 Received HL7 Message:\n", formattedMessage);
 
-        const timestamp = getUTCFormattedTimestamp();
-        const controlId = new Date().toISOString().replace(/[-:.TZ]/g, "").slice(0, 17);
-
         const filePath = path.join(SAVE_DIR, `hl7_message_${timestamp}.hl7`);
         fs.writeFileSync(filePath, formattedMessage, "utf8");
         console.log(`✅ HL7 Message saved to: ${filePath}`);
 
-        const ackMessage =
-          "\x0B" +
-          `MSH|^~\\&|EMR|HIS|CSM|WelchAllyn|${timestamp}||ACK^A01|${controlId}|P|2.6|||AL|NE\r` +
-          `MSA|AA|${controlId}\r` +
-          "\x1C\r";
 
-        socket.write(ackMessage);
-        console.log("✅ Sent HL7 ACK message:\n", ackMessage);
+        const xmlHl7Dir = path.join(SAVE_DIR, "../nexumedIn/parsed-xmlToHl7")
+
+
+        fs.readdir(xmlHl7Dir, (err, files) => {
+          if (err) {
+            console.error(`[BAXTER] ❌ Error reading parsed-xmlToHl7 folder: ${err.message}`);
+            return;
+          }
+        
+          const hl7Files = files
+            .filter((f) => f.endsWith(".hl7"))
+            .map((f) => ({
+              name: f,
+              time: fs.statSync(path.join(xmlHl7Dir, f)).mtime.getTime(),
+            }))
+            .sort((a, b) => b.time - a.time);
+        
+          if (hl7Files.length === 0) {
+            console.warn("[BAXTER] ⚠️ No HL7 files found in parsed-xmlToHl7 to send.");
+        
+            const ackMessage =
+              "\x0B" +
+              `MSH|^~\\&|EMR|HIS|CSM|WelchAllyn|${timestamp}||ACK^A01|${controlId}|P|2.6|||AL|NE\r` +
+              `MSA|AA|${controlId}\r` +
+              "\x1C\r";
+        
+            socket.write(ackMessage);
+            console.log("✅ Sent HL7 ACK message:\n", ackMessage);
+        
+            return;
+          }
+        
+          const latestFilePath = path.join(xmlHl7Dir, hl7Files[0].name);
+          const hl7Content = fs.readFileSync(latestFilePath, "utf8");
+          const wrappedMessage = "\x0B" + hl7Content + "\x1C\r";
+        
+          socket.write(wrappedMessage);
+          console.log(`[BAXTER] 🏒🏒🏒🏒🏒 Sent HL7 message from: ${latestFilePath}`);
+
+          hl7Files.forEach(({ name }) => {
+            const fileToDelete = path.join(xmlHl7Dir, name);
+            try {
+              fs.unlinkSync(fileToDelete);
+              console.log(`🧹 Deleted: ${fileToDelete}`);
+            } catch (err) {
+              if (err instanceof Error) {
+                console.error(err.message);
+              } else {
+                console.error(err);
+              }
+            }
+          });
+        });
       }
     });
 
@@ -82,6 +149,7 @@ export const startBaxterListener = (emr: string) => {
   });
 
   const processedFiles = new Set<string>();
+
   chokidar.watch(SAVE_DIR, { persistent: true, ignoreInitial: true }).on("add", (filePath) => {
     if (filePath.includes(`${SAVE_DIR}\\parsedhl7`)) {
       console.log(`🛑 Ignoring JSON file: ${filePath}`);
@@ -98,9 +166,10 @@ export const startBaxterListener = (emr: string) => {
 
     parseHL7(filePath, (hl7FilePath, parsedMessage) => {
       saveAsJSON(hl7FilePath, parsedMessage, `parsedhl7`);
+      generateKMEHRFromHL7(parsedMessage);
     });
 
-    setTimeout(() => processedFiles.delete(filePath), 10000);
+    // setTimeout(() => processedFiles.delete(filePath), 10000);
   });
 
   const app = express();

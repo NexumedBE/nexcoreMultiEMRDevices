@@ -1,11 +1,4 @@
 export const RosettaPIDFieldMapping: Record<string, { description:string; HL7: string; GDT: string; XMLcarecon: string; KMEHR: string }> = {
-    // "200000": {
-    //     description: "Patient Identification",
-    //     GDT: "",
-    //     XMLcarecon: "",
-    //     KMEHR: "",
-    //     HL7: "200000"
-    // },
     "201001": {
         description: "Set ID - PID",
         GDT: "",

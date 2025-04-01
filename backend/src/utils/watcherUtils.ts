@@ -85,9 +85,57 @@ export function processFile(filePath: string, source: string, targetDevice: stri
                 console.log(`[processFile] Converting XML to MESI GDT format...`);
                 const gdtContent = jsonToMesiGDT(parsedJson);
                 saveGDTFile(filePath, gdtContent);
-              } else {
+              } else if (targetDevice === "BAXTER") {
+                console.log(`[processFile] Saving parsed JSON to emrJSON folder for BAXTER...`);
+              
+                const patient = parsedJson?.Message?.Document?.Patient;
+                if (patient) {
+                  const inssId = patient.ID?.find((id: any) => id.IDSystem === "INSS")?._ || "(INSS not found)";
+                  const firstName = patient.Name?.FirstName || "(No First Name)";
+                  const lastName = patient.Name?.LastName || "(No Last Name)";
+                  let dob = patient.DateOfBirth || "";
+                    if (dob.includes("/")) {
+                      const [day, month, year] = dob.split("/");
+                      dob = `${year}${month}${day}`; // YYYYMMDD
+                    } else {
+                      dob = "(No DOB)";
+                    }
+                  const gender = patient.Sex?.charAt(0).toUpperCase() || "U";
+              
+                  console.log(`[BAXTER] Patient INSS ID: ${inssId}`);
+                  console.log(`[BAXTER] Patient Name: ${firstName} ${lastName}`);
+              
+                  const timestamp = new Date().toISOString().replace(/[-:T.Z]/g, "").slice(0, 14); // YYYYMMDDHHMMSS
+              
+                  const message = [
+                    `MSH|^~\\&|CSM|WelchAllyn|EMR|HIS|${timestamp}-0000||RSP^ZV2^RSP_ZV2|${timestamp}001|P|2.6|||AL|NE`,
+                    `MSA|AA|${timestamp}000`,
+                    `QAK|${timestamp}000|OK`,
+                    `QPD|IHE PDVQ Query|${timestamp}001|@PV1.3^Ward 2|Ward2|100033241216`,
+                    `PID|||${inssId}||${lastName}^${firstName}||${dob}|${gender}`,
+                    `PV1|1|I|Ward 2^Room^Bed`
+                  ].join("\r");
+                  
+              
+                  console.log("[BAXTER] Generated HL7 message:\n" + message);
+              
+                  // Save HL7 message to parsed-xmlToHl7
+                  const hl7Dir = path.join(path.dirname(filePath), "parsed-xmlToHl7");
+                  if (!fs.existsSync(hl7Dir)) {
+                    fs.mkdirSync(hl7Dir, { recursive: true });
+                    console.log(`[BAXTER] Created directory: ${hl7Dir}`);
+                  }
+              
+                  const hl7FilePath = path.join(hl7Dir, `${path.basename(filePath, path.extname(filePath))}.hl7`);
+                  fs.writeFileSync(hl7FilePath, message, "utf8");
+                  console.log(`[BAXTER] HL7 file saved at: ${hl7FilePath}`);
+                } else {
+                  console.warn(`[BAXTER] ⚠️ No patient data found in parsed JSON.`);
+                }
+              }else {
                 console.warn(`[processFile] Skipping XML conversion for ${source} (Detected Target: ${targetDevice})`);
               }
+              
             });
           });
         });
